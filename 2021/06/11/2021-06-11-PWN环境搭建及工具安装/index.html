@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>PWN环境搭建及工具安装 | 无名大仙</title>
+  <meta name="description" content="PWN  环境搭建  环境：Kali 2021  12sudo passwd # 添加root账号su root # 输入刚刚设置的密码，进入root   python 3.9（Kali 2021自带）   配置更新源   12345678910mousepad &#x2F;etc&#x2F;apt&#x2F;sources.list# 若mousepad报错，则apt install dbus-x11# mousepad就">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PWN环境搭建及工具安装">
+<meta property="og:url" content="https://vvmdx.github.io/2021/06/11/2021-06-11-PWN%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E5%8F%8A%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="PWN  环境搭建  环境：Kali 2021  12sudo passwd # 添加root账号su root # 输入刚刚设置的密码，进入root   python 3.9（Kali 2021自带）   配置更新源   12345678910mousepad &#x2F;etc&#x2F;apt&#x2F;sources.list# 若mousepad报错，则apt install dbus-x11# mousepad就">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://vvmdx.github.io/images/PWN/image1.png">
+<meta property="article:published_time" content="2021-06-10T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-06-30T15:44:54.000Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="环境&amp;工具">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://vvmdx.github.io/images/PWN/image1.png">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://vvmdx.github.io/2021/06/11/2021-06-11-PWN%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E5%8F%8A%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85/index.html">
+  
+  
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/vvmdx/vvmdx.github.io" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">无名大仙</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">学习记录 &amp; 笔记分享</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Guangzhou, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">Home</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">Archives</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">Categories</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">Tags</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/vvmdx/vvmdx.github.io" target="_blank" title="Github" ><i class="icon icon-github"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>新手一个直接用的别人的主题，许多功能不齐全又乱七八糟的东西见笑了</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/PWN/">PWN</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E7%82%B9%E4%B8%9C%E8%A5%BF/">学点东西</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%89%BE%E5%B7%A5%E4%BD%9C/">找工作</a><span class="category-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%99%E5%AD%A6-%E6%80%9D%E8%B7%AF-%E8%BF%87%E7%A8%8B/" rel="tag">教学&思路&过程</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%8E%AF%E5%A2%83-%E5%B7%A5%E5%85%B7/" rel="tag">环境&工具</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/" rel="tag">面试复盘</a><span class="tag-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 13px;">博客</a> <a href="/tags/%E6%95%99%E5%AD%A6-%E6%80%9D%E8%B7%AF-%E8%BF%87%E7%A8%8B/" style="font-size: 13.5px;">教学&思路&过程</a> <a href="/tags/%E7%8E%AF%E5%A2%83-%E5%B7%A5%E5%85%B7/" style="font-size: 13px;">环境&工具</a> <a href="/tags/%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/" style="font-size: 14px;">面试复盘</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Archive</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a><span class="archive-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/PWN/">PWN</a>
+              </p>
+              <p class="item-title">
+                <a href="/2021/06/18/2021-06-18-CISCN_2019_s_9/" class="title">CISCN_2019_s_9</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-06-17T16:00:00.000Z" itemprop="datePublished">2021-06-18</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/PWN/">PWN</a>
+              </p>
+              <p class="item-title">
+                <a href="/2021/06/14/2021-06-14-mrctf2020_shellcode/" class="title">mrctf2020_shellcode</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-06-13T16:00:00.000Z" itemprop="datePublished">2021-06-14</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/PWN/">PWN</a>
+              </p>
+              <p class="item-title">
+                <a href="/2021/06/11/2021-06-11-PWN%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E5%8F%8A%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85/" class="title">PWN环境搭建及工具安装</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-06-10T16:00:00.000Z" itemprop="datePublished">2021-06-11</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%AD%A6%E7%82%B9%E4%B8%9C%E8%A5%BF/">学点东西</a>
+              </p>
+              <p class="item-title">
+                <a href="/2021/06/06/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" class="title">个人博客搭建</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-06-05T16:00:00.000Z" itemprop="datePublished">2021-06-06</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E6%89%BE%E5%B7%A5%E4%BD%9C/">找工作</a>
+              </p>
+              <p class="item-title">
+                <a href="/2021/05/31/%E5%B0%8F%E9%B9%8F%E6%B1%BD%E8%BD%A6/" class="title">小鹏汽车</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-05-30T16:00:00.000Z" itemprop="datePublished">2021-05-31</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <nav id="toc" class="article-toc">
+      <h3 class="toc-title">Catalogue</h3>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#pwn"><span class="toc-number">1.</span> <span class="toc-text"> PWN</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="toc-number">1.1.</span> <span class="toc-text"> 环境搭建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85"><span class="toc-number">1.2.</span> <span class="toc-text"> 工具安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#pwntools"><span class="toc-number">1.2.1.</span> <span class="toc-text"> Pwntools</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#one_gadget"><span class="toc-number">1.2.2.</span> <span class="toc-text"> one_gadget</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#libcsearcher"><span class="toc-number">1.2.3.</span> <span class="toc-text"> LibcSearcher</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#libc-database-search"><span class="toc-number">1.2.4.</span> <span class="toc-text"> Libc database search</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#main_arena_offset"><span class="toc-number">1.2.5.</span> <span class="toc-text"> main_arena_offset</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gdb"><span class="toc-number">1.2.6.</span> <span class="toc-text"> GDB</span></a></li></ol></li></ol></li></ol>
+    </nav>
+  </div>
+</aside>
+
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-2021-06-11-PWN环境搭建及工具安装" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      PWN环境搭建及工具安装
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2021/06/11/2021-06-11-PWN%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E5%8F%8A%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85/" class="article-date">
+	  <time datetime="2021-06-10T16:00:00.000Z" itemprop="datePublished">2021-06-11</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/PWN/">PWN</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/%E7%8E%AF%E5%A2%83-%E5%B7%A5%E5%85%B7/" rel="tag">环境&工具</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+	<span class="article-read hidden-xs">
+    	<i class="icon icon-eye-fill" aria-hidden="true"></i>
+    	<span id="/2021/06/11/2021-06-11-PWN%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E5%8F%8A%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85/" class="leancloud_visitors"  data-flag-title="PWN环境搭建及工具安装">
+			<span class="leancloud-visitors-count">0</span>
+		</span>
+    </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/06/11/2021-06-11-PWN%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E5%8F%8A%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85/#comments" class="article-comment-link">Comments</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 340(words)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 1(minutes)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h1 id="pwn"><a class="markdownIt-Anchor" href="#pwn"></a> PWN</h1>
+<h2 id="环境搭建"><a class="markdownIt-Anchor" href="#环境搭建"></a> 环境搭建</h2>
+<ul>
+<li>环境：Kali 2021</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo passwd <span class="comment"># 添加root账号</span></span><br><span class="line">su root <span class="comment"># 输入刚刚设置的密码，进入root</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<p>python 3.9（Kali 2021自带）</p>
+</li>
+<li>
+<p>配置更新源</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">mousepad /etc/apt/sources.list</span><br><span class="line"><span class="comment"># 若mousepad报错，则</span></span><br><span class="line">apt install dbus-x11</span><br><span class="line"><span class="comment"># mousepad就是记事本</span></span><br><span class="line"><span class="comment">#阿里云</span></span><br><span class="line">deb http://mirrors.aliyun.com/kali kali-rolling main non-free contrib</span><br><span class="line">deb-src http://mirrors.aliyun.com/kali kali-rolling main non-free contrib</span><br><span class="line"><span class="comment">#清华大学</span></span><br><span class="line">deb http://mirrors.tuna.tsinghua.edu.cn/kali kali-rolling main contrib non-free</span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/kali kali-rolling main contrib non-free</span><br></pre></td></tr></table></figure>
+<ul>
+<li>升级软件列表/更新软件</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apt-get update</span><br><span class="line">apt-get upgrade</span><br><span class="line">apt-get dist-upgrade</span><br></pre></td></tr></table></figure>
+<ul>
+<li>git配置</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install git</span><br></pre></td></tr></table></figure>
+<h2 id="工具安装"><a class="markdownIt-Anchor" href="#工具安装"></a> 工具安装</h2>
+<h3 id="pwntools"><a class="markdownIt-Anchor" href="#pwntools"></a> Pwntools</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># python3环境</span></span><br><span class="line"><span class="comment">## 更新下载源</span></span><br><span class="line">apt-get upgrade</span><br><span class="line"><span class="comment">## 安装pip下载工具</span></span><br><span class="line">apt install python3-pip</span><br><span class="line"><span class="comment">## pip下载pwntools</span></span><br><span class="line">pip3 install pwntools</span><br></pre></td></tr></table></figure>
+<p>下载完会得到两个小工具：<strong>checksec（查看保护机制）、ROPgadget</strong></p>
+<h3 id="one_gadget"><a class="markdownIt-Anchor" href="#one_gadget"></a> one_gadget</h3>
+<ul>
+<li>功能：查找已知的libc中**exevce(&quot;/bin/sh&quot;)**语句的地址</li>
+<li>安装</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装ruby环境</span></span><br><span class="line">apt install ruby</span><br><span class="line"><span class="comment"># 安装ruby包管理工具</span></span><br><span class="line">apt install gem</span><br><span class="line"><span class="comment"># 安装one_gadget</span></span><br><span class="line">gem install one_gadget</span><br></pre></td></tr></table></figure>
+<h3 id="libcsearcher"><a class="markdownIt-Anchor" href="#libcsearcher"></a> LibcSearcher</h3>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/IZAY01/LibcSearcher">https://github.com/IZAY01/LibcSearcher</a></li>
+</ul>
+<h3 id="libc-database-search"><a class="markdownIt-Anchor" href="#libc-database-search"></a> Libc database search</h3>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://libc.blukat.me/">https://libc.blukat.me/</a></li>
+</ul>
+<h3 id="main_arena_offset"><a class="markdownIt-Anchor" href="#main_arena_offset"></a> main_arena_offset</h3>
+<ul>
+<li>堆、偏移</li>
+<li>使用IDA Pro也可以做，但是手工做麻烦</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/bash-c/main_arena_offset">https://github.com/bash-c/main_arena_offset</a></li>
+</ul>
+<h3 id="gdb"><a class="markdownIt-Anchor" href="#gdb"></a> GDB</h3>
+<ul>
+<li><strong>动态分析</strong></li>
+<li>GNU项目调试器，用于在Linux系统中动态调试程序</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install gdb</span><br></pre></td></tr></table></figure>
+<ul>
+<li>增强工具：<strong>pwndbg、PEDA、gef</strong></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装pwndbg</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/pwndbg/pwndbg</span><br><span class="line"><span class="built_in">cd</span> pwndbg</span><br><span class="line">./setup.sh</span><br></pre></td></tr></table></figure>
+<p>安装完成后再使用gdb就会自动加载pwndbg</p>
+<p><img src="/images/PWN/image1.png" alt="image2" /></p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://vvmdx.github.io/2021/06/11/2021-06-11-PWN%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E5%8F%8A%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85/" title="PWN环境搭建及工具安装" target="_blank" rel="external">https://vvmdx.github.io/2021/06/11/2021-06-11-PWN环境搭建及工具安装/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/vvmdx/vvmdx.github.io" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/vvmdx/vvmdx.github.io" target="_blank"><span class="text-dark">无名大仙</span><small class="ml-1x">学习记录 &amp; 笔记分享</small></a></h3>
+        <div>希望在有限的时间里学有所成！</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2021/06/14/2021-06-14-mrctf2020_shellcode/" title="mrctf2020_shellcode"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2021/06/06/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" title="个人博客搭建"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+    <li class="toggle-toc">
+      <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false" title="Catalogue" role="button">
+        <span>[&nbsp;</span><span>Catalogue</span>
+        <i class="text-collapsed icon icon-anchor"></i>
+        <i class="text-in icon icon-close"></i>
+        <span>]</span>
+      </a>
+    </li>
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/vvmdx/vvmdx.github.io" target="_blank" title="Github" ><i class="icon icon-github"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: 'sxsgeGDaI22uOW483iJnK8ok-gzGzoHsz',
+    appKey: 'dj90VMpUaL25ueRxXvaR0phd',
+    placeholder: '来说点什么吧~ (填写邮箱以便快速收到回复~)# comment box placeholder',
+    avatar: 'monsterid',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: true
+  });
+  </script>
+
+     
+
+
+
+
+
+
+
+</body>
+</html>
