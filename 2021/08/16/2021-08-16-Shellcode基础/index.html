@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://vvmdx.github.io/images/PWN/Shellcode/image4.png">
 <meta property="og:image" content="https://vvmdx.github.io/images/PWN/Shellcode/image5.png">
 <meta property="article:published_time" content="2021-08-15T16:00:00.000Z">
-<meta property="article:modified_time" content="2021-08-16T14:16:21.210Z">
+<meta property="article:modified_time" content="2021-08-16T14:48:49.408Z">
 <meta property="article:author" content="vvmdx">
 <meta property="article:tag" content="教学&amp;思路&amp;过程">
 <meta name="twitter:card" content="summary">
@@ -357,7 +357,7 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/08/16/2021-08-16-Shellcode%E5%9F%BA%E7%A1%80/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 841(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 840(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 4(分)</span>
@@ -393,38 +393,38 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -z execstack用于禁用NX保护机制</span></span><br><span class="line">gcc -m32 -z execstack shellcode.c -o shellcode</span><br></pre></td></tr></table></figure>
 <h3 id="汇编"><a class="markdownIt-Anchor" href="#汇编"></a> 汇编</h3>
 <ul>
-<li>21个字节实现**execve(&quot;/bin/sh&quot;)**的Linux 32位程序（2种都可以）</li>
+<li>21个字节实现<code>execve(&quot;/bin/sh&quot;)</code>的Linux 32位程序（2种都可以）</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">; shell1</span><br><span class="line">global_start</span><br><span class="line">section .text</span><br><span class="line"></span><br><span class="line">_start:</span><br><span class="line">	push 0x68732f		; &quot;/sh&quot;</span><br><span class="line">	push 0x6e69622f		; &quot;/bin&quot;</span><br><span class="line">	mov ebx, esp			; ebx=&quot;/bin/sh&quot;</span><br><span class="line">	xor ecx, ecx 		; ecx=0</span><br><span class="line">	xor edx, edx			; edx=0</span><br><span class="line">	mov eax, 0xb			; system_number</span><br><span class="line">	int 0x80				; ruan zhong duan</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">;shell2</span><br><span class="line">global_start</span><br><span class="line">section .text</span><br><span class="line"></span><br><span class="line">_start:</span><br><span class="line">	xor ecx, ecx			; ecx=0</span><br><span class="line">	mul ecx				; eax=0 edx=0</span><br><span class="line">	mov al, 11			; execve syscall number</span><br><span class="line">	push ecx</span><br><span class="line">	push 0x68732f2f		; &quot;//sh&quot;</span><br><span class="line">	push 0x6e69622f		; &quot;/bin&quot;</span><br><span class="line">	mov ebx, esp			; pointer</span><br><span class="line">	int 0x80</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">; shell1</span><br><span class="line">global_start</span><br><span class="line">section .text</span><br><span class="line"></span><br><span class="line">_start:</span><br><span class="line">	push 0x68732f		; &quot;/sh&quot;</span><br><span class="line">	push 0x6e69622f		; &quot;/bin&quot;</span><br><span class="line">	mov ebx, esp		; ebx=&quot;/bin/sh&quot;</span><br><span class="line">	xor ecx, ecx 		; ecx=0</span><br><span class="line">	xor edx, edx		; edx=0</span><br><span class="line">	mov eax, 0xb		; system_number</span><br><span class="line">	int 0x80			; 软中断</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">;shell2</span><br><span class="line">global_start</span><br><span class="line">section .text</span><br><span class="line"></span><br><span class="line">_start:</span><br><span class="line">	xor ecx, ecx		; ecx=0</span><br><span class="line">	mul ecx				; eax=0 edx=0</span><br><span class="line">	mov al, 11			; execve syscall number</span><br><span class="line">	push ecx</span><br><span class="line">	push 0x68732f2f		; &quot;//sh&quot;</span><br><span class="line">	push 0x6e69622f		; &quot;/bin&quot;</span><br><span class="line">	mov ebx, esp		; pointer</span><br><span class="line">	int 0x80</span><br></pre></td></tr></table></figure>
 <p><strong>push的理解</strong></p>
 <ul>
-<li><strong>/bin/sh</strong>用16进制表示为<strong>2f62696e2f7368</strong></li>
-<li>由于是<strong>小端序</strong>，因此**/sh=0x68 0x73 0x2f**，由于不足4个字节，用**’/’ (0x2f)<strong>补足即</strong>&quot;//sh&quot; = 0x68732f2f**</li>
-<li>同理，<strong>&quot;/bin&quot; = 0x6e69622f</strong></li>
+<li><code>/bin/sh</code>用16进制表示为<code>2f62696e2f7368</code></li>
+<li>由于是<strong>小端序</strong>，因此<code>/sh=0x68 0x73 0x2f</code>，由于不足4个字节，用<code>'/' (0x2f)</code>补足即<code>&quot;//sh&quot; = 0x68732f2f</code></li>
+<li>同理，<code>&quot;/bin&quot; = 0x6e69622f</code></li>
 <li><strong>压栈顺序</strong>：h &gt;&gt; s &gt;&gt; / &gt;&gt; / &gt;&gt; n &gt;&gt; i &gt;&gt; b &gt;&gt; /</li>
 </ul>
 <p><strong>xor的理解</strong></p>
 <ul>
 <li>shellcode中不能包含<strong>NULL</strong>，因为<strong>NULL</strong>会将字符串操作函数阶段，这样执行的shellcode就会被截断</li>
-<li><strong>xor ecx, ecx</strong>用于替换<strong>mov ecx, 0x00</strong></li>
+<li><code>xor ecx, ecx</code>用于替换<code>mov ecx, 0x00</code></li>
 </ul>
 <p><strong>寄存器的理解</strong></p>
 <ul>
-<li><strong>mov ebx, esp</strong>：将栈顶指针赋给<strong>ebx</strong></li>
-<li><strong>mov eax, 0xb</strong>：0xb = 11，<strong>execve</strong>的系统调用号为11</li>
-<li><strong>xor ecx(edx), ecx(edx)</strong>：清空<strong>ecx</strong>和<strong>edx</strong>寄存器</li>
+<li><code>mov ebx, esp</code>：将栈顶指针赋给<strong>ebx</strong></li>
+<li><code>mov eax, 0xb</code>：0xb = 11，<code>execve</code>的系统调用号为11</li>
+<li><code>xor ecx(edx), ecx(edx)</code>：清空<strong>ecx</strong>和<strong>edx</strong>寄存器</li>
 </ul>
 <p><strong>软中断</strong></p>
 <p>由于一般<strong>shellcode</strong>有长度限制而且我们不知道系统函数地址，无法直接调用</p>
 <ul>
 <li>触发中断（<strong>int 0x80</strong>或者<strong>syscall</strong>）进行系统调用</li>
-<li><strong>system(&quot;/bin/sh&quot;)<strong>底层是调用</strong>execve(&quot;/bin/sh&quot;,0,0)</strong></li>
+<li><code>system(&quot;/bin/sh&quot;)</code>底层是调用<code>execve(&quot;/bin/sh&quot;,0,0)</code></li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 编译</span></span><br><span class="line">nasm -f elf32 shell.asm</span><br><span class="line"><span class="comment"># 使用ld进行链接获得shell</span></span><br><span class="line">ld -m elf_i386 shell.o -o shell</span><br><span class="line"><span class="comment"># 执行shell已经可以拿到shell</span></span><br><span class="line">./shell</span><br><span class="line"><span class="comment"># 查看shell的操作码</span></span><br><span class="line">objdump -d shell</span><br></pre></td></tr></table></figure>
 <p><img src="/images/PWN/Shellcode/image2.png" alt="image" /></p>
-<p>因此<strong>shellcode</strong>为**&quot;\x68\x2f\x73\x68\x00\x68\x2f\x62\x69\x6e\x89\xe3\x31\xc9\x31\xd2\xb8\x0b\x00\x00\x00\xcd\x80&quot;**</p>
-<p><strong>shell2</strong>的<strong>shellcode</strong>为**&quot;\x31\xc9\xf7\xe1\xb0\x0b\x51\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\xcd\x80&quot;**</p>
+<p>因此<strong>shellcode</strong>为<code>&quot;\x68\x2f\x73\x68\x00\x68\x2f\x62\x69\x6e\x89\xe3\x31\xc9\x31\xd2\xb8\x0b\x00\x00\x00\xcd\x80&quot;</code></p>
+<p><strong>shell2</strong>的<strong>shellcode</strong>为<code>&quot;\x31\xc9\xf7\xe1\xb0\x0b\x51\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\xcd\x80&quot;</code></p>
 <p><strong>gdb</strong>详细信息如下</p>
 <p><img src="/images/PWN/Shellcode/image3.png" alt="image" /></p>
 <ul>
