@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>2019安洵杯easy_serialize_php | 无名大仙</title>
+  <meta name="description" content="2019安洵杯easy_serialize_php  buuoj和[xctf][https:&#x2F;&#x2F;adworld.xctf.org.cn&#x2F;task&#x2F;answer?type&#x3D;web&amp;number&#x3D;3&amp;grade&#x3D;1&amp;id&#x3D;5606&amp;page&#x3D;3]都有，但是很离谱的一个开不出环境，一个开了环境访问不了phpinfo。。。不知道是平台的问题还是怎样（后来发现buuoj的除">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2019安洵杯easy_serialize_php">
+<meta property="og:url" content="https://vvmdx.github.io/2021/11/14/2021-11-14-2019%E5%AE%89%E6%B4%B5%E6%9D%AFeasy_serialize_php/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="2019安洵杯easy_serialize_php  buuoj和[xctf][https:&#x2F;&#x2F;adworld.xctf.org.cn&#x2F;task&#x2F;answer?type&#x3D;web&amp;number&#x3D;3&amp;grade&#x3D;1&amp;id&#x3D;5606&amp;page&#x3D;3]都有，但是很离谱的一个开不出环境，一个开了环境访问不了phpinfo。。。不知道是平台的问题还是怎样（后来发现buuoj的除">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://vvmdx.github.io/images/CTF/2019%E5%AE%89%E6%B4%B5%E6%9D%AFeasy_serialize_php/image1.png">
+<meta property="og:image" content="https://vvmdx.github.io/images/CTF/2019%E5%AE%89%E6%B4%B5%E6%9D%AFeasy_serialize_php/image2.png">
+<meta property="og:image" content="https://vvmdx.github.io/images/CTF/2019%E5%AE%89%E6%B4%B5%E6%9D%AFeasy_serialize_php/image3.png">
+<meta property="og:image" content="https://vvmdx.github.io/images/CTF/2019%E5%AE%89%E6%B4%B5%E6%9D%AFeasy_serialize_php/image4.png">
+<meta property="og:image" content="https://vvmdx.github.io/images/CTF/2019%E5%AE%89%E6%B4%B5%E6%9D%AFeasy_serialize_php/image5.png">
+<meta property="og:image" content="https://vvmdx.github.io/images/CTF/2019%E5%AE%89%E6%B4%B5%E6%9D%AFeasy_serialize_php/image6.png">
+<meta property="og:image" content="https://vvmdx.github.io/images/CTF/2019%E5%AE%89%E6%B4%B5%E6%9D%AFeasy_serialize_php/image7.png">
+<meta property="og:image" content="https://vvmdx.github.io/images/CTF/2019%E5%AE%89%E6%B4%B5%E6%9D%AFeasy_serialize_php/image8.png">
+<meta property="og:image" content="https://vvmdx.github.io/images/CTF/2019%E5%AE%89%E6%B4%B5%E6%9D%AFeasy_serialize_php/image9.png">
+<meta property="og:image" content="https://vvmdx.github.io/images/CTF/2019%E5%AE%89%E6%B4%B5%E6%9D%AFeasy_serialize_php/image10.png">
+<meta property="og:image" content="https://vvmdx.github.io/images/CTF/2019%E5%AE%89%E6%B4%B5%E6%9D%AFeasy_serialize_php/image11.png">
+<meta property="og:image" content="https://vvmdx.github.io/images/CTF/2019%E5%AE%89%E6%B4%B5%E6%9D%AFeasy_serialize_php/image12.png">
+<meta property="og:image" content="https://vvmdx.github.io/images/CTF/2019%E5%AE%89%E6%B4%B5%E6%9D%AFeasy_serialize_php/image13.png">
+<meta property="og:image" content="https://vvmdx.github.io/images/CTF/2019%E5%AE%89%E6%B4%B5%E6%9D%AFeasy_serialize_php/image14.png">
+<meta property="article:published_time" content="2021-11-13T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-11-14T13:14:11.479Z">
+<meta property="article:author" content="vvmdx">
+<meta property="article:tag" content="WriteUp">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://vvmdx.github.io/images/CTF/2019%E5%AE%89%E6%B4%B5%E6%9D%AFeasy_serialize_php/image1.png">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://vvmdx.github.io/2021/11/14/2021-11-14-2019%E5%AE%89%E6%B4%B5%E6%9D%AFeasy_serialize_php/index.html">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/vvmdx/vvmdx.github.io" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">无名大仙</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">学习记录 &amp; 笔记分享</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Guangzhou, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/vvmdx/vvmdx.github.io" target="_blank" title="Github" ><i class="icon icon-github"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>新手一个直接用的别人的主题，许多功能不齐全又乱七八糟的东西见笑了</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CTF/">CTF</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PWN/">PWN</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/">java代码审计</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E7%82%B9%E4%B8%9C%E8%A5%BF/">学点东西</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B0%8F%E5%B7%A5%E5%85%B7-%E5%B0%8F%E8%84%9A%E6%9C%AC/">小工具&小脚本</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%89%BE%E5%B7%A5%E4%BD%9C/">找工作</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%B3%BB%E7%BB%9F-%E5%B7%A5%E5%85%B7-%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">系统&工具&环境配置</a><span class="category-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/WriteUp/" rel="tag">WriteUp</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" rel="tag">java反序列化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%BC%95%E6%93%8E/" rel="tag">java表达式引擎</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%99%E5%AD%A6-%E6%80%9D%E8%B7%AF-%E8%BF%87%E7%A8%8B/" rel="tag">教学&思路&过程</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%8E%AF%E5%A2%83-%E5%B7%A5%E5%85%B7/" rel="tag">环境&工具</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%87%AA%E7%BC%96%E5%B7%A5%E5%85%B7-%E8%84%9A%E6%9C%AC/" rel="tag">自编工具&脚本</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/" rel="tag">面试复盘</a><span class="tag-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/WriteUp/" style="font-size: 13.67px;">WriteUp</a> <a href="/tags/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" style="font-size: 13px;">java反序列化</a> <a href="/tags/java%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%BC%95%E6%93%8E/" style="font-size: 13px;">java表达式引擎</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 13.33px;">博客</a> <a href="/tags/%E6%95%99%E5%AD%A6-%E6%80%9D%E8%B7%AF-%E8%BF%87%E7%A8%8B/" style="font-size: 13.67px;">教学&思路&过程</a> <a href="/tags/%E7%8E%AF%E5%A2%83-%E5%B7%A5%E5%85%B7/" style="font-size: 14px;">环境&工具</a> <a href="/tags/%E8%87%AA%E7%BC%96%E5%B7%A5%E5%85%B7-%E8%84%9A%E6%9C%AC/" style="font-size: 13px;">自编工具&脚本</a> <a href="/tags/%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/" style="font-size: 14px;">面试复盘</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">十一月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">十月 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">九月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">八月 2021</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">六月 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">五月 2021</a><span class="archive-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/CTF/">CTF</a>
+              </p>
+              <p class="item-title">
+                <a href="/2021/11/14/2021-11-14-2019%E5%AE%89%E6%B4%B5%E6%9D%AFeasy_serialize_php/" class="title">2019安洵杯easy_serialize_php</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-11-13T16:00:00.000Z" itemprop="datePublished">2021-11-14</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%AD%A6%E7%82%B9%E4%B8%9C%E8%A5%BF/">学点东西</a>
+              </p>
+              <p class="item-title">
+                <a href="/2021/11/02/2021-11-02-Hexo%E6%90%AD%E5%BB%BApure%E4%B8%BB%E9%A2%98%E5%8D%9A%E5%AE%A2%E8%8B%A5%E5%B9%B2%E9%97%AE%E9%A2%98/" class="title">Hexo搭建pure主题博客若干问题</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-11-01T16:00:00.000Z" itemprop="datePublished">2021-11-02</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%B0%8F%E5%B7%A5%E5%85%B7-%E5%B0%8F%E8%84%9A%E6%9C%AC/">小工具&小脚本</a>
+              </p>
+              <p class="item-title">
+                <a href="/2021/10/23/2021-10-23-Windows%E6%89%B9%E5%A4%84%E7%90%86/" class="title">Windows批处理</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-10-22T16:00:00.000Z" itemprop="datePublished">2021-10-23</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E7%B3%BB%E7%BB%9F-%E5%B7%A5%E5%85%B7-%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">系统&工具&环境配置</a>
+              </p>
+              <p class="item-title">
+                <a href="/2021/10/18/2021-10-18-Windows+Apache+Mysql+PHP%E6%89%8B%E5%8A%A8%E6%90%AD%E5%BB%BA/" class="title">Windows+Apache+Mysql+PHP手动搭建</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-10-17T16:00:00.000Z" itemprop="datePublished">2021-10-18</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/CTF/">CTF</a>
+              </p>
+              <p class="item-title">
+                <a href="/2021/10/16/2021-10-16-2021%E5%B9%BF%E4%B8%9C%E7%9C%81%E5%BC%BA%E7%BD%91%E5%9B%A2%E4%BD%93%E8%B5%9B-wp/" class="title">2021广东省强网团体赛-wp</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-10-15T16:00:00.000Z" itemprop="datePublished">2021-10-16</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <nav id="toc" class="article-toc">
+      <h3 class="toc-title">文章目录</h3>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#2019%E5%AE%89%E6%B4%B5%E6%9D%AFeasy_serialize_php"><span class="toc-number">1.</span> <span class="toc-text"> 2019安洵杯easy_serialize_php</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1"><span class="toc-number">1.1.</span> <span class="toc-text"> 代码审计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF"><span class="toc-number">1.2.</span> <span class="toc-text"> 思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%80%83%E9%80%B8"><span class="toc-number">1.3.</span> <span class="toc-text"> 反序列化字符串逃逸</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AD%94%E6%A1%88"><span class="toc-number">1.4.</span> <span class="toc-text"> 答案</span></a></li></ol></li></ol>
+    </nav>
+  </div>
+</aside>
+
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-2021-11-14-2019安洵杯easy_serialize_php" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      2019安洵杯easy_serialize_php
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2021/11/14/2021-11-14-2019%E5%AE%89%E6%B4%B5%E6%9D%AFeasy_serialize_php/" class="article-date">
+	  <time datetime="2021-11-13T16:00:00.000Z" itemprop="datePublished">2021-11-14</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/CTF/">CTF</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/WriteUp/" rel="tag">WriteUp</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/11/14/2021-11-14-2019%E5%AE%89%E6%B4%B5%E6%9D%AFeasy_serialize_php/#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.6k(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 7(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h1 id="2019安洵杯easy_serialize_php"><a class="markdownIt-Anchor" href="#2019安洵杯easy_serialize_php"></a> 2019安洵杯easy_serialize_php</h1>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://buuoj.cn/challenges#%5B%E5%AE%89%E6%B4%B5%E6%9D%AF%202019%5Deasy_serialize_php">buuoj</a>和[xctf][<a target="_blank" rel="noopener" href="https://adworld.xctf.org.cn/task/answer?type=web&amp;number=3&amp;grade=1&amp;id=5606&amp;page=3">https://adworld.xctf.org.cn/task/answer?type=web&amp;number=3&amp;grade=1&amp;id=5606&amp;page=3</a>]都有，但是很离谱的一个开不出环境，一个开了环境访问不了phpinfo。。。不知道是平台的问题还是怎样（后来发现buuoj的除了phpinfo看不了其他都正常，妈的绝了）</li>
+<li>最后直接clone了题目的[docker][<a target="_blank" rel="noopener" href="https://github.com/D0g3-Lab/i-SOON_CTF_2019/tree/master/Web/easy_serialize_php">https://github.com/D0g3-Lab/i-SOON_CTF_2019/tree/master/Web/easy_serialize_php</a>]自己跑</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"> <span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$function</span> = @<span class="variable">$_GET</span>[<span class="string">&#x27;f&#x27;</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">filter</span>(<span class="params"><span class="variable">$img</span></span>)</span>&#123;</span><br><span class="line">    <span class="variable">$filter_arr</span> = <span class="keyword">array</span>(<span class="string">&#x27;php&#x27;</span>,<span class="string">&#x27;flag&#x27;</span>,<span class="string">&#x27;php5&#x27;</span>,<span class="string">&#x27;php4&#x27;</span>,<span class="string">&#x27;fl1g&#x27;</span>);</span><br><span class="line">    <span class="variable">$filter</span> = <span class="string">&#x27;/&#x27;</span>.implode(<span class="string">&#x27;|&#x27;</span>,<span class="variable">$filter_arr</span>).<span class="string">&#x27;/i&#x27;</span>;</span><br><span class="line">    <span class="keyword">return</span> preg_replace(<span class="variable">$filter</span>,<span class="string">&#x27;&#x27;</span>,<span class="variable">$img</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(<span class="variable">$_SESSION</span>)&#123;</span><br><span class="line">    <span class="keyword">unset</span>(<span class="variable">$_SESSION</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$_SESSION</span>[<span class="string">&quot;user&quot;</span>] = <span class="string">&#x27;guest&#x27;</span>;</span><br><span class="line"><span class="variable">$_SESSION</span>[<span class="string">&#x27;function&#x27;</span>] = <span class="variable">$function</span>;</span><br><span class="line"></span><br><span class="line">extract(<span class="variable">$_POST</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(!<span class="variable">$function</span>)&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&#x27;&lt;a href=&quot;index.php?f=highlight_file&quot;&gt;source_code&lt;/a&gt;&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(!<span class="variable">$_GET</span>[<span class="string">&#x27;img_path&#x27;</span>])&#123;</span><br><span class="line">    <span class="variable">$_SESSION</span>[<span class="string">&#x27;img&#x27;</span>] = base64_encode(<span class="string">&#x27;guest_img.png&#x27;</span>);</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="variable">$_SESSION</span>[<span class="string">&#x27;img&#x27;</span>] = sha1(base64_encode(<span class="variable">$_GET</span>[<span class="string">&#x27;img_path&#x27;</span>]));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$serialize_info</span> = filter(serialize(<span class="variable">$_SESSION</span>));</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(<span class="variable">$function</span> == <span class="string">&#x27;highlight_file&#x27;</span>)&#123;</span><br><span class="line">    highlight_file(<span class="string">&#x27;index.php&#x27;</span>);</span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>(<span class="variable">$function</span> == <span class="string">&#x27;phpinfo&#x27;</span>)&#123;</span><br><span class="line">    <span class="keyword">eval</span>(<span class="string">&#x27;phpinfo();&#x27;</span>); <span class="comment">//maybe you can find something in here!</span></span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>(<span class="variable">$function</span> == <span class="string">&#x27;show_image&#x27;</span>)&#123;</span><br><span class="line">    <span class="variable">$userinfo</span> = unserialize(<span class="variable">$serialize_info</span>);</span><br><span class="line">    <span class="keyword">echo</span> file_get_contents(base64_decode(<span class="variable">$userinfo</span>[<span class="string">&#x27;img&#x27;</span>]));</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+<h2 id="代码审计"><a class="markdownIt-Anchor" href="#代码审计"></a> 代码审计</h2>
+<ol>
+<li>
+<p>GET请求参数f的值</p>
+<ul>
+<li>highlight_file: index.php</li>
+<li>phpinfo: phpinfo()</li>
+<li>show_image: 把$_SESSION序列化后经过filter过滤，再反序列化，最后打印base64解码后的img属性</li>
+<li>img_path: 若存在，则进行base64编码和sha1哈希后赋值给$_SESSION[‘img’]；若不存在，则将guest_img.png base64编码后赋值给$_SESSION[‘img’]</li>
+</ul>
+</li>
+<li>
+<p>看一眼phpinfo()</p>
+<p><img src="/images/CTF/2019%E5%AE%89%E6%B4%B5%E6%9D%AFeasy_serialize_php/image1.png" alt="image" /></p>
+<p>找到一个疑似可能有flag或者hint的页面d0g3_f1ag.php</p>
+</li>
+<li>
+<p>extract($_POST)</p>
+<blockquote>
+<p>extract() 函数从数组中将变量导入到当前的符号表。</p>
+</blockquote>
+<ul>
+<li>
+<p>extract第二个参数用来指定当出现冲突时应该怎么做，默认是**<code>EXTR_OVERWRITE</code>**</p>
+<p><img src="/images/CTF/2019%E5%AE%89%E6%B4%B5%E6%9D%AFeasy_serialize_php/image2.png" alt="image" /></p>
+<p>即覆盖变量</p>
+</li>
+<li>
+<p>若选择**<code>EXTR_SKIP</code>**，则不覆盖</p>
+<p><img src="/images/CTF/2019%E5%AE%89%E6%B4%B5%E6%9D%AFeasy_serialize_php/image3.png" alt="image" /></p>
+</li>
+<li>
+<p>这道题我们只要知道我们传的数组会覆盖掉原来的值就行了，结合后面分析$_SESSION应该是通过这个地方的POST赋值的</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>$_SESSION</code>有三个元素</p>
+<ul>
+<li>user=guest</li>
+<li>function=$function 可控</li>
+<li>img: 取决于GET的参数</li>
+<li>要注意$_SESSION无法直接通过赋值控制，因为<code>unset($_SESSION);</code>会把SESSION销毁</li>
+</ul>
+</li>
+</ol>
+<h2 id="思路"><a class="markdownIt-Anchor" href="#思路"></a> 思路</h2>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(<span class="variable">$function</span> == <span class="string">&#x27;show_image&#x27;</span>)&#123;</span><br><span class="line">    <span class="variable">$userinfo</span> = unserialize(<span class="variable">$serialize_info</span>);</span><br><span class="line">    <span class="keyword">echo</span> file_get_contents(base64_decode(<span class="variable">$userinfo</span>[<span class="string">&#x27;img&#x27;</span>]));</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+<p>这几行是重点，</p>
+<ol>
+<li>
+<p>GET传?f=show_image；POST传$_SESSION</p>
+<p><code>$serialize_info = filter(serialize($_SESSION));</code></p>
+<p>$_SESSION序列化后经过过滤器将一些字符串过滤，然后反序列化后赋给$userinfo</p>
+</li>
+<li>
+<p>$_SESSION -&gt; 序列化 -&gt; 过滤 -&gt; 反序列化 -&gt; $userinfo</p>
+</li>
+<li>
+<p>打开$_userinfo 的img属性的值经过base64解码后的文件名对应的文件，我们这里选择d0g3_f1ag.php看看里面有什么</p>
+</li>
+</ol>
+<h2 id="反序列化字符串逃逸"><a class="markdownIt-Anchor" href="#反序列化字符串逃逸"></a> 反序列化字符串逃逸</h2>
+<ul>
+<li>
+<p>关键点在于<code>file_get_contents(base64_decode($userinfo['img']))</code>，如果按照正常的流程，img属性的值为guest_img.png的base64编码，我们需要令其为d0g3_f1ag.php的base64编码。</p>
+</li>
+<li>
+<p>由于filter过滤器是对序列化后的内容进行过滤，是一种典型的长变短反序列化字符串逃逸</p>
+<p><img src="/images/CTF/2019%E5%AE%89%E6%B4%B5%E6%9D%AFeasy_serialize_php/image4.png" alt="image" /></p>
+<p>可以看到出现flag的地方都会被替换为空，导致长度不符反序列化出错</p>
+</li>
+<li>
+<p>如果直接把d0g3_f1ag.php的base64编码直接作为img参数传递的话，会发现img属性的值被替换为guest_img.php</p>
+<p><img src="/images/CTF/2019%E5%AE%89%E6%B4%B5%E6%9D%AFeasy_serialize_php/image5.png" alt="image" /></p>
+</li>
+<li>
+<p>因此我们需要序列化字符串在反序列化时，读取到<code>s:3:&quot;img&quot;;s:20:&quot;Z3Vlc3RfaW1nLnBuZw==&quot;;</code>前，让反序列化结束，同时读取到img=ZDBnM19mMWFnLnBocA==（d0g3_f1ag.php的base64编码）</p>
+</li>
+<li>
+<p>先随便赋个值尝试一下</p>
+<p><img src="/images/CTF/2019%E5%AE%89%E6%B4%B5%E6%9D%AFeasy_serialize_php/image6.png" alt="image" /></p>
+<p>发现在没有过滤的情况下多了一个属性</p>
+</li>
+<li>
+<p>我们知道php反序列化的分隔符为<code>;&#125;</code>，当读到这里时反序列化结束，因此我们需要伪造一个分隔符，在分隔符前构造img=ZDBnM19mMWFnLnBocA==的payload</p>
+<p><img src="/images/CTF/2019%E5%AE%89%E6%B4%B5%E6%9D%AFeasy_serialize_php/image7.png" alt="image" /></p>
+<p>可以看到灰色部分就是我们需要的内容，接下来就要利用序列化字符串的flag会被过滤的特性让前面的内容作为“值”被覆盖</p>
+</li>
+<li>
+<p>先简单尝试一下</p>
+<p>经过过滤后变为<code>a:2:&#123;s:4:&quot;&quot;;s:40:&quot;;s:3:&quot;img&quot;;s:20:&quot;ZDBnM19mMWFnLnBocA==&quot;;&#125;&quot;;s:3:&quot;img&quot;;s:20:&quot;Z3Vlc3RfaW1nLnBuZw==&quot;;&#125;</code>，可以看到第一个s长度为4，所以读到<code>&quot;;s:</code>就结束了，导致反序列化出错</p>
+<p><img src="/images/CTF/2019%E5%AE%89%E6%B4%B5%E6%9D%AFeasy_serialize_php/image8.png" alt="image" /></p>
+<p>我们计算出需要覆盖的内容<code>&quot;;s:40:</code>长度为7，刚好flag和php两个被过滤的字符串长度和为7</p>
+</li>
+<li>
+<p>重新尝试<code>_SESSION[flagphp]=;s:3:&quot;img&quot;;s:20:&quot;ZDBnM19mMWFnLnBocA==&quot;;&#125;</code></p>
+<p><img src="/images/CTF/2019%E5%AE%89%E6%B4%B5%E6%9D%AFeasy_serialize_php/image9.png" alt="image" /></p>
+<p>发现还是不对，这是因为长度7虽然覆盖了那几个字符串，但是他只是把<code>&quot;;s:40:</code>作为属性名而已，还缺少了属性值，因此还要在后面给他加上属性值</p>
+</li>
+<li>
+<p>继续构造payload，属性值其实就无所谓了，因为不影响前后的构造<code>_SESSION[flagphp]=;s:1:&quot;a&quot;;s:3:&quot;img&quot;;s:20:&quot;ZDBnM19mMWFnLnBocA==&quot;;&#125;</code></p>
+<p><img src="/images/CTF/2019%E5%AE%89%E6%B4%B5%E6%9D%AFeasy_serialize_php/image10.png" alt="image" /></p>
+<p>可以发现终于成功了</p>
+<p><img src="/images/CTF/2019%E5%AE%89%E6%B4%B5%E6%9D%AFeasy_serialize_php/image11.png" alt="image" /></p>
+<p>把payload丢到buuoj的靶机上，查看源代码即可发现hint</p>
+</li>
+<li>
+<p>最后一步就把d0g3_f1ag.php的base64编码换为/d0g3_fllllllag的base64编码即可</p>
+<p><img src="/images/CTF/2019%E5%AE%89%E6%B4%B5%E6%9D%AFeasy_serialize_php/image12.png" alt="image" /></p>
+</li>
+</ul>
+<h2 id="答案"><a class="markdownIt-Anchor" href="#答案"></a> 答案</h2>
+<p>payload1</p>
+<p><code>_SESSION[flagphp]=;s:1:&quot;a&quot;;s:3:&quot;img&quot;;s:20:&quot;ZDBnM19mMWFnLnBocA==&quot;;&#125;</code></p>
+<p>payload2</p>
+<p><code>_SESSION[flagphp]=;s:1:&quot;a&quot;;s:3:&quot;img&quot;;s:20:&quot;L2QwZzNfZmxsbGxsbGFn&quot;;&#125;</code></p>
+<p>做的过程还遇到一个小坑：burp2021的重放模块，不知道为什么，post数据没经过url编码的话会导致post错内容</p>
+<ul>
+<li>
+<p>没有url编码的情况</p>
+<p><img src="/images/CTF/2019%E5%AE%89%E6%B4%B5%E6%9D%AFeasy_serialize_php/image13.png" alt="image" /></p>
+<p>发现值没有被修改</p>
+</li>
+<li>
+<p>有url编码的情况</p>
+<p><img src="/images/CTF/2019%E5%AE%89%E6%B4%B5%E6%9D%AFeasy_serialize_php/image14.png" alt="image" /></p>
+<p>值正常修改</p>
+</li>
+</ul>
+<p>这次遇到的是中括号[]引起的，其他符号不知道会不会也这样，搞了好久还一直以为是自己做法有问题，，，直到发现hackbar没问题才意识到是burp的问题</p>
+<p><strong>本题测试代码</strong></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">filter</span>(<span class="params"><span class="variable">$img</span></span>)</span>&#123;</span><br><span class="line">    <span class="variable">$filter_arr</span> = <span class="keyword">array</span>(<span class="string">&#x27;php&#x27;</span>,<span class="string">&#x27;flag&#x27;</span>,<span class="string">&#x27;php5&#x27;</span>,<span class="string">&#x27;php4&#x27;</span>,<span class="string">&#x27;fl1g&#x27;</span>);</span><br><span class="line">    <span class="variable">$filter</span> = <span class="string">&#x27;/&#x27;</span>.implode(<span class="string">&#x27;|&#x27;</span>,<span class="variable">$filter_arr</span>).<span class="string">&#x27;/i&#x27;</span>;</span><br><span class="line">    <span class="keyword">return</span> preg_replace(<span class="variable">$filter</span>,<span class="string">&#x27;&#x27;</span>,<span class="variable">$img</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//$var1 = base64_encode(&#x27;d0g3_f1ag.php&#x27;);</span></span><br><span class="line"><span class="variable">$var1</span> = base64_encode(<span class="string">&#x27;/d0g3_fllllllag&#x27;</span>);</span><br><span class="line"><span class="comment">//echo $var1;</span></span><br><span class="line"><span class="variable">$_SESSION</span>[<span class="string">&#x27;img&#x27;</span>] = <span class="variable">$var1</span>;</span><br><span class="line"><span class="comment">//echo serialize($_SESSION).&quot;&lt;br/&gt;&quot;;</span></span><br><span class="line"><span class="comment">//$_SESSION[&quot;user&quot;] = &#x27;guest&#x27;;</span></span><br><span class="line"><span class="comment">//$_SESSION[&#x27;function&#x27;] = &#x27;show_image&#x27;;</span></span><br><span class="line"><span class="comment">//$_SESSION[&#x27;img&#x27;] = base64_encode(&#x27;guest_img.png&#x27;);</span></span><br><span class="line">extract(<span class="variable">$_POST</span>);</span><br><span class="line"><span class="keyword">if</span>(!@<span class="variable">$_GET</span>[<span class="string">&quot;img_path&quot;</span>])&#123;</span><br><span class="line">    <span class="variable">$_SESSION</span>[<span class="string">&#x27;img&#x27;</span>] = base64_encode(<span class="string">&#x27;guest_img.png&#x27;</span>);</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="variable">$_SESSION</span>[<span class="string">&#x27;img&#x27;</span>] = sha1(base64_encode(<span class="variable">$_GET</span>[<span class="string">&#x27;img_path&#x27;</span>]));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> serialize(<span class="variable">$_SESSION</span>).<span class="string">&quot;&lt;br/&gt;&quot;</span>;</span><br><span class="line"><span class="variable">$serialize_info</span> = filter(serialize(<span class="variable">$_SESSION</span>));</span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$serialize_info</span>.<span class="string">&#x27;&lt;br/&gt;&#x27;</span>;</span><br><span class="line"><span class="variable">$userinfo</span> = unserialize(<span class="variable">$serialize_info</span>);</span><br><span class="line">var_dump(<span class="variable">$userinfo</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&#x27;&lt;br/&gt;&#x27;</span>;</span><br><span class="line"><span class="keyword">echo</span> base64_decode(<span class="variable">$userinfo</span>[<span class="string">&#x27;img&#x27;</span>]);</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://vvmdx.github.io/2021/11/14/2021-11-14-2019%E5%AE%89%E6%B4%B5%E6%9D%AFeasy_serialize_php/" title="2019安洵杯easy_serialize_php" target="_blank" rel="external">https://vvmdx.github.io/2021/11/14/2021-11-14-2019安洵杯easy_serialize_php/</a>
+    </li>
+    
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/vvmdx/vvmdx.github.io" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/vvmdx/vvmdx.github.io" target="_blank"><span class="text-dark">无名大仙</span><small class="ml-1x">学习记录 &amp; 笔记分享</small></a></h3>
+        <div>希望在有限的时间里学有所成！</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2021/11/02/2021-11-02-Hexo%E6%90%AD%E5%BB%BApure%E4%B8%BB%E9%A2%98%E5%8D%9A%E5%AE%A2%E8%8B%A5%E5%B9%B2%E9%97%AE%E9%A2%98/" title="Hexo搭建pure主题博客若干问题"><span>下一篇&nbsp;&nbsp;</span> <i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+    <li class="toggle-toc">
+      <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false" title="文章目录" role="button">
+        <span>[&nbsp;</span><span>文章目录</span>
+        <i class="text-collapsed icon icon-anchor"></i>
+        <i class="text-in icon icon-close"></i>
+        <span>]</span>
+      </a>
+    </li>
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/vvmdx/vvmdx.github.io" target="_blank" title="Github" ><i class="icon icon-github"></i></a></li>
+        
+    </ul>
+
+    
+		
+		<span id="busuanzi_container_site_pv">
+			总阅读量：<span id="busuanzi_value_site_pv"></span>次
+		</span>
+		<br />
+		<span id="busuanzi_container_site_uv">
+			总访客数：<span id="busuanzi_value_site_uv"></span>位
+		</span>
+		
+	
+	
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+	
+
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: 'sxsgeGDaI22uOW483iJnK8ok-gzGzoHsz',
+    appKey: 'dj90VMpUaL25ueRxXvaR0phd',
+    placeholder: '来说点什么吧~ (填写邮箱以便快速收到回复~)',
+    avatar: 'monsterid',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: true
+  });
+  </script>
+
+     
+
+
+
+
+
+
+
+</body>
+</html>
