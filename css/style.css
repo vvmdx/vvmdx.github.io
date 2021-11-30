@@ -5543,12 +5543,13 @@ pre,
 
 code {
   text-shadow: 0 1px #fff;
-  padding: 0.2em 0.4em;
+  padding: 0.1em 0.3em;
   margin: 0 0.3em;
-  color: #555;
-  background: #bebebe;
+  color: #1c1c1c;
+  background: #eee9e9;
   border-radius: 3px;
   font-size: 100%;
+  font-weight: bold;
 }
 
 pre code {
