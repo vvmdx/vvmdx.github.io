@@ -114,14 +114,14 @@
   </url>
   
   <url>
-    <loc>https://vvmdx.github.io/repository/index.html</loc>
+    <loc>https://vvmdx.github.io/categories/index.html</loc>
     
     <lastmod>2021-07-13</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vvmdx.github.io/categories/index.html</loc>
+    <loc>https://vvmdx.github.io/repository/index.html</loc>
     
     <lastmod>2021-07-13</lastmod>
     
@@ -216,14 +216,14 @@
   </url>
   
   <url>
-    <loc>https://vvmdx.github.io/categories/CTF/</loc>
+    <loc>https://vvmdx.github.io/categories/%E7%B3%BB%E7%BB%9F-%E5%B7%A5%E5%85%B7-%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</loc>
     <lastmod>2021-11-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://vvmdx.github.io/categories/%E7%B3%BB%E7%BB%9F-%E5%B7%A5%E5%85%B7-%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</loc>
+    <loc>https://vvmdx.github.io/categories/CTF/</loc>
     <lastmod>2021-11-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
