@@ -1,3 +1,4 @@
+https://vvmdx.github.io/2021/12/01/2021-12-01-2021Xp0int%E6%9D%AF%E6%96%B0%E7%94%9F%E8%B5%9Bwp/
 https://vvmdx.github.io/2021/11/14/2021-11-14-2019%E5%AE%89%E6%B4%B5%E6%9D%AFeasy_serialize_php/
 https://vvmdx.github.io/2021/11/02/2021-11-02-Hexo%E6%90%AD%E5%BB%BApure%E4%B8%BB%E9%A2%98%E5%8D%9A%E5%AE%A2%E8%8B%A5%E5%B9%B2%E9%97%AE%E9%A2%98/
 https://vvmdx.github.io/2021/10/23/2021-10-23-Windows%E6%89%B9%E5%A4%84%E7%90%86/
@@ -7,4 +8,3 @@ https://vvmdx.github.io/2021/09/19/2021-09-19-Pycharm+PyQT5Pyside2%E5%BC%80%E5%8
 https://vvmdx.github.io/2021/08/31/2021-08-31-%E5%B1%B1%E7%9F%B3%E5%AE%89%E7%A0%94%E7%AC%AC%E4%B8%80%E5%B1%8ACTF%E8%AE%AD%E7%BB%83%E8%90%A5/
 https://vvmdx.github.io/2021/08/28/2021-08-28-Kali2021%E5%AE%89%E8%A3%85%E5%A4%9A%E7%89%88%E6%9C%ACjdk%E5%8F%8A%E5%88%87%E6%8D%A2/
 https://vvmdx.github.io/2021/08/16/2021-08-16-Shellcode%E5%9F%BA%E7%A1%80/
-https://vvmdx.github.io/2021/08/13/2021-08-13-java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%9F%BA%E7%A1%80/
