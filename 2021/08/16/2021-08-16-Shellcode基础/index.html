@@ -19,12 +19,12 @@
 
   
   <title>Shellcode基础 | 无名大仙</title>
-  <meta name="description" content="Shellcode基础基本原理 shellcode通常是一小段用于利用软件漏洞的机器代码，目的是为了获得目标机器的shell 本地shellcode常用于提权，攻击者利用高权限程序中的漏洞获得与目标进程相同的权限 远程shellcode通过TCP&#x2F;IP套接字为攻击者提供shell访问（反弹shell、绑定shell、套接字重用shell） shellcode可分段执行，由一段短的shellcode">
+  <meta name="description" content="Shellcode基础  基本原理  shellcode通常是一小段用于利用软件漏洞的机器代码，目的是为了获得目标机器的shell 本地shellcode常用于提权，攻击者利用高权限程序中的漏洞获得与目标进程相同的权限 远程shellcode通过TCP&#x2F;IP套接字为攻击者提供shell访问（反弹shell、绑定shell、套接字重用shell） shellcode可分段执行，由一段短的shell">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Shellcode基础">
 <meta property="og:url" content="https://vvmdx.github.io/2021/08/16/2021-08-16-Shellcode%E5%9F%BA%E7%A1%80/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Shellcode基础基本原理 shellcode通常是一小段用于利用软件漏洞的机器代码，目的是为了获得目标机器的shell 本地shellcode常用于提权，攻击者利用高权限程序中的漏洞获得与目标进程相同的权限 远程shellcode通过TCP&#x2F;IP套接字为攻击者提供shell访问（反弹shell、绑定shell、套接字重用shell） shellcode可分段执行，由一段短的shellcode">
+<meta property="og:description" content="Shellcode基础  基本原理  shellcode通常是一小段用于利用软件漏洞的机器代码，目的是为了获得目标机器的shell 本地shellcode常用于提权，攻击者利用高权限程序中的漏洞获得与目标进程相同的权限 远程shellcode通过TCP&#x2F;IP套接字为攻击者提供shell访问（反弹shell、绑定shell、套接字重用shell） shellcode可分段执行，由一段短的shell">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://vvmdx.github.io/images/PWN/Shellcode/image1.png">
 <meta property="og:image" content="https://vvmdx.github.io/images/PWN/Shellcode/image2.png">
@@ -310,7 +310,7 @@
   <div class="slimContent">
     <nav id="toc" class="article-toc">
       <h3 class="toc-title">文章目录</h3>
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Shellcode%E5%9F%BA%E7%A1%80"><span class="toc-number">1.</span> <span class="toc-text">Shellcode基础</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86"><span class="toc-number">1.1.</span> <span class="toc-text">基本原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E5%86%99"><span class="toc-number">1.2.</span> <span class="toc-text">编写</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#C%E8%AF%AD%E8%A8%80"><span class="toc-number">1.2.1.</span> <span class="toc-text">C语言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B1%87%E7%BC%96"><span class="toc-number">1.2.2.</span> <span class="toc-text">汇编</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#python"><span class="toc-number">1.2.3.</span> <span class="toc-text">python</span></a></li></ol></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#shellcode%E5%9F%BA%E7%A1%80"><span class="toc-number">1.</span> <span class="toc-text"> Shellcode基础</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86"><span class="toc-number">1.1.</span> <span class="toc-text"> 基本原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E5%86%99"><span class="toc-number">1.2.</span> <span class="toc-text"> 编写</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#c%E8%AF%AD%E8%A8%80"><span class="toc-number">1.2.1.</span> <span class="toc-text"> C语言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B1%87%E7%BC%96"><span class="toc-number">1.2.2.</span> <span class="toc-text"> 汇编</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#python"><span class="toc-number">1.2.3.</span> <span class="toc-text"> python</span></a></li></ol></li></ol></li></ol>
     </nav>
   </div>
 </aside>
@@ -373,7 +373,7 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/08/16/2021-08-16-Shellcode%E5%9F%BA%E7%A1%80/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 841(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 839(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 4(分)</span>
@@ -386,26 +386,31 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h1 id="Shellcode基础"><a href="#Shellcode基础" class="headerlink" title="Shellcode基础"></a>Shellcode基础</h1><h2 id="基本原理"><a href="#基本原理" class="headerlink" title="基本原理"></a>基本原理</h2><ul>
+        <h1 id="shellcode基础"><a class="markdownIt-Anchor" href="#shellcode基础"></a> Shellcode基础</h1>
+<h2 id="基本原理"><a class="markdownIt-Anchor" href="#基本原理"></a> 基本原理</h2>
+<ul>
 <li><strong>shellcode</strong>通常是一小段用于利用软件漏洞的机器代码，目的是为了获得目标机器的<strong>shell</strong></li>
 <li>本地<strong>shellcode</strong>常用于提权，攻击者利用高权限程序中的漏洞获得与目标进程相同的权限</li>
 <li>远程<strong>shellcode</strong>通过<strong>TCP/IP套接字</strong>为攻击者提供shell访问（反弹shell、绑定shell、套接字重用shell）</li>
 <li><strong>shellcode</strong>可分段执行，由一段短的<strong>shellcode</strong>去加载一段复杂的<strong>shellcode</strong></li>
 </ul>
-<h2 id="编写"><a href="#编写" class="headerlink" title="编写"></a>编写</h2><h3 id="C语言"><a href="#C语言" class="headerlink" title="C语言"></a>C语言</h3><ul>
+<h2 id="编写"><a class="markdownIt-Anchor" href="#编写"></a> 编写</h2>
+<h3 id="c语言"><a class="markdownIt-Anchor" href="#c语言"></a> C语言</h3>
+<ul>
 <li>C编写简单shellcode</li>
 </ul>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="meta-keyword">include</span> <span class="meta-string">&quot;stdlib.h&quot;</span></span></span><br><span class="line"><span class="meta"># <span class="meta-keyword">include</span> <span class="meta-string">&quot;unistd.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">system</span>(<span class="string">&quot;/bin/sh&quot;</span>);</span><br><span class="line">	<span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>执行效果如下，可以看到已经拿到shell</li>
 </ul>
-<p><img src="/images/PWN/Shellcode/image1.png" alt="image"></p>
+<p><img src="/images/PWN/Shellcode/image1.png" alt="image" /></p>
 <ul>
 <li>C语言使用内联汇编方式调用<strong>shellcode</strong>，使用的<strong>shellcode</strong>为汇编生成的<strong>opcode</strong>（先看汇编那一节）</li>
 </ul>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;stdio.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> shellcode[] = <span class="string">&quot;\x31\xc9\xf7\xe1\xb0\x0b\x51\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\xcd\x80&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;Shellcode length: %d bytes\n&quot;</span>, <span class="built_in">strlen</span>(shellcode));</span><br><span class="line">	</span><br><span class="line">	(*(<span class="keyword">void</span>(*)()) shellcode)();</span><br><span class="line"></span><br><span class="line"><span class="comment">/*	</span></span><br><span class="line"><span class="comment">	__asm__(&quot;movl $0xffffffff, %eax\n\t&quot;</span></span><br><span class="line"><span class="comment">		&quot;movl %eax, %ebx\n\t&quot;</span></span><br><span class="line"><span class="comment">		&quot;movl %eax, %ecx\n\t&quot;</span></span><br><span class="line"><span class="comment">		&quot;movl %eax, %edx\n\t&quot;</span></span><br><span class="line"><span class="comment">		&quot;movl %eax, %esi\n\t&quot;</span></span><br><span class="line"><span class="comment">		&quot;movl %eax, %edi\n\t&quot;</span></span><br><span class="line"><span class="comment">		&quot;movl %eax, %ebp\n\t&quot;</span></span><br><span class="line"><span class="comment">		&quot;call shellcode&quot;);</span></span><br><span class="line"><span class="comment">*/</span>	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -z execstack用于禁用NX保护机制</span></span><br><span class="line">gcc -m32 -z execstack shellcode.c -o shellcode</span><br></pre></td></tr></table></figure>
-<h3 id="汇编"><a href="#汇编" class="headerlink" title="汇编"></a>汇编</h3><ul>
+<h3 id="汇编"><a class="markdownIt-Anchor" href="#汇编"></a> 汇编</h3>
+<ul>
 <li>21个字节实现<code>execve(&quot;/bin/sh&quot;)</code>的Linux 32位程序（2种都可以）</li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">; shell1</span><br><span class="line">global_start</span><br><span class="line">section .text</span><br><span class="line"></span><br><span class="line">_start:</span><br><span class="line">	push 0x68732f		; &quot;/sh&quot;</span><br><span class="line">	push 0x6e69622f		; &quot;/bin&quot;</span><br><span class="line">	mov ebx, esp		; ebx=&quot;/bin/sh&quot;</span><br><span class="line">	xor ecx, ecx 		; ecx=0</span><br><span class="line">	xor edx, edx		; edx=0</span><br><span class="line">	mov eax, 0xb		; system_number</span><br><span class="line">	int 0x80			; 软中断</span><br></pre></td></tr></table></figure>
@@ -413,7 +418,7 @@
 <p><strong>push的理解</strong></p>
 <ul>
 <li><code>/bin/sh</code>用16进制表示为<code>2f62696e2f7368</code></li>
-<li>由于是<strong>小端序</strong>，因此<code>/sh=0x68 0x73 0x2f</code>，由于不足4个字节，用<code>&#39;/&#39; (0x2f)</code>补足即<code>&quot;//sh&quot; = 0x68732f2f</code></li>
+<li>由于是<strong>小端序</strong>，因此<code>/sh=0x68 0x73 0x2f</code>，由于不足4个字节，用<code>'/' (0x2f)</code>补足即<code>&quot;//sh&quot; = 0x68732f2f</code></li>
 <li>同理，<code>&quot;/bin&quot; = 0x6e69622f</code></li>
 <li><strong>压栈顺序</strong>：h &gt;&gt; s &gt;&gt; / &gt;&gt; / &gt;&gt; n &gt;&gt; i &gt;&gt; b &gt;&gt; /</li>
 </ul>
@@ -435,11 +440,11 @@
 <li><code>system(&quot;/bin/sh&quot;)</code>底层是调用<code>execve(&quot;/bin/sh&quot;,0,0)</code></li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 编译</span></span><br><span class="line">nasm -f elf32 shell.asm</span><br><span class="line"><span class="comment"># 使用ld进行链接获得shell</span></span><br><span class="line">ld -m elf_i386 shell.o -o shell</span><br><span class="line"><span class="comment"># 执行shell已经可以拿到shell</span></span><br><span class="line">./shell</span><br><span class="line"><span class="comment"># 查看shell的操作码</span></span><br><span class="line">objdump -d shell</span><br></pre></td></tr></table></figure>
-<p><img src="/images/PWN/Shellcode/image2.png" alt="image"></p>
+<p><img src="/images/PWN/Shellcode/image2.png" alt="image" /></p>
 <p>因此<strong>shellcode</strong>为<code>&quot;\x68\x2f\x73\x68\x00\x68\x2f\x62\x69\x6e\x89\xe3\x31\xc9\x31\xd2\xb8\x0b\x00\x00\x00\xcd\x80&quot;</code></p>
 <p><strong>shell2</strong>的<strong>shellcode</strong>为<code>&quot;\x31\xc9\xf7\xe1\xb0\x0b\x51\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\xcd\x80&quot;</code></p>
 <p><strong>gdb</strong>详细信息如下</p>
-<p><img src="/images/PWN/Shellcode/image3.png" alt="image"></p>
+<p><img src="/images/PWN/Shellcode/image3.png" alt="image" /></p>
 <ul>
 <li>Linux 64位 <strong>shellcode</strong>30字节</li>
 </ul>
@@ -448,12 +453,13 @@
 <li>编译并链接</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 注意现在是64位了</span></span><br><span class="line">nasm -f elf64 shell_64bit.asm </span><br><span class="line">ld -m elf_x86_64 shell_64bit.o -o shell_64bit</span><br></pre></td></tr></table></figure>
-<p><img src="/images/PWN/Shellcode/image4.png" alt="image"></p>
-<h3 id="python"><a href="#python" class="headerlink" title="python"></a>python</h3><ul>
+<p><img src="/images/PWN/Shellcode/image4.png" alt="image" /></p>
+<h3 id="python"><a class="markdownIt-Anchor" href="#python"></a> python</h3>
+<ul>
 <li><strong>使用pwntools生成shellcode</strong></li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line">context(log_level=<span class="string">&#x27;debug&#x27;</span>, arch=<span class="string">&#x27;i386&#x27;</span>, os=<span class="string">&#x27;linux&#x27;</span>)</span><br><span class="line">shellcode=asm(shellcraft.sh())</span><br></pre></td></tr></table></figure>
-<p><img src="/images/PWN/Shellcode/image5.png" alt="image"></p>
+<p><img src="/images/PWN/Shellcode/image5.png" alt="image" /></p>
 
       
     </div>
