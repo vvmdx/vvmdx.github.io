@@ -19,25 +19,25 @@
 
   
   <title>java反序列化基础 | 无名大仙</title>
-  <meta name="description" content="java反序列化基础 序列化：将对象转化为字节流以便传递 反序列化：序列化逆过程，字节流转化为对象   漏洞成因：反序列化类中有执行系统命令的代码，而没有对序列化字节流进行检测 工具：ysoserial  序列化与反序列化 实体类实现java.io.Serializable接口  serialVersionId用于标识序列化类的版本，防止类名相同导致反序列化错误  静态属性（static）、tra">
+  <meta name="description" content="java反序列化基础  序列化：将对象转化为字节流以便传递 反序列化：序列化逆过程，字节流转化为对象   漏洞成因：反序列化类中有执行系统命令的代码，而没有对序列化字节流进行检测 工具：ysoserial   序列化与反序列化   实体类实现java.io.Serializable接口   serialVersionId用于标识序列化类的版本，防止类名相同导致反序列化错误   静态属性（stat">
 <meta property="og:type" content="article">
 <meta property="og:title" content="java反序列化基础">
 <meta property="og:url" content="https://vvmdx.github.io/2021/08/13/2021-08-13-java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%9F%BA%E7%A1%80/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="java反序列化基础 序列化：将对象转化为字节流以便传递 反序列化：序列化逆过程，字节流转化为对象   漏洞成因：反序列化类中有执行系统命令的代码，而没有对序列化字节流进行检测 工具：ysoserial  序列化与反序列化 实体类实现java.io.Serializable接口  serialVersionId用于标识序列化类的版本，防止类名相同导致反序列化错误  静态属性（static）、tra">
+<meta property="og:description" content="java反序列化基础  序列化：将对象转化为字节流以便传递 反序列化：序列化逆过程，字节流转化为对象   漏洞成因：反序列化类中有执行系统命令的代码，而没有对序列化字节流进行检测 工具：ysoserial   序列化与反序列化   实体类实现java.io.Serializable接口   serialVersionId用于标识序列化类的版本，防止类名相同导致反序列化错误   静态属性（stat">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://vvmdx.github.io/images/java代码审计/反序列化基础/image1.png">
-<meta property="og:image" content="https://vvmdx.github.io/images/java代码审计/反序列化基础/image2.png">
-<meta property="og:image" content="https://vvmdx.github.io/images/java代码审计/反序列化基础/image3.png">
-<meta property="og:image" content="https://vvmdx.github.io/images/java代码审计/反序列化基础/image4.png">
-<meta property="og:image" content="https://vvmdx.github.io/images/java代码审计/反序列化基础/image5.png">
-<meta property="og:image" content="https://vvmdx.github.io/images/java代码审计/反序列化基础/image6.png">
+<meta property="og:image" content="https://vvmdx.github.io/images/java%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%9F%BA%E7%A1%80/image1.png">
+<meta property="og:image" content="https://vvmdx.github.io/images/java%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%9F%BA%E7%A1%80/image2.png">
+<meta property="og:image" content="https://vvmdx.github.io/images/java%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%9F%BA%E7%A1%80/image3.png">
+<meta property="og:image" content="https://vvmdx.github.io/images/java%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%9F%BA%E7%A1%80/image4.png">
+<meta property="og:image" content="https://vvmdx.github.io/images/java%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%9F%BA%E7%A1%80/image5.png">
+<meta property="og:image" content="https://vvmdx.github.io/images/java%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%9F%BA%E7%A1%80/image6.png">
 <meta property="article:published_time" content="2021-08-12T16:00:00.000Z">
 <meta property="article:modified_time" content="2021-08-13T02:57:16.949Z">
 <meta property="article:author" content="vvmdx">
 <meta property="article:tag" content="java反序列化">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://vvmdx.github.io/images/java代码审计/反序列化基础/image1.png">
+<meta name="twitter:image" content="https://vvmdx.github.io/images/java%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%9F%BA%E7%A1%80/image1.png">
   <!-- Canonical links -->
   <link rel="canonical" href="https://vvmdx.github.io/2021/08/13/2021-08-13-java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%9F%BA%E7%A1%80/index.html">
   
@@ -123,7 +123,7 @@
             
             <i class="icon icon-archives-fill"></i>
             
-            <span class="menu-title">归档</span>
+            <span class="menu-title">汇总</span>
           </a>
         </li>
         
@@ -153,7 +153,7 @@
             
             <i class="icon icon-friendship"></i>
             
-            <span class="menu-title">友链</span>
+            <span class="menu-title">有用的链接</span>
           </a>
         </li>
         
@@ -163,7 +163,7 @@
             
             <i class="icon icon-cup-fill"></i>
             
-            <span class="menu-title">我的学习日记！</span>
+            <span class="menu-title">来聊聊吧！</span>
           </a>
         </li>
         
@@ -185,11 +185,11 @@
   <div class="slimContent">
     
       <div class="widget">
-    <h3 class="widget-title">公告</h3>
+    <h3 class="widget-title">斯密马塞</h3>
     <div class="widget-body">
         <div id="board">
             <div class="content">
-                <p>新手一个直接用的别人的主题，许多功能不齐全又乱七八糟的东西见笑了</p>
+                <p>新手一个直接用的别人的主题，许多功能不齐全又乱七八糟的东西见笑了<br>（甚至还瞎改了一通，想交流我修改方法的可以直接在我的github项目提issue！）</p>
             </div>
         </div>
     </div>
@@ -227,7 +227,7 @@
     
       
   <div class="widget">
-    <h3 class="widget-title">归档</h3>
+    <h3 class="widget-title">汇总</h3>
     <div class="widget-body">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">二月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">十二月 2021</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">十一月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">十月 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">九月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">八月 2021</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">六月 2021</a><span class="archive-list-count">3</span></li></ul>
     </div>
@@ -331,7 +331,7 @@
   <div class="slimContent">
     <nav id="toc" class="article-toc">
       <h3 class="toc-title">文章目录</h3>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%9F%BA%E7%A1%80"><span class="toc-text">java反序列化基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%8F%E5%88%97%E5%8C%96%E4%B8%8E%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96"><span class="toc-text">序列化与反序列化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#serialVersionUID%E8%AF%A6%E8%A7%A3"><span class="toc-text">serialVersionUID详解</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A3%B0%E6%98%8E%E4%B8%8E%E5%90%A6%E7%9A%84%E5%87%A0%E7%A7%8D%E6%83%85%E5%86%B5"><span class="toc-text">声明与否的几种情况</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E5%88%B6%E5%BA%8F%E5%88%97%E5%8C%96%E6%95%B0%E6%8D%AE"><span class="toc-text">定制序列化数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#transient%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-text">transient关键字</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%9F%BA%E7%A1%80"><span class="toc-text"> java反序列化基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%8F%E5%88%97%E5%8C%96%E4%B8%8E%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96"><span class="toc-text"> 序列化与反序列化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#serialversionuid%E8%AF%A6%E8%A7%A3"><span class="toc-text"> serialVersionUID详解</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A3%B0%E6%98%8E%E4%B8%8E%E5%90%A6%E7%9A%84%E5%87%A0%E7%A7%8D%E6%83%85%E5%86%B5"><span class="toc-text"> 声明与否的几种情况</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E5%88%B6%E5%BA%8F%E5%88%97%E5%8C%96%E6%95%B0%E6%8D%AE"><span class="toc-text"> 定制序列化数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#transient%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-text"> transient关键字</span></a></li></ol></li></ol>
     </nav>
   </div>
 </aside>
@@ -407,7 +407,8 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h2 id="java反序列化基础"><a href="#java反序列化基础" class="headerlink" title="java反序列化基础"></a>java反序列化基础</h2><ul>
+        <h2 id="java反序列化基础"><a class="markdownIt-Anchor" href="#java反序列化基础"></a> java反序列化基础</h2>
+<ul>
 <li><strong>序列化</strong>：将对象转化为字节流以便传递</li>
 <li><strong>反序列化</strong>：序列化逆过程，字节流转化为对象</li>
 </ul>
@@ -415,12 +416,16 @@
 <li><strong>漏洞成因</strong>：反序列化类中有执行系统命令的代码，而没有对序列化字节流进行检测</li>
 <li><strong>工具</strong>：<a target="_blank" rel="noopener" href="https://github.com/frohoff/ysoserial">ysoserial</a></li>
 </ul>
-<h3 id="序列化与反序列化"><a href="#序列化与反序列化" class="headerlink" title="序列化与反序列化"></a>序列化与反序列化</h3><ul>
-<li><p>实体类实现<code>java.io.Serializable</code>接口</p>
+<h3 id="序列化与反序列化"><a class="markdownIt-Anchor" href="#序列化与反序列化"></a> 序列化与反序列化</h3>
+<ul>
+<li>
+<p>实体类实现<code>java.io.Serializable</code>接口</p>
 </li>
-<li><p><code>serialVersionId</code>用于标识序列化类的版本，防止类名相同导致反序列化错误</p>
+<li>
+<p><code>serialVersionId</code>用于标识序列化类的版本，防止类名相同导致反序列化错误</p>
 </li>
-<li><p>静态属性（static）、transient修饰的属性不参与序列化过程</p>
+<li>
+<p>静态属性（static）、transient修饰的属性不参与序列化过程</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 实体类</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">1L</span>;</span><br><span class="line">    <span class="keyword">public</span> String name;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> id;</span><br><span class="line">    <span class="keyword">public</span> String sex;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">User</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>(<span class="string">&quot;alice&quot;</span>,<span class="number">123</span>, <span class="string">&quot;female&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">User</span><span class="params">(String name, <span class="keyword">int</span> id, String sex)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">        <span class="keyword">this</span>.id = id;</span><br><span class="line">        <span class="keyword">this</span>.sex = sex;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">writeObject</span><span class="params">(ObjectOutputStream s)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        s.defaultWriteObject();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">readObject</span><span class="params">(ObjectInputStream s)</span> <span class="keyword">throws</span> IOException, ClassNotFoundException </span>&#123;</span><br><span class="line">        s.defaultReadObject();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>序列化通过<code>ObjectOutputStream.writeObject(Object)</code>实现</li>
@@ -433,16 +438,21 @@
 <ul>
 <li>序列化文件</li>
 </ul>
-<p><img src="/images/java代码审计/反序列化基础/image1.png" alt="image"></p>
-<h3 id="serialVersionUID详解"><a href="#serialVersionUID详解" class="headerlink" title="serialVersionUID详解"></a>serialVersionUID详解</h3><ul>
-<li><p><strong>Java序列化机制通过判断类的serialVersionId来验证版本是否一致</strong></p>
+<p><img src="/images/java%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%9F%BA%E7%A1%80/image1.png" alt="image" /></p>
+<h3 id="serialversionuid详解"><a class="markdownIt-Anchor" href="#serialversionuid详解"></a> serialVersionUID详解</h3>
+<ul>
+<li>
+<p><strong>Java序列化机制通过判断类的serialVersionId来验证版本是否一致</strong></p>
 </li>
-<li><p>serialVersionUID可以显式声明，一般默认声明为1L；若不显式声明，则java序列化机制会根据Class自动生成一个serialVersionId</p>
+<li>
+<p>serialVersionUID可以显式声明，一般默认声明为1L；若不显式声明，则java序列化机制会根据Class自动生成一个serialVersionId</p>
 </li>
-<li><p>显式声明：<code>public static final long serialVersionUID= 1L;</code></p>
+<li>
+<p>显式声明：<code>public static final long serialVersionUID= 1L;</code></p>
 </li>
 </ul>
-<h4 id="声明与否的几种情况"><a href="#声明与否的几种情况" class="headerlink" title="声明与否的几种情况"></a>声明与否的几种情况</h4><ul>
+<h4 id="声明与否的几种情况"><a class="markdownIt-Anchor" href="#声明与否的几种情况"></a> 声明与否的几种情况</h4>
+<ul>
 <li>当不做显式声明时，会自动生成一个serialVersionUID</li>
 </ul>
 <p><strong>情况一</strong>：<strong>不做显式声明</strong>的实体类序列化后修改实体类再反序列化</p>
@@ -457,7 +467,7 @@
 <li>左边为A端，右边为B端</li>
 <li>控制台输出为各自序列化同一个字节流文件的结果，可以看到B端在缺少一个属性的情况下仍然序列化成功</li>
 </ul>
-<p><img src="/images/java代码审计/反序列化基础/image2.png" alt="image"></p>
+<p><img src="/images/java%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%9F%BA%E7%A1%80/image2.png" alt="image" /></p>
 <p><strong>情况三</strong>：<strong>有显示声明</strong>的实体类序列化后修改实体类（增加属性）再反序列化</p>
 <ul>
 <li>和上面反过来，B端序列化，A端反序列化，A端比B端多一个属性</li>
@@ -466,10 +476,11 @@
 <ul>
 <li>左A右B，B序列化，A反序列化</li>
 </ul>
-<p><img src="/images/java代码审计/反序列化基础/image3.png" alt="image"></p>
+<p><img src="/images/java%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%9F%BA%E7%A1%80/image3.png" alt="image" /></p>
 <p><strong>情况四</strong>：任意一方没有显式声明</p>
 <p><strong>结果</strong>：抛出异常，因为没有声明的一方会自动生成一个serialVersionUID</p>
-<h3 id="定制序列化数据"><a href="#定制序列化数据" class="headerlink" title="定制序列化数据"></a>定制序列化数据</h3><ul>
+<h3 id="定制序列化数据"><a class="markdownIt-Anchor" href="#定制序列化数据"></a> 定制序列化数据</h3>
+<ul>
 <li>当我们不需要把整个类的所有属性都序列化时可以自定义需要序列化的属性</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">writeObject</span><span class="params">(ObjectOutputStream s)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;alice write&quot;</span>);</span><br><span class="line">    s.writeUTF(name);</span><br><span class="line">    s.writeInt(id);</span><br><span class="line">    s.writeUTF(sex);</span><br><span class="line">&#125;	</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">readObject</span><span class="params">(ObjectInputStream s)</span> <span class="keyword">throws</span> IOException, ClassNotFoundException </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;alice read&quot;</span>);</span><br><span class="line">    name = s.readUTF();</span><br><span class="line">    id = s.readInt();</span><br><span class="line">    sex = s.readUTF();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -477,15 +488,16 @@
 <li>反序列化时会按照顺序读出属性的值，如果没有按顺序赋值也可以反序列化成功，但是属性的值会错乱</li>
 <li>可以看到下面反序列化操作赋值顺序错乱，但是反序列化仍然会成功，只是赋值错乱而已</li>
 </ul>
-<p><img src="/images/java代码审计/反序列化基础/image4.png" alt="image"></p>
-<h3 id="transient关键字"><a href="#transient关键字" class="headerlink" title="transient关键字"></a>transient关键字</h3><ul>
+<p><img src="/images/java%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%9F%BA%E7%A1%80/image4.png" alt="image" /></p>
+<h3 id="transient关键字"><a class="markdownIt-Anchor" href="#transient关键字"></a> transient关键字</h3>
+<ul>
 <li>被transient修饰的属性不会被序列化</li>
 </ul>
-<p><img src="/images/java代码审计/反序列化基础/image5.png" alt="image"></p>
+<p><img src="/images/java%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%9F%BA%E7%A1%80/image5.png" alt="image" /></p>
 <ul>
 <li>可以看到被transient修饰的aTransient反序列化后变为初始值null</li>
 </ul>
-<p><img src="/images/java代码审计/反序列化基础/image6.png" alt="image"></p>
+<p><img src="/images/java%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%9F%BA%E7%A1%80/image6.png" alt="image" /></p>
 <ul>
 <li>transient修饰name，单个写入也一样，还是无法被序列化</li>
 </ul>
@@ -810,22 +822,6 @@ $(function () {
     })
   </script>
 
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
 </body>
 </html>

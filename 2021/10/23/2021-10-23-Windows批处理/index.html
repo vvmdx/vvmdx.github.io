@@ -19,33 +19,33 @@
 
   
   <title>Windows批处理 | 无名大仙</title>
-  <meta name="description" content="Windows批处理本来只打算抄个批处理的脚本做windows下jdk版本的快速切换，在写的时候发现了批处理脚本和语法还挺有趣的，感觉有些甚至可以应用到安全中，遂记录下一些有趣的东西 https:&#x2F;&#x2F;github.com&#x2F;vvmdx&#x2F;changeYourJDK 这是我编写的批处理切换jdk的脚本 用户变量和系统变量一般来说windows的环境变量包括了用户变量和系统变量，用户变量对当前的用户起作用">
+  <meta name="description" content="Windows批处理 本来只打算抄个批处理的脚本做windows下jdk版本的快速切换，在写的时候发现了批处理脚本和语法还挺有趣的，感觉有些甚至可以应用到安全中，遂记录下一些有趣的东西 https:&#x2F;&#x2F;github.com&#x2F;vvmdx&#x2F;changeYourJDK 这是我编写的批处理切换jdk的脚本  用户变量和系统变量 一般来说windows的环境变量包括了用户变量和系统变量，用户变量对当前的用">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Windows批处理">
 <meta property="og:url" content="https://vvmdx.github.io/2021/10/23/2021-10-23-Windows%E6%89%B9%E5%A4%84%E7%90%86/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Windows批处理本来只打算抄个批处理的脚本做windows下jdk版本的快速切换，在写的时候发现了批处理脚本和语法还挺有趣的，感觉有些甚至可以应用到安全中，遂记录下一些有趣的东西 https:&#x2F;&#x2F;github.com&#x2F;vvmdx&#x2F;changeYourJDK 这是我编写的批处理切换jdk的脚本 用户变量和系统变量一般来说windows的环境变量包括了用户变量和系统变量，用户变量对当前的用户起作用">
+<meta property="og:description" content="Windows批处理 本来只打算抄个批处理的脚本做windows下jdk版本的快速切换，在写的时候发现了批处理脚本和语法还挺有趣的，感觉有些甚至可以应用到安全中，遂记录下一些有趣的东西 https:&#x2F;&#x2F;github.com&#x2F;vvmdx&#x2F;changeYourJDK 这是我编写的批处理切换jdk的脚本  用户变量和系统变量 一般来说windows的环境变量包括了用户变量和系统变量，用户变量对当前的用">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://vvmdx.github.io/images/自编工具&amp;脚本/Windows批处理/image1.png">
-<meta property="og:image" content="https://vvmdx.github.io/images/自编工具&amp;脚本/Windows批处理/image2.png">
-<meta property="og:image" content="https://vvmdx.github.io/images/自编工具&amp;脚本/Windows批处理/image3.png">
-<meta property="og:image" content="https://vvmdx.github.io/images/自编工具&amp;脚本/Windows批处理/image4.png">
-<meta property="og:image" content="https://vvmdx.github.io/images/自编工具&amp;脚本/Windows批处理/image5.png">
-<meta property="og:image" content="https://vvmdx.github.io/images/自编工具&amp;脚本/Windows批处理/image6.png">
-<meta property="og:image" content="https://vvmdx.github.io/images/自编工具&amp;脚本/Windows批处理/image7.png">
-<meta property="og:image" content="https://vvmdx.github.io/images/自编工具&amp;脚本/Windows批处理/image8.png">
-<meta property="og:image" content="https://vvmdx.github.io/images/自编工具&amp;脚本/Windows批处理/image9.png">
-<meta property="og:image" content="https://vvmdx.github.io/images/自编工具&amp;脚本/Windows批处理/image10.png">
-<meta property="og:image" content="https://vvmdx.github.io/images/自编工具&amp;脚本/Windows批处理/image11.png">
-<meta property="og:image" content="https://vvmdx.github.io/images/自编工具&amp;脚本/Windows批处理/image12.png">
-<meta property="og:image" content="https://vvmdx.github.io/images/自编工具&amp;脚本/Windows批处理/image13.png">
-<meta property="og:image" content="https://vvmdx.github.io/images/自编工具&amp;脚本/Windows批处理/image14.png">
+<meta property="og:image" content="https://vvmdx.github.io/images/%E8%87%AA%E7%BC%96%E5%B7%A5%E5%85%B7&amp;%E8%84%9A%E6%9C%AC/Windows%E6%89%B9%E5%A4%84%E7%90%86/image1.png">
+<meta property="og:image" content="https://vvmdx.github.io/images/%E8%87%AA%E7%BC%96%E5%B7%A5%E5%85%B7&amp;%E8%84%9A%E6%9C%AC/Windows%E6%89%B9%E5%A4%84%E7%90%86/image2.png">
+<meta property="og:image" content="https://vvmdx.github.io/images/%E8%87%AA%E7%BC%96%E5%B7%A5%E5%85%B7&amp;%E8%84%9A%E6%9C%AC/Windows%E6%89%B9%E5%A4%84%E7%90%86/image3.png">
+<meta property="og:image" content="https://vvmdx.github.io/images/%E8%87%AA%E7%BC%96%E5%B7%A5%E5%85%B7&amp;%E8%84%9A%E6%9C%AC/Windows%E6%89%B9%E5%A4%84%E7%90%86/image4.png">
+<meta property="og:image" content="https://vvmdx.github.io/images/%E8%87%AA%E7%BC%96%E5%B7%A5%E5%85%B7&amp;%E8%84%9A%E6%9C%AC/Windows%E6%89%B9%E5%A4%84%E7%90%86/image5.png">
+<meta property="og:image" content="https://vvmdx.github.io/images/%E8%87%AA%E7%BC%96%E5%B7%A5%E5%85%B7&amp;%E8%84%9A%E6%9C%AC/Windows%E6%89%B9%E5%A4%84%E7%90%86/image6.png">
+<meta property="og:image" content="https://vvmdx.github.io/images/%E8%87%AA%E7%BC%96%E5%B7%A5%E5%85%B7&amp;%E8%84%9A%E6%9C%AC/Windows%E6%89%B9%E5%A4%84%E7%90%86/image7.png">
+<meta property="og:image" content="https://vvmdx.github.io/images/%E8%87%AA%E7%BC%96%E5%B7%A5%E5%85%B7&amp;%E8%84%9A%E6%9C%AC/Windows%E6%89%B9%E5%A4%84%E7%90%86/image8.png">
+<meta property="og:image" content="https://vvmdx.github.io/images/%E8%87%AA%E7%BC%96%E5%B7%A5%E5%85%B7&amp;%E8%84%9A%E6%9C%AC/Windows%E6%89%B9%E5%A4%84%E7%90%86/image9.png">
+<meta property="og:image" content="https://vvmdx.github.io/images/%E8%87%AA%E7%BC%96%E5%B7%A5%E5%85%B7&amp;%E8%84%9A%E6%9C%AC/Windows%E6%89%B9%E5%A4%84%E7%90%86/image10.png">
+<meta property="og:image" content="https://vvmdx.github.io/images/%E8%87%AA%E7%BC%96%E5%B7%A5%E5%85%B7&amp;%E8%84%9A%E6%9C%AC/Windows%E6%89%B9%E5%A4%84%E7%90%86/image11.png">
+<meta property="og:image" content="https://vvmdx.github.io/images/%E8%87%AA%E7%BC%96%E5%B7%A5%E5%85%B7&amp;%E8%84%9A%E6%9C%AC/Windows%E6%89%B9%E5%A4%84%E7%90%86/image12.png">
+<meta property="og:image" content="https://vvmdx.github.io/images/%E8%87%AA%E7%BC%96%E5%B7%A5%E5%85%B7&amp;%E8%84%9A%E6%9C%AC/Windows%E6%89%B9%E5%A4%84%E7%90%86/image13.png">
+<meta property="og:image" content="https://vvmdx.github.io/images/%E8%87%AA%E7%BC%96%E5%B7%A5%E5%85%B7&amp;%E8%84%9A%E6%9C%AC/Windows%E6%89%B9%E5%A4%84%E7%90%86/image14.png">
 <meta property="article:published_time" content="2021-10-22T16:00:00.000Z">
 <meta property="article:modified_time" content="2021-10-23T05:10:16.175Z">
 <meta property="article:author" content="vvmdx">
 <meta property="article:tag" content="自编工具&amp;脚本">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://vvmdx.github.io/images/自编工具&amp;脚本/Windows批处理/image1.png">
+<meta name="twitter:image" content="https://vvmdx.github.io/images/%E8%87%AA%E7%BC%96%E5%B7%A5%E5%85%B7&amp;%E8%84%9A%E6%9C%AC/Windows%E6%89%B9%E5%A4%84%E7%90%86/image1.png">
   <!-- Canonical links -->
   <link rel="canonical" href="https://vvmdx.github.io/2021/10/23/2021-10-23-Windows%E6%89%B9%E5%A4%84%E7%90%86/index.html">
   
@@ -131,7 +131,7 @@
             
             <i class="icon icon-archives-fill"></i>
             
-            <span class="menu-title">归档</span>
+            <span class="menu-title">汇总</span>
           </a>
         </li>
         
@@ -161,7 +161,7 @@
             
             <i class="icon icon-friendship"></i>
             
-            <span class="menu-title">友链</span>
+            <span class="menu-title">有用的链接</span>
           </a>
         </li>
         
@@ -171,7 +171,7 @@
             
             <i class="icon icon-cup-fill"></i>
             
-            <span class="menu-title">我的学习日记！</span>
+            <span class="menu-title">来聊聊吧！</span>
           </a>
         </li>
         
@@ -193,11 +193,11 @@
   <div class="slimContent">
     
       <div class="widget">
-    <h3 class="widget-title">公告</h3>
+    <h3 class="widget-title">斯密马塞</h3>
     <div class="widget-body">
         <div id="board">
             <div class="content">
-                <p>新手一个直接用的别人的主题，许多功能不齐全又乱七八糟的东西见笑了</p>
+                <p>新手一个直接用的别人的主题，许多功能不齐全又乱七八糟的东西见笑了<br>（甚至还瞎改了一通，想交流我修改方法的可以直接在我的github项目提issue！）</p>
             </div>
         </div>
     </div>
@@ -235,7 +235,7 @@
     
       
   <div class="widget">
-    <h3 class="widget-title">归档</h3>
+    <h3 class="widget-title">汇总</h3>
     <div class="widget-body">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">二月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">十二月 2021</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">十一月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">十月 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">九月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">八月 2021</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">六月 2021</a><span class="archive-list-count">3</span></li></ul>
     </div>
@@ -339,7 +339,7 @@
   <div class="slimContent">
     <nav id="toc" class="article-toc">
       <h3 class="toc-title">文章目录</h3>
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Windows%E6%89%B9%E5%A4%84%E7%90%86"><span class="toc-text">Windows批处理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E5%8F%98%E9%87%8F%E5%92%8C%E7%B3%BB%E7%BB%9F%E5%8F%98%E9%87%8F"><span class="toc-text">用户变量和系统变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#echo-off"><span class="toc-text">@echo off</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#set%E5%92%8Csetx"><span class="toc-text">set和setx</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#set"><span class="toc-text">set</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#setx"><span class="toc-text">setx</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E8%BF%90%E8%A1%8C%E5%BD%93%E5%89%8Dbat%E7%9A%84%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90"><span class="toc-text">判断运行当前bat的用户权限</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#net-session"><span class="toc-text">net session</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BF%E9%97%AE%E9%9C%80%E8%A6%81%E7%AE%A1%E7%90%86%E5%91%98%E6%9D%83%E9%99%90%E7%9A%84%E8%B7%AF%E5%BE%84"><span class="toc-text">访问需要管理员权限的路径</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%8D%E5%AE%9A%E5%90%91%E4%B9%8B-gt-nul"><span class="toc-text">重定向之&gt;nul</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8E-amp-amp"><span class="toc-text">||与&amp;&amp;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PsTools"><span class="toc-text">PsTools</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#windows%E6%89%B9%E5%A4%84%E7%90%86"><span class="toc-text"> Windows批处理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E5%8F%98%E9%87%8F%E5%92%8C%E7%B3%BB%E7%BB%9F%E5%8F%98%E9%87%8F"><span class="toc-text"> 用户变量和系统变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#echo-off"><span class="toc-text"> @echo off</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#set%E5%92%8Csetx"><span class="toc-text"> set和setx</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#set"><span class="toc-text"> set</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#setx"><span class="toc-text"> setx</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E8%BF%90%E8%A1%8C%E5%BD%93%E5%89%8Dbat%E7%9A%84%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90"><span class="toc-text"> 判断运行当前bat的用户权限</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#net-session"><span class="toc-text"> net session</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BF%E9%97%AE%E9%9C%80%E8%A6%81%E7%AE%A1%E7%90%86%E5%91%98%E6%9D%83%E9%99%90%E7%9A%84%E8%B7%AF%E5%BE%84"><span class="toc-text"> 访问需要管理员权限的路径</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%8D%E5%AE%9A%E5%90%91%E4%B9%8Bnul"><span class="toc-text"> 重定向之&gt;nul</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8E"><span class="toc-text"> ||与&amp;&amp;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pstools"><span class="toc-text"> PsTools</span></a></li></ol></li></ol>
     </nav>
   </div>
 </aside>
@@ -415,22 +415,25 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h1 id="Windows批处理"><a href="#Windows批处理" class="headerlink" title="Windows批处理"></a>Windows批处理</h1><p>本来只打算抄个批处理的脚本做windows下jdk版本的快速切换，在写的时候发现了批处理脚本和语法还挺有趣的，感觉有些甚至可以应用到安全中，遂记录下一些有趣的东西</p>
+        <h1 id="windows批处理"><a class="markdownIt-Anchor" href="#windows批处理"></a> Windows批处理</h1>
+<p>本来只打算抄个批处理的脚本做windows下jdk版本的快速切换，在写的时候发现了批处理脚本和语法还挺有趣的，感觉有些甚至可以应用到安全中，遂记录下一些有趣的东西</p>
 <p><a target="_blank" rel="noopener" href="https://github.com/vvmdx/changeYourJDK">https://github.com/vvmdx/changeYourJDK</a></p>
 <p>这是我编写的批处理切换jdk的脚本</p>
-<h2 id="用户变量和系统变量"><a href="#用户变量和系统变量" class="headerlink" title="用户变量和系统变量"></a>用户变量和系统变量</h2><p>一般来说windows的环境变量包括了用户变量和系统变量，用户变量对当前的用户起作用，系统变量对所有用户起作用</p>
+<h2 id="用户变量和系统变量"><a class="markdownIt-Anchor" href="#用户变量和系统变量"></a> 用户变量和系统变量</h2>
+<p>一般来说windows的环境变量包括了用户变量和系统变量，用户变量对当前的用户起作用，系统变量对所有用户起作用</p>
 <p>一般的环境变量优先级是用户变量 &gt; 系统变量，也就是说会优先从用户变量中寻找值，找不到再去系统变量中寻找，举个例子：</p>
-<p><img src="/images/自编工具&amp;脚本/Windows批处理/image1.png" alt="image"></p>
+<p><img src="/images/%E8%87%AA%E7%BC%96%E5%B7%A5%E5%85%B7&amp;%E8%84%9A%E6%9C%AC/Windows%E6%89%B9%E5%A4%84%E7%90%86/image1.png" alt="image" /></p>
 <p>可以看到对于用户变量和系统变量中都出现的TEMP和TMP变量，若当前为用户权限，则会先在用户变量中寻找对应的值，若在用户变量中找不到，例如windir，则会去系统变量中查找</p>
 <p>而Path这个变量比较奇葩，他是优先从系统变量找起，再找到用户变量，如果你用<code>echo %path%</code>将环境变量打印出来，将会发现打印的顺序是从系统变量Path的第一个开始，一直打印到用户变量Path的最后一个，举个例子：</p>
-<p><img src="/images/自编工具&amp;脚本/Windows批处理/image2.png" alt="image"></p>
+<p><img src="/images/%E8%87%AA%E7%BC%96%E5%B7%A5%E5%85%B7&amp;%E8%84%9A%E6%9C%AC/Windows%E6%89%B9%E5%A4%84%E7%90%86/image2.png" alt="image" /></p>
 <p>可以看到，虽然我们打印出来的JAVA_HOME是jdk11.0.3，为用户变量的值，但是<code>java -version</code>显示的是系统变量里的jdk1.8.0_291</p>
 <p><strong>总结：</strong></p>
 <ul>
 <li>一般来说环境变量调用优先级 用户变量 &gt; 系统变量</li>
 <li>Path变量优先级 系统变量 &gt; 用户变量</li>
 </ul>
-<h2 id="echo-off"><a href="#echo-off" class="headerlink" title="@echo off"></a>@echo off</h2><ul>
+<h2 id="echo-off"><a class="markdownIt-Anchor" href="#echo-off"></a> @echo off</h2>
+<ul>
 <li>@：关闭其后命令的回显</li>
 <li>echo off：关闭其他所有命令的回显</li>
 <li>pause：用于暂停程序，防止批处理运行完直接退出</li>
@@ -438,77 +441,99 @@
 <p><strong>当无@echo off指令时</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> this is a <span class="built_in">test</span></span><br><span class="line"><span class="built_in">echo</span> %JAVA_HOME%</span><br><span class="line"><span class="built_in">where</span> java</span><br><span class="line">pause</span><br></pre></td></tr></table></figure>
 <p>将以上保存为bat并执行，效果如下，可以看到相当于分别执行了4条指令</p>
-<p><img src="/images/自编工具&amp;脚本/Windows批处理/image3.png" alt="image"></p>
+<p><img src="/images/%E8%87%AA%E7%BC%96%E5%B7%A5%E5%85%B7&amp;%E8%84%9A%E6%9C%AC/Windows%E6%89%B9%E5%A4%84%E7%90%86/image3.png" alt="image" /></p>
 <p><strong>当echo off没有@时</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> off</span><br><span class="line"><span class="built_in">echo</span> this is a <span class="built_in">test</span></span><br><span class="line"><span class="built_in">echo</span> %JAVA_HOME%</span><br><span class="line"><span class="built_in">where</span> java</span><br><span class="line">pause</span><br></pre></td></tr></table></figure>
 <p>批处理执行如下，可以看到只有第一条指令有回显</p>
-<p><img src="/images/自编工具&amp;脚本/Windows批处理/image4.png" alt="image"></p>
+<p><img src="/images/%E8%87%AA%E7%BC%96%E5%B7%A5%E5%85%B7&amp;%E8%84%9A%E6%9C%AC/Windows%E6%89%B9%E5%A4%84%E7%90%86/image4.png" alt="image" /></p>
 <p><strong>当使用@echo off时</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line"><span class="built_in">echo</span> this is a <span class="built_in">test</span></span><br><span class="line"><span class="built_in">echo</span> %JAVA_HOME%</span><br><span class="line"><span class="built_in">where</span> java</span><br><span class="line">pause</span><br></pre></td></tr></table></figure>
 <p>可以看到@echo off这一行也没了，只有剩下的内容，这正是我们希望的效果</p>
-<p><img src="/images/自编工具&amp;脚本/Windows批处理/image5.png" alt="image"></p>
-<h2 id="set和setx"><a href="#set和setx" class="headerlink" title="set和setx"></a>set和setx</h2><ul>
-<li><p>set和setx都是设置环境变量，不过set只针对于当前的cmd窗口，而setx是直接修改全局（注册表）环境变量</p>
+<p><img src="/images/%E8%87%AA%E7%BC%96%E5%B7%A5%E5%85%B7&amp;%E8%84%9A%E6%9C%AC/Windows%E6%89%B9%E5%A4%84%E7%90%86/image5.png" alt="image" /></p>
+<h2 id="set和setx"><a class="markdownIt-Anchor" href="#set和setx"></a> set和setx</h2>
+<ul>
+<li>
+<p>set和setx都是设置环境变量，不过set只针对于当前的cmd窗口，而setx是直接修改全局（注册表）环境变量</p>
 </li>
-<li><p>以下是windows对set和setx的描述</p>
+<li>
+<p>以下是windows对set和setx的描述</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">::<span class="built_in">set</span></span><br><span class="line">显示、设置或删除 cmd.exe 环境变量。</span><br><span class="line">::setx</span><br><span class="line">在用户或系统环境创建或修改环境变量。能基于参数、注册表项或文件输入设置变量。</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="set"><a href="#set" class="headerlink" title="set"></a>set</h3><p><strong>当使用set修改环境变量时</strong></p>
-<p><img src="/images/自编工具&amp;脚本/Windows批处理/image6.png" alt="image"></p>
+<h3 id="set"><a class="markdownIt-Anchor" href="#set"></a> set</h3>
+<p><strong>当使用set修改环境变量时</strong></p>
+<p><img src="/images/%E8%87%AA%E7%BC%96%E5%B7%A5%E5%85%B7&amp;%E8%84%9A%E6%9C%AC/Windows%E6%89%B9%E5%A4%84%E7%90%86/image6.png" alt="image" /></p>
 <p>可以看到在当前cmd窗口的JAVA_HOME变量已经被修改，这时当我们另开一个cmd窗口时，就会像下面这样</p>
-<p><img src="/images/自编工具&amp;脚本/Windows批处理/image7.png" alt="image"></p>
+<p><img src="/images/%E8%87%AA%E7%BC%96%E5%B7%A5%E5%85%B7&amp;%E8%84%9A%E6%9C%AC/Windows%E6%89%B9%E5%A4%84%E7%90%86/image7.png" alt="image" /></p>
 <p>可以发现并没有在全局生效</p>
-<h3 id="setx"><a href="#setx" class="headerlink" title="setx"></a>setx</h3><p><strong>当使用setx修改环境变量时</strong></p>
+<h3 id="setx"><a class="markdownIt-Anchor" href="#setx"></a> setx</h3>
+<p><strong>当使用setx修改环境变量时</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">:: 下面这条只能对用户变量生效</span><br><span class="line">setx JAVA_HOME D:\DevelopTools\Java\jdk1.8.0_291</span><br><span class="line">:: 加上/M才能对环境变量生效</span><br><span class="line">setx JAVA_HOME D:\DevelopTools\Java\jdk1.8.0_291 /M</span><br></pre></td></tr></table></figure>
-<h2 id="判断运行当前bat的用户权限"><a href="#判断运行当前bat的用户权限" class="headerlink" title="判断运行当前bat的用户权限"></a>判断运行当前bat的用户权限</h2><h3 id="net-session"><a href="#net-session" class="headerlink" title="net session"></a>net session</h3><ul>
+<h2 id="判断运行当前bat的用户权限"><a class="markdownIt-Anchor" href="#判断运行当前bat的用户权限"></a> 判断运行当前bat的用户权限</h2>
+<h3 id="net-session"><a class="markdownIt-Anchor" href="#net-session"></a> net session</h3>
+<ul>
 <li>net session用于连接、删除或查看本机与其他机器的网络连接，需要管理员权限才可以查看</li>
 </ul>
-<p><img src="/images/自编工具&amp;脚本/Windows批处理/image8.png" alt="image"></p>
-<h3 id="访问需要管理员权限的路径"><a href="#访问需要管理员权限的路径" class="headerlink" title="访问需要管理员权限的路径"></a>访问需要管理员权限的路径</h3><ul>
-<li><p>%SYSTEMROOT%\system32\config\system</p>
-<p><img src="/images/自编工具&amp;脚本/Windows批处理/image9.png" alt="image"></p>
+<p><img src="/images/%E8%87%AA%E7%BC%96%E5%B7%A5%E5%85%B7&amp;%E8%84%9A%E6%9C%AC/Windows%E6%89%B9%E5%A4%84%E7%90%86/image8.png" alt="image" /></p>
+<h3 id="访问需要管理员权限的路径"><a class="markdownIt-Anchor" href="#访问需要管理员权限的路径"></a> 访问需要管理员权限的路径</h3>
+<ul>
+<li>
+<p>%SYSTEMROOT%\system32\config\system</p>
+<p><img src="/images/%E8%87%AA%E7%BC%96%E5%B7%A5%E5%85%B7&amp;%E8%84%9A%E6%9C%AC/Windows%E6%89%B9%E5%A4%84%E7%90%86/image9.png" alt="image" /></p>
 </li>
-<li><p>md(make directory) &amp; rd(remove directory)</p>
+<li>
+<p>md(make directory) &amp; rd(remove directory)</p>
 <p>创建目录、删除目录，若目录为系统路径，则需要管理员权限</p>
-<p><img src="/images/自编工具&amp;脚本/Windows批处理/image10.png" alt="image"></p>
+<p><img src="/images/%E8%87%AA%E7%BC%96%E5%B7%A5%E5%85%B7&amp;%E8%84%9A%E6%9C%AC/Windows%E6%89%B9%E5%A4%84%E7%90%86/image10.png" alt="image" /></p>
 <ul>
 <li>首先用普通权限创建目录<code>md %windir%\system32\aaatestaaa</code>，可以看到拒绝访问</li>
 <li>接着用管理员权限创建目录，创建成功</li>
 </ul>
 <p>用这个方法虽然也可以判断，但是只能判断一次，因为创建后再次尝试创建时，普通用户和管理员都会返回一样的结果；因此如果要通过此方法判断管理员权限，需要结合rd（删除目录）的指令</p>
-<p><img src="/images/自编工具&amp;脚本/Windows批处理/image11.png" alt="image"></p>
+<p><img src="/images/%E8%87%AA%E7%BC%96%E5%B7%A5%E5%85%B7&amp;%E8%84%9A%E6%9C%AC/Windows%E6%89%B9%E5%A4%84%E7%90%86/image11.png" alt="image" /></p>
 <p>上面的是普通用户，下面是管理员用户，其实就是在创建目录后再将其删除，普通用户没权限，管理员创建后会删除，就达到了可以一直进行判断的效果</p>
 </li>
 </ul>
-<h2 id="重定向之-gt-nul"><a href="#重定向之-gt-nul" class="headerlink" title="重定向之&gt;nul"></a>重定向之&gt;nul</h2><ul>
-<li><p>> ，>>：输出重定向，<code>echo 123&gt;test.txt</code>将把123输出到文件test.txt中，若文件已存在，则首先删除该文件的信息，再写入123；若文件不存在，则会先创建文件，再写入</p>
+<h2 id="重定向之nul"><a class="markdownIt-Anchor" href="#重定向之nul"></a> 重定向之&gt;nul</h2>
+<ul>
+<li>
+<p>&gt; ，&gt;&gt;：输出重定向，<code>echo 123&gt;test.txt</code>将把123输出到文件test.txt中，若文件已存在，则首先删除该文件的信息，再写入123；若文件不存在，则会先创建文件，再写入</p>
 </li>
-<li><p>>nul：将输出重定向到空，也就是不会打印到dos界面，可以达到屏蔽输出的效果</p>
+<li>
+<p>&gt;nul：将输出重定向到空，也就是不会打印到dos界面，可以达到屏蔽输出的效果</p>
 </li>
-<li><p>1>nul：屏蔽正确执行命令的输出</p>
+<li>
+<p>1&gt;nul：屏蔽正确执行命令的输出</p>
 </li>
-<li><p>2>nul：屏蔽错误执行命令的输出</p>
-<p><img src="/images/自编工具&amp;脚本/Windows批处理/image12.png" alt="image"></p>
-<p>可以看到普通用户下net session执行错误，当使用2>nul时屏蔽了错误输出</p>
-<p>管理员权限下net session执行成功，当使用1>nul时屏蔽了正确输出</p>
+<li>
+<p>2&gt;nul：屏蔽错误执行命令的输出</p>
+<p><img src="/images/%E8%87%AA%E7%BC%96%E5%B7%A5%E5%85%B7&amp;%E8%84%9A%E6%9C%AC/Windows%E6%89%B9%E5%A4%84%E7%90%86/image12.png" alt="image" /></p>
+<p>可以看到普通用户下net session执行错误，当使用2&gt;nul时屏蔽了错误输出</p>
+<p>管理员权限下net session执行成功，当使用1&gt;nul时屏蔽了正确输出</p>
 </li>
 </ul>
-<h2 id="与-amp-amp"><a href="#与-amp-amp" class="headerlink" title="||与&amp;&amp;"></a>||与&amp;&amp;</h2><ul>
-<li><p>&amp;&amp;表示它前面的语句成功执行的话将执行后面的语句</p>
+<h2 id="与"><a class="markdownIt-Anchor" href="#与"></a> ||与&amp;&amp;</h2>
+<ul>
+<li>
+<p>&amp;&amp;表示它前面的语句成功执行的话将执行后面的语句</p>
 </li>
-<li><p>||表示它之前的语句执行失败将执行后面的语句</p>
+<li>
+<p>||表示它之前的语句执行失败将执行后面的语句</p>
 </li>
-<li><p>两者组和可以实现if…else…的效果</p>
-<p><img src="/images/自编工具&amp;脚本/Windows批处理/image13.png" alt="image"></p>
+<li>
+<p>两者组和可以实现if…else…的效果</p>
+<p><img src="/images/%E8%87%AA%E7%BC%96%E5%B7%A5%E5%85%B7&amp;%E8%84%9A%E6%9C%AC/Windows%E6%89%B9%E5%A4%84%E7%90%86/image13.png" alt="image" /></p>
 <p>可以看到当普通用户net session执行失败的情况下，使用||就会执行后面的语句；当管理员net session执行成功的情况下，使用&amp;&amp;会执行后面的语句</p>
 </li>
 </ul>
-<h2 id="PsTools"><a href="#PsTools" class="headerlink" title="PsTools"></a>PsTools</h2><ul>
-<li><p>官网下载：<a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/sysinternals/downloads/pstools">https://docs.microsoft.com/en-us/sysinternals/downloads/pstools</a></p>
+<h2 id="pstools"><a class="markdownIt-Anchor" href="#pstools"></a> PsTools</h2>
+<ul>
+<li>
+<p>官网下载：<a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/sysinternals/downloads/pstools">https://docs.microsoft.com/en-us/sysinternals/downloads/pstools</a></p>
 </li>
-<li><p>PsTools是一组能实现安全管理的套件，其中PsExec.exe可以打开system权限的进程</p>
-<p><img src="/images/自编工具&amp;脚本/Windows批处理/image14.png" alt="image"></p>
+<li>
+<p>PsTools是一组能实现安全管理的套件，其中PsExec.exe可以打开system权限的进程</p>
+<p><img src="/images/%E8%87%AA%E7%BC%96%E5%B7%A5%E5%85%B7&amp;%E8%84%9A%E6%9C%AC/Windows%E6%89%B9%E5%A4%84%E7%90%86/image14.png" alt="image" /></p>
 <p>可以看到在开启system权限前，即使是管理员权限的cmd，打印的环境变量也是用户变量；但是system权限的cmd，打印的环境变量已经变成了系统变量</p>
 </li>
 </ul>
@@ -833,22 +858,6 @@ $(function () {
     })
   </script>
 
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
 </body>
 </html>
