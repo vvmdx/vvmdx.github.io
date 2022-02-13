@@ -19,12 +19,12 @@
 
   
   <title>Phar反序列化及其Bypass | 无名大仙</title>
-  <meta name="description" content="Phar反序列化 引子：反序列化漏洞一般要借助unserialize()函数，不过在Blackhat2018，出现了一种可以不借助unserialize()函数而触发php反序列化漏洞的方法 论文、blackhat PPT  参考1：black hat ppt 参考2：论文  博客参考   参考1：Y4tacker师傅的博客   参考2：Seebug   参考3：Phar与php rce的深入挖">
+  <meta name="description" content="Phar反序列化引子：反序列化漏洞一般要借助unserialize()函数，不过在Blackhat2018，出现了一种可以不借助unserialize()函数而触发php反序列化漏洞的方法 论文、blackhat PPT  参考1：black hat ppt 参考2：论文  博客参考  参考1：Y4tacker师傅的博客  参考2：Seebug  参考3：Phar与php rce的深入挖掘  （强">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Phar反序列化及其Bypass">
 <meta property="og:url" content="https://vvmdx.github.io/2021/12/05/2021-12-05-Phar%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%8F%8A%E5%85%B6Bypass/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Phar反序列化 引子：反序列化漏洞一般要借助unserialize()函数，不过在Blackhat2018，出现了一种可以不借助unserialize()函数而触发php反序列化漏洞的方法 论文、blackhat PPT  参考1：black hat ppt 参考2：论文  博客参考   参考1：Y4tacker师傅的博客   参考2：Seebug   参考3：Phar与php rce的深入挖">
+<meta property="og:description" content="Phar反序列化引子：反序列化漏洞一般要借助unserialize()函数，不过在Blackhat2018，出现了一种可以不借助unserialize()函数而触发php反序列化漏洞的方法 论文、blackhat PPT  参考1：black hat ppt 参考2：论文  博客参考  参考1：Y4tacker师傅的博客  参考2：Seebug  参考3：Phar与php rce的深入挖掘  （强">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211203214714452.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211203212226864.png?70">
@@ -347,7 +347,7 @@
   <div class="slimContent">
     <nav id="toc" class="article-toc">
       <h3 class="toc-title">文章目录</h3>
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#phar%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96"><span class="toc-text"> Phar反序列化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#phar%E7%AE%80%E4%BB%8B"><span class="toc-text"> Phar简介</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84"><span class="toc-text"> 文件结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#phar%E7%94%9F%E6%88%90%E4%B8%8E%E6%89%93%E5%8C%85"><span class="toc-text"> Phar生成与打包</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%BC%8F%E6%B4%9E%E5%8E%9F%E7%90%86"><span class="toc-text"> 漏洞原理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A6%E5%8F%91%E5%87%BD%E6%95%B0"><span class="toc-text"> 触发函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A9%E7%94%A8%E6%9D%A1%E4%BB%B6"><span class="toc-text"> 利用条件</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#bypass"><span class="toc-text"> Bypass</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%8B%E7%BC%A9%E6%96%87%E4%BB%B6%E7%BB%95%E8%BF%87"><span class="toc-text"> 压缩文件绕过</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%B4%E9%83%A8%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%A6%81phar%E7%BB%95%E8%BF%87"><span class="toc-text"> 头部字符串禁phar绕过</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#gif%E7%BB%95%E8%BF%87"><span class="toc-text"> Gif绕过</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Phar%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96"><span class="toc-text">Phar反序列化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Phar%E7%AE%80%E4%BB%8B"><span class="toc-text">Phar简介</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84"><span class="toc-text">文件结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Phar%E7%94%9F%E6%88%90%E4%B8%8E%E6%89%93%E5%8C%85"><span class="toc-text">Phar生成与打包</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%BC%8F%E6%B4%9E%E5%8E%9F%E7%90%86"><span class="toc-text">漏洞原理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A6%E5%8F%91%E5%87%BD%E6%95%B0"><span class="toc-text">触发函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A9%E7%94%A8%E6%9D%A1%E4%BB%B6"><span class="toc-text">利用条件</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Bypass"><span class="toc-text">Bypass</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%8B%E7%BC%A9%E6%96%87%E4%BB%B6%E7%BB%95%E8%BF%87"><span class="toc-text">压缩文件绕过</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%B4%E9%83%A8%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%A6%81phar%E7%BB%95%E8%BF%87"><span class="toc-text">头部字符串禁phar绕过</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Gif%E7%BB%95%E8%BF%87"><span class="toc-text">Gif绕过</span></a></li></ol></li></ol>
     </nav>
   </div>
 </aside>
@@ -423,8 +423,7 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h1 id="phar反序列化"><a class="markdownIt-Anchor" href="#phar反序列化"></a> Phar反序列化</h1>
-<p>引子：反序列化漏洞一般要借助unserialize()函数，不过在Blackhat2018，出现了一种可以不借助unserialize()函数而触发php反序列化漏洞的方法</p>
+        <h1 id="Phar反序列化"><a href="#Phar反序列化" class="headerlink" title="Phar反序列化"></a>Phar反序列化</h1><p>引子：反序列化漏洞一般要借助unserialize()函数，不过在Blackhat2018，出现了一种可以不借助unserialize()函数而触发php反序列化漏洞的方法</p>
 <p><strong>论文、blackhat PPT</strong></p>
 <ul>
 <li>参考1：<a target="_blank" rel="noopener" href="https://i.blackhat.com/us-18/Thu-August-9/us-18-Thomas-Its-A-PHP-Unserialization-Vulnerability-Jim-But-Not-As-We-Know-It.pdf">black hat ppt</a></li>
@@ -432,17 +431,13 @@
 </ul>
 <p><strong>博客参考</strong></p>
 <ul>
-<li>
-<p>参考1：<a target="_blank" rel="noopener" href="https://blog.csdn.net/solitudi/article/details/113588692">Y4tacker师傅的博客</a></p>
+<li><p>参考1：<a target="_blank" rel="noopener" href="https://blog.csdn.net/solitudi/article/details/113588692">Y4tacker师傅的博客</a></p>
 </li>
-<li>
-<p>参考2：<a target="_blank" rel="noopener" href="https://paper.seebug.org/680/">Seebug</a></p>
+<li><p>参考2：<a target="_blank" rel="noopener" href="https://paper.seebug.org/680/">Seebug</a></p>
 </li>
-<li>
-<p>参考3：<a target="_blank" rel="noopener" href="https://blog.zsxsoft.com/post/38">Phar与php rce的深入挖掘</a>  （强推，phar反序列化的原理解释的很清楚）</p>
+<li><p>参考3：<a target="_blank" rel="noopener" href="https://blog.zsxsoft.com/post/38">Phar与php rce的深入挖掘</a>  （强推，phar反序列化的原理解释的很清楚）</p>
 </li>
-<li>
-<p>参考3：<a target="_blank" rel="noopener" href="https://www.leavesongs.com/PHP/php-8-0-release.html">p神离别歌</a></p>
+<li><p>参考3：<a target="_blank" rel="noopener" href="https://www.leavesongs.com/PHP/php-8-0-release.html">p神离别歌</a>  </p>
 <blockquote>
 <p>Phar中的元信息不再自动进行反序列化了，<code>phar://</code>触发反序列化的姿势也告别了。</p>
 <p>——p神关于php 8.0 改动的博客</p>
@@ -450,105 +445,90 @@
 </li>
 </ul>
 <p>注：复现最好在8.0之前的版本做（不是最好，是一定，，因为php 8.0后<code>phar://</code>触发不了反序列化了）</p>
-<h1 id="phar简介"><a class="markdownIt-Anchor" href="#phar简介"></a> Phar简介</h1>
-<p>Phar：<a target="_blank" rel="noopener" href="https://www.php.net/manual/zh/intro.phar.php">参考php手册</a> （吐槽一下这个中文版手册除了简介两个字是中文愣是没有一句话是翻译出来的）</p>
+<h1 id="Phar简介"><a href="#Phar简介" class="headerlink" title="Phar简介"></a>Phar简介</h1><p>Phar：<a target="_blank" rel="noopener" href="https://www.php.net/manual/zh/intro.phar.php">参考php手册</a> （吐槽一下这个中文版手册除了简介两个字是中文愣是没有一句话是翻译出来的）</p>
 <blockquote>
-<p>The phar extension provides a way to put entire PHP applications into a single file called a “phar” (PHP Archive) for easy distribution and installation.</p>
+<p>The phar extension provides a way to put entire PHP applications into a single file called a “phar” (PHP Archive) for easy distribution and installation. </p>
 <p>——php手册</p>
 </blockquote>
 <p>还不太懂？对比下jar和phar的维基解释：</p>
 <blockquote>
 <p>A JAR (Java ARchive) is a package file format typically used to aggregate many Java class files and associated metadata and resources (text, images, etc.) into one file for distribution.</p>
-<p>——<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/JAR_(file_format)">wiki</a></p>
-</blockquote>
-<blockquote>
+<p>——<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/JAR_(file_format">wiki</a>)</p>
 <p>In software, a PHAR (PHP Archive) file is a package format to enable distribution of applications and libraries by bundling many PHP code files and other resources (e.g. images, stylesheets, etc.) into a single archive file.</p>
-<p>——<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/PHAR_(file_format)">wiki</a></p>
+<p>——<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/PHAR_(file_format">wiki</a>)</p>
 </blockquote>
 <p>简而言之，phar就是像java中的jar一样，是一种可以将整个php应用打包以便于部署的打包文件（本质是个压缩文件）</p>
-<h2 id="文件结构"><a class="markdownIt-Anchor" href="#文件结构"></a> 文件结构</h2>
-<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211203214714452.png" alt="image-20211203214714452" /></p>
+<h2 id="文件结构"><a href="#文件结构" class="headerlink" title="文件结构"></a>文件结构</h2><p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211203214714452.png" alt="image-20211203214714452"></p>
 <ol>
-<li>
-<p>Stub（<a target="_blank" rel="noopener" href="https://www.php.net/manual/en/phar.fileformat.stub.php">参考php手册</a>）</p>
+<li><p>Stub（<a target="_blank" rel="noopener" href="https://www.php.net/manual/en/phar.fileformat.stub.php">参考php手册</a>）</p>
 <blockquote>
 <p>A PHP file that will bootstrap the archive. The stub <strong>must</strong> contain the <code>__HALT_COMPILER();</code> token, and the default stub includes the ability to run a PHAR with or without the PHP extension enabled。</p>
 <p>以<code>__HALT_COMPILER();</code>结尾的标志，令php扩展可以将其识别为phar文件</p>
 </blockquote>
 <p>php手册中说可以不要<code>?&gt;</code>，不过在生成phar包的时候好像会自动带上<code>?&gt;</code></p>
 </li>
-<li>
-<p>Manifest</p>
+<li><p>Manifest</p>
 <blockquote>
 <p>The manifest details the contents of the archive.</p>
 </blockquote>
 <p>在phar中的每个文件的属性等信息都在其中，关键点在于用户自定义的meta-data会以<code>serialize()</code>的方式存在这里面（这也是攻击的核心，主要就是利用解析phar时对meta-data的反序列化）</p>
-<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211203212226864.png?70" alt="image-20211203212226864" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211203212226864.png?70" alt="image-20211203212226864"></p>
 </li>
-<li>
-<p>Contents</p>
+<li><p>Contents</p>
 <blockquote>
 <p>The original files that are included in the archive.</p>
 </blockquote>
 <p>被压缩的文件内容</p>
 </li>
-<li>
-<p>Signature</p>
+<li><p>Signature</p>
 <p>签名，在文件末尾</p>
 </li>
 </ol>
-<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211203214753399.png?70" alt="image-20211203214753399" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211203214753399.png?70" alt="image-20211203214753399"></p>
 <blockquote>
 <p>010下打开phar包，可以清晰的看到stub的标志、meta-data的序列化内容</p>
 </blockquote>
-<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211207111826559.png" alt="image-20211207111826559" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211207111826559.png" alt="image-20211207111826559"></p>
 <p>图片来源：BlackHat演讲ppt</p>
-<h2 id="phar生成与打包"><a class="markdownIt-Anchor" href="#phar生成与打包"></a> Phar生成与打包</h2>
-<p>生成phar时若报错如下</p>
+<h2 id="Phar生成与打包"><a href="#Phar生成与打包" class="headerlink" title="Phar生成与打包"></a>Phar生成与打包</h2><p>生成phar时若报错如下</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">creating archive &quot;xxx.phar&quot; disabled by the php.ini setting phar.readonly</span><br></pre></td></tr></table></figure>
 <p>需要修改php.ini配置，把phar.readonly=on去掉注释，然后再改为off</p>
 <figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[Phar]</span></span><br><span class="line"><span class="comment">; http://php.net/phar.readonly</span></span><br><span class="line"><span class="attr">phar.readonly</span> = <span class="literal">Off</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$a</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;a = <span class="string">&quot;command&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@unlink(<span class="string">&quot;myTest.phar&quot;</span>);</span><br><span class="line"><span class="variable">$phar</span> = <span class="keyword">new</span> Phar(<span class="string">&quot;myTest.phar&quot;</span>);</span><br><span class="line"><span class="variable">$phar</span> -&gt; startBuffering();</span><br><span class="line"><span class="variable">$phar</span> -&gt; setStub(<span class="string">&quot;__HALT_COMPILER();&quot;</span>); <span class="comment">// 设置Stub</span></span><br><span class="line"><span class="variable">$o</span> = <span class="keyword">new</span> A();</span><br><span class="line"><span class="variable">$phar</span> -&gt; setMetadata(<span class="variable">$o</span>); <span class="comment">// 将自定义的meta-data存入manifest</span></span><br><span class="line"><span class="variable">$phar</span> -&gt; addFromString(<span class="string">&quot;1.txt&quot;</span>, <span class="string">&quot;test&quot;</span>); <span class="comment">// 添加要压缩的文件</span></span><br><span class="line"><span class="variable">$phar</span> -&gt; stopBuffering();</span><br></pre></td></tr></table></figure>
 <p>生成的myTest.phar目录结构如下</p>
-<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211203214932885.png" alt="image-20211203214932885" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211203214932885.png" alt="image-20211203214932885"></p>
 <p>此时查看myTest.phar的二进制文件，可以发现命令以明文方式存在，如果遇到过滤则无法通过</p>
-<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211203214954198.png?70" alt="image-20211203214954198" /></p>
-<h1 id="漏洞原理"><a class="markdownIt-Anchor" href="#漏洞原理"></a> 漏洞原理</h1>
-<p>漏洞触发点在使用phar://协议读取文件的时候，文件内容会被解析成phar对象，然后phar对象内的Metadata信息会被反序列化。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211203214954198.png?70" alt="image-20211203214954198"></p>
+<h1 id="漏洞原理"><a href="#漏洞原理" class="headerlink" title="漏洞原理"></a>漏洞原理</h1><p>漏洞触发点在使用phar://协议读取文件的时候，文件内容会被解析成phar对象，然后phar对象内的Metadata信息会被反序列化。</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://www.blackhat.com/us-18/briefings/schedule/index.html#its-a-php-unserialization-vulnerability-jim-but-not-as-we-know-it-11078">Blackhat介绍</a></li>
 <li><a target="_blank" rel="noopener" href="https://i.blackhat.com/us-18/Thu-August-9/us-18-Thomas-Its-A-PHP-Unserialization-Vulnerability-Jim-But-Not-As-We-Know-It.pdf">演讲ppt</a></li>
 <li><a target="_blank" rel="noopener" href="https://i.blackhat.com/us-18/Thu-August-9/us-18-Thomas-Its-A-PHP-Unserialization-Vulnerability-Jim-But-Not-As-We-Know-It-wp.pdf">论文</a></li>
 </ul>
 <blockquote>
-<p>参考开头放过了…写这个的间隔太久了都忘了，，</p>
+<p>参考开头放过了….写这个的间隔太久了都忘了，，</p>
 </blockquote>
-<h2 id="触发函数"><a class="markdownIt-Anchor" href="#触发函数"></a> 触发函数</h2>
-<p>大部分文件操作的函数都可以触发</p>
-<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211204094859918.png?70" alt="image-20211204094859918" /></p>
+<h2 id="触发函数"><a href="#触发函数" class="headerlink" title="触发函数"></a>触发函数</h2><p>大部分文件操作的函数都可以触发</p>
+<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211204094859918.png?70" alt="image-20211204094859918"></p>
 <p>来源：<a target="_blank" rel="noopener" href="https://paper.seebug.org/680/">https://paper.seebug.org/680/</a></p>
 <blockquote>
 <p>不过其实不止上面这些函数可以触发，在 <a target="_blank" rel="noopener" href="https://blog.zsxsoft.com/post/38">https://blog.zsxsoft.com/post/38</a> 这篇文章里，详细描述了phar反序列化漏洞的触发机制，以及其他一些可用函数和奇淫技巧</p>
 </blockquote>
 <p>Demo测试：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211204095024605.png?70" alt="image-20211204095024605" /></p>
-<h2 id="利用条件"><a class="markdownIt-Anchor" href="#利用条件"></a> 利用条件</h2>
-<ol>
+<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211204095024605.png?70" alt="image-20211204095024605"></p>
+<h2 id="利用条件"><a href="#利用条件" class="headerlink" title="利用条件"></a>利用条件</h2><ol>
 <li>phar文件能够上传</li>
 <li>有可用的魔术方法作为跳板</li>
 <li>文件操作函数的参数可控</li>
 </ol>
-<h1 id="bypass"><a class="markdownIt-Anchor" href="#bypass"></a> Bypass</h1>
-<h2 id="压缩文件绕过"><a class="markdownIt-Anchor" href="#压缩文件绕过"></a> 压缩文件绕过</h2>
-<ul>
+<h1 id="Bypass"><a href="#Bypass" class="headerlink" title="Bypass"></a>Bypass</h1><h2 id="压缩文件绕过"><a href="#压缩文件绕过" class="headerlink" title="压缩文件绕过"></a>压缩文件绕过</h2><ul>
 <li>若题目对<code>HALT_COMPILER()</code>及各类命令执行语句进行过滤</li>
 </ul>
 <p>新建文件夹<code>.phar</code>，在文件夹下新建<code>.metadata</code>文件，写入序列化数据<code>O:1:&quot;A&quot;:1:&#123;s:1:&quot;a&quot;;s:6:&quot;TEST!!&quot;;&#125;</code>，将<code>.phar</code>文件夹压缩为1.tar.gz如下，发现已经不存在明文（1.tar时还是存在明文的）</p>
-<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211204203342690.png?70" alt="image-20211204203342690" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211204203342690.png?70" alt="image-20211204203342690"></p>
 <p>使用<code>phar://1.tar.gz</code>即可读取并触发反序列化</p>
-<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211204211256017.png?70" alt="image-20211204211256017" /></p>
-<h2 id="头部字符串禁phar绕过"><a class="markdownIt-Anchor" href="#头部字符串禁phar绕过"></a> 头部字符串禁phar绕过</h2>
-<p>压缩过滤器触发phar时解决phar:// 不能出现在首部</p>
+<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211204211256017.png?70" alt="image-20211204211256017"></p>
+<h2 id="头部字符串禁phar绕过"><a href="#头部字符串禁phar绕过" class="headerlink" title="头部字符串禁phar绕过"></a>头部字符串禁phar绕过</h2><p>压缩过滤器触发phar时解决phar:// 不能出现在首部</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">compress.bzip://phar://...</span><br><span class="line">compress.bzip2://phar://...</span><br><span class="line">compress.zlib://phar://...</span><br><span class="line">php://filter/resource=phar://....</span><br><span class="line">php://filter/read=convert.base64-encode/resource=phar://phar.phar</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>这里测试时要注意，php默认不开启bzip2（bz2）支持，需要在php.ini 867行（可能有差）将<code>extension=php_bz2.dll</code>的注释取消</p>
@@ -556,13 +536,12 @@
 <p>并且在php.ini 725行（可能有差）将<code>extension_dir</code>修改为自己的ext路径（我的是<code>extension_dir = &quot;D:/DevelopTools/php-7.0.0/ext&quot;</code>，然后记得要用斜杠而不是反斜杠）</p>
 <p>否则会报<code>PHP Startup: Unable to load dynamic library</code>（好像ext不设置的话默认路径是C:/php/ext（windows））</p>
 </blockquote>
-<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211205100306539.png?70" alt="image-20211205100306539" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211205100306539.png?70" alt="image-20211205100306539"></p>
 <p>经测试均能触发反序列化</p>
-<h2 id="gif绕过"><a class="markdownIt-Anchor" href="#gif绕过"></a> Gif绕过</h2>
-<p>由于php中判断一个文件是不是phar是根据有没有<code>__HALT_COMPILER();</code>来判断的，而不管其前后，因此在文件头写入GIF的文件头，可以让文件被识别为gif的同时，也能被phar://解析</p>
+<h2 id="Gif绕过"><a href="#Gif绕过" class="headerlink" title="Gif绕过"></a>Gif绕过</h2><p>由于php中判断一个文件是不是phar是根据有没有<code>__HALT_COMPILER();</code>来判断的，而不管其前后，因此在文件头写入GIF的文件头，可以让文件被识别为gif的同时，也能被phar://解析</p>
 <p>在生成phar时，通过<code>setStub</code>在文件头部添加<code>GIF89a</code>的gif头部标志，生成后再修改后缀名为gif</p>
 <p><code>$phar-&gt;setStub(“GIF89a”.&quot;&lt;?php __HALT_COMPILER(); ?&gt;&quot;);</code></p>
-<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211205102302041.png?70" alt="image-20211205102302041" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211205102302041.png?70" alt="image-20211205102302041"></p>
 <p>先生成一个gifTest.phar后修改后缀为gifTest.gif，再用phar://去读，发现仍然可以反序列化，并且获取文件信息发现是GIF，可以绕过文件类型检测</p>
 <blockquote>
 <p>获取文件类型的finfo函数也需要在php.ini内注释掉<code>extension=php_fileinfo.dll</code>来支持扩展</p>

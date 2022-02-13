@@ -363,7 +363,7 @@
   <div class="slimContent">
     <nav id="toc" class="article-toc">
       <h3 class="toc-title">文章目录</h3>
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%89%E9%95%BF%E5%BA%A6%E9%99%90%E5%88%B6%E7%9A%84%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%80%BB%E7%BB%93"><span class="toc-text"> 有长度限制的命令执行总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#shell%E7%9A%84%E4%B8%80%E4%BA%9Btricks"><span class="toc-text"> shell的一些tricks</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%8D%E5%AE%9A%E5%90%91%E4%B9%8B%E4%B8%8E"><span class="toc-text"> 重定向之&gt;与&gt;&gt;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#w"><span class="toc-text"> w</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sh"><span class="toc-text"> sh</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ls%E6%8E%92%E5%BA%8F"><span class="toc-text"> ls排序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%BB%98%E8%AE%A4%E6%8E%92%E5%BA%8F"><span class="toc-text"> 默认排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%B6%E9%97%B4%E6%8E%92%E5%BA%8F"><span class="toc-text"> 时间排序</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E7%BB%AD%E8%A1%8C"><span class="toc-text"> 命令续行 ‘\’</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%9A%E9%85%8D%E7%AC%A6"><span class="toc-text"> 通配符 ‘*’</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E5%AE%B9%E5%8F%8D%E8%BD%ACrev"><span class="toc-text"> 内容反转rev</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dir%E7%9A%84%E5%A6%99%E7%94%A8"><span class="toc-text"> dir的妙用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AA%81%E7%A0%B4%E5%91%BD%E4%BB%A4%E9%95%BF%E5%BA%A6%E9%99%90%E5%88%B6"><span class="toc-text"> 突破命令长度限制</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83%E9%95%BF%E5%BA%A6%E9%99%90%E5%88%B6"><span class="toc-text"> 七长度限制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E9%95%BF%E5%BA%A6%E9%99%90%E5%88%B6"><span class="toc-text"> 五长度限制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E9%95%BF%E5%BA%A6%E9%99%90%E5%88%B6"><span class="toc-text"> 四长度限制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-text"> 总结</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%89%E9%95%BF%E5%BA%A6%E9%99%90%E5%88%B6%E7%9A%84%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%80%BB%E7%BB%93"><span class="toc-text">有长度限制的命令执行总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#shell%E7%9A%84%E4%B8%80%E4%BA%9Btricks"><span class="toc-text">shell的一些tricks</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%8D%E5%AE%9A%E5%90%91%E4%B9%8B-gt-%E4%B8%8E-gt-gt"><span class="toc-text">重定向之&gt;与&gt;&gt;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#w"><span class="toc-text">w</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sh"><span class="toc-text">sh</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ls%E6%8E%92%E5%BA%8F"><span class="toc-text">ls排序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%BB%98%E8%AE%A4%E6%8E%92%E5%BA%8F"><span class="toc-text">默认排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%B6%E9%97%B4%E6%8E%92%E5%BA%8F"><span class="toc-text">时间排序</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E7%BB%AD%E8%A1%8C-%E2%80%98-%E2%80%99"><span class="toc-text">命令续行 ‘\’</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%9A%E9%85%8D%E7%AC%A6-%E2%80%98-%E2%80%99"><span class="toc-text">通配符 ‘*’</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E5%AE%B9%E5%8F%8D%E8%BD%ACrev"><span class="toc-text">内容反转rev</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dir%E7%9A%84%E5%A6%99%E7%94%A8"><span class="toc-text">dir的妙用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AA%81%E7%A0%B4%E5%91%BD%E4%BB%A4%E9%95%BF%E5%BA%A6%E9%99%90%E5%88%B6"><span class="toc-text">突破命令长度限制</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83%E9%95%BF%E5%BA%A6%E9%99%90%E5%88%B6"><span class="toc-text">七长度限制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E9%95%BF%E5%BA%A6%E9%99%90%E5%88%B6"><span class="toc-text">五长度限制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E9%95%BF%E5%BA%A6%E9%99%90%E5%88%B6"><span class="toc-text">四长度限制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-text">总结</span></a></li></ol></li></ol>
     </nav>
   </div>
 </aside>
@@ -440,66 +440,51 @@
     <div class="article-entry marked-body" itemprop="articleBody">
       
         <p>填了之前“CTF中的命令执行及Bypass”的坑了属于是<span id="more"></span></p>
-<h1 id="有长度限制的命令执行总结"><a class="markdownIt-Anchor" href="#有长度限制的命令执行总结"></a> 有长度限制的命令执行总结</h1>
-<p>参考1：<a target="_blank" rel="noopener" href="https://www.leavesongs.com/SHARE/some-tricks-from-my-secret-group.html">p牛博客</a></p>
+<h1 id="有长度限制的命令执行总结"><a href="#有长度限制的命令执行总结" class="headerlink" title="有长度限制的命令执行总结"></a>有长度限制的命令执行总结</h1><p>参考1：<a target="_blank" rel="noopener" href="https://www.leavesongs.com/SHARE/some-tricks-from-my-secret-group.html">p牛博客</a></p>
 <p>参考2：<a target="_blank" rel="noopener" href="https://miaotony.xyz/2021/01/31/CTF_web_CommandExecutionLimitedLength/">博客</a></p>
 <p>参考3：<a target="_blank" rel="noopener" href="https://blog.csdn.net/rfrder/article/details/115047047">博客</a></p>
 <p>参考4：<a target="_blank" rel="noopener" href="https://www.sohu.com/a/208155480_354899">挖洞经验</a></p>
-<h1 id="shell的一些tricks"><a class="markdownIt-Anchor" href="#shell的一些tricks"></a> shell的一些tricks</h1>
-<h2 id="重定向之与"><a class="markdownIt-Anchor" href="#重定向之与"></a> 重定向之&gt;与&gt;&gt;</h2>
-<p><code>&gt;</code>：覆盖文件内容</p>
+<h1 id="shell的一些tricks"><a href="#shell的一些tricks" class="headerlink" title="shell的一些tricks"></a>shell的一些tricks</h1><h2 id="重定向之-gt-与-gt-gt"><a href="#重定向之-gt-与-gt-gt" class="headerlink" title="重定向之&gt;与&gt;&gt;"></a>重定向之&gt;与&gt;&gt;</h2><p><code>&gt;</code>：覆盖文件内容</p>
 <p><code>&gt;&gt;</code>：追加内容</p>
-<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211209103520054.png" alt="image-20211209103520054" /></p>
-<h2 id="w"><a class="markdownIt-Anchor" href="#w"></a> w</h2>
-<blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211209103520054.png" alt="image-20211209103520054"></p>
+<h2 id="w"><a href="#w" class="headerlink" title="w"></a>w</h2><blockquote>
 <p>w - Show who is logged on and what they are doing.</p>
 </blockquote>
 <p>长度最短的命令</p>
 <p>使用<code>w&gt;filename</code>可以以极短的长度生成名为<code>filename</code>的文件</p>
-<h2 id="sh"><a class="markdownIt-Anchor" href="#sh"></a> sh</h2>
-<p><code>sh -c *</code>：会把<code>*</code>当作命令执行，若当前目录下有一个名为whoami的文件，则用<code>*</code>作为文件名通配符，相当于执行<code>sh -c whoami</code></p>
-<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211208201359582.png" alt="image-20211208201359582" /></p>
+<h2 id="sh"><a href="#sh" class="headerlink" title="sh"></a>sh</h2><p><code>sh -c *</code>：会把<code>*</code>当作命令执行，若当前目录下有一个名为whoami的文件，则用<code>*</code>作为文件名通配符，相当于执行<code>sh -c whoami</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211208201359582.png" alt="image-20211208201359582"></p>
 <p><code>sh filename</code>：相当于<code>./filename</code></p>
-<h2 id="ls排序"><a class="markdownIt-Anchor" href="#ls排序"></a> ls排序</h2>
-<blockquote>
-<p>List information about the FILEs (the current directory by default).  <strong>Sort entries alphabetically</strong> if none of …</p>
+<h2 id="ls排序"><a href="#ls排序" class="headerlink" title="ls排序"></a>ls排序</h2><blockquote>
+<p>List information about the FILEs (the current directory by default).  <strong>Sort entries alphabetically</strong> if none of ….</p>
 </blockquote>
-<h3 id="默认排序"><a class="markdownIt-Anchor" href="#默认排序"></a> 默认排序</h3>
-<p>ls的默认排序大概有以下特点</p>
+<h3 id="默认排序"><a href="#默认排序" class="headerlink" title="默认排序"></a>默认排序</h3><p>ls的默认排序大概有以下特点</p>
 <ol>
-<li>
-<p><strong>数字 &gt; 字母</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211209105816727.png" alt="image-20211209105816727" /></p>
+<li><p><strong>数字 &gt; 字母</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211209105816727.png" alt="image-20211209105816727"></p>
 </li>
-<li>
-<p><strong>无视符号</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211209112037916.png" alt="image-20211209112037916" /></p>
+<li><p><strong>无视符号</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211209112037916.png" alt="image-20211209112037916"></p>
 <p>不管加不加符号、加什么符号（包括空格），都会按照字母排序</p>
 </li>
-<li>
-<p><strong>无视大小写</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211209110847774.png" alt="image-20211209110847774" /></p>
+<li><p><strong>无视大小写</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211209110847774.png" alt="image-20211209110847774"></p>
 </li>
 </ol>
-<h3 id="时间排序"><a class="markdownIt-Anchor" href="#时间排序"></a> 时间排序</h3>
-<p><code>ls -t</code>可以按时间排序列出</p>
-<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211208203629159.png" alt="image-20211208203629159" /></p>
+<h3 id="时间排序"><a href="#时间排序" class="headerlink" title="时间排序"></a>时间排序</h3><p><code>ls -t</code>可以按时间排序列出</p>
+<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211208203629159.png" alt="image-20211208203629159"></p>
 <p>按序生成四个文件，默认排序为<code>first forth second third</code>（首字母）</p>
 <p><code>ls -t</code>按时间排序为<code>forth third second first</code>（最新的排最前）</p>
-<h2 id="命令续行"><a class="markdownIt-Anchor" href="#命令续行"></a> 命令续行 ‘\’</h2>
-<p>Linux下可以使用<code>\</code>进行命令续行，实现命令拼接</p>
-<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211208211547775.png" alt="image-20211208211547775" /></p>
-<h2 id="通配符"><a class="markdownIt-Anchor" href="#通配符"></a> 通配符 ‘*’</h2>
-<p>可以匹配任意长度的任意字符，最简单的利用：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211210164109837.png" alt="image-20211210164109837" /></p>
+<h2 id="命令续行-‘-’"><a href="#命令续行-‘-’" class="headerlink" title="命令续行 ‘\’"></a>命令续行 ‘\’</h2><p>Linux下可以使用<code>\</code>进行命令续行，实现命令拼接</p>
+<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211208211547775.png" alt="image-20211208211547775"></p>
+<h2 id="通配符-‘-’"><a href="#通配符-‘-’" class="headerlink" title="通配符 ‘*’"></a>通配符 ‘*’</h2><p>可以匹配任意长度的任意字符，最简单的利用：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211210164109837.png" alt="image-20211210164109837"></p>
 <p>若单独执行一个<code>*</code>，则会把第一个文件名当作命令，剩下的文件名当作参数</p>
-<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211210164813698.png" alt="image-20211210164813698" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211210164813698.png" alt="image-20211210164813698"></p>
 <p>生成两个文件，其中文件名为<code>echo</code>的文件在使用通配符时被当作命令执行了</p>
-<h2 id="内容反转rev"><a class="markdownIt-Anchor" href="#内容反转rev"></a> 内容反转rev</h2>
-<p>就是把内容从右到左显示</p>
-<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211210165141446.png" alt="image-20211210165141446" /></p>
-<h2 id="dir的妙用"><a class="markdownIt-Anchor" href="#dir的妙用"></a> dir的妙用</h2>
-<blockquote>
+<h2 id="内容反转rev"><a href="#内容反转rev" class="headerlink" title="内容反转rev"></a>内容反转rev</h2><p>就是把内容从右到左显示</p>
+<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211210165141446.png" alt="image-20211210165141446"></p>
+<h2 id="dir的妙用"><a href="#dir的妙用" class="headerlink" title="dir的妙用"></a>dir的妙用</h2><blockquote>
 <p>参考博客说了两点和ls的区别：</p>
 <ol>
 <li>一是开头字母是d ，这使得它在 alphabetical 序中靠前</li>
@@ -507,188 +492,162 @@
 </ol>
 </blockquote>
 <p>这里主要介绍写文件的一个操作</p>
-<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211210170037452.png" alt="image-20211210170037452" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211210170037452.png" alt="image-20211210170037452"></p>
 <ol>
 <li>若是<code>ls&gt;a</code>，会把a也写入a文件中</li>
 <li>若是<code>ls echo hello&gt;c</code>，c文件里的内容会换行</li>
 <li>用<code>dir echo hello&gt;b</code>，既可以只写入echo hello，又可以避免换行</li>
 </ol>
-<h1 id="突破命令长度限制"><a class="markdownIt-Anchor" href="#突破命令长度限制"></a> 突破命令长度限制</h1>
-<h2 id="七长度限制"><a class="markdownIt-Anchor" href="#七长度限制"></a> 七长度限制</h2>
-<p>拥有了上面的一些tricks，就可以把他们结合起来了</p>
+<h1 id="突破命令长度限制"><a href="#突破命令长度限制" class="headerlink" title="突破命令长度限制"></a>突破命令长度限制</h1><h2 id="七长度限制"><a href="#七长度限制" class="headerlink" title="七长度限制"></a>七长度限制</h2><p>拥有了上面的一些tricks，就可以把他们结合起来了</p>
 <p>思路：</p>
 <ol>
-<li>
-<p>首先准备好要执行的命令（例如<code>cat /flag</code>）</p>
+<li><p>首先准备好要执行的命令（例如<code>cat /flag</code>）</p>
 </li>
-<li>
-<p>将命令拆分（这里不能直接使用<code>cat /flag</code>拆分，因为文件名中不能含有<code>/</code>）</p>
+<li><p>将命令拆分（这里不能直接使用<code>cat /flag</code>拆分，因为文件名中不能含有<code>/</code>）</p>
 <ul>
-<li>
-<p>可以使用之前博客提到过的编码bypass（思考了一下，这可能是唯一可以不出现<code>/</code>的bypass了？）</p>
+<li><p>可以使用之前博客提到过的编码bypass（思考了一下，这可能是唯一可以不出现<code>/</code>的bypass了？）</p>
 <ul>
 <li>16进制：<code>echo hexString|xxd -r -p|bash</code></li>
 <li>base64：<code>echo base64String|base64 -d|bash</code></li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211208214124537.png" alt="image-20211208214124537" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211208214124537.png" alt="image-20211208214124537"></p>
 </li>
 </ul>
 </li>
-<li>
-<p>将拆分的命令后面加上<code>\\</code></p>
+</ol>
+<ol>
+<li><p>将拆分的命令后面加上<code>\\</code></p>
 <ul>
 <li>ls文件列表以换行符分割文件</li>
 <li>第一个<code>\</code>是为了伪造命令续行执行的效果，第二个<code>\</code>是为了转义ls的换行符</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211209100224091.png" alt="image-20211209100224091" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211209100224091.png" alt="image-20211209100224091"></p>
 <p>按照时间逆序生成文件名，注意空格和<code>|</code>需要用一个<code>\</code>转义，生成后<code>ls -t</code>可以看到命令已经按序拆分完毕</p>
 <blockquote>
 <p>bash下可以直接用<code>&gt;filename\\</code>，zsh下就不行，大概也是差异之一，总之长度倒是都能控制在7个字符以内</p>
 </blockquote>
 </li>
-<li>
-<p>将文件按时间排序后重定向到新文件，并使用<code>sh filename</code>命令执行</p>
-<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211209100531349-16390155317821.png" alt="image-20211209100531349" /></p>
+<li><p>将文件按时间排序后重定向到新文件，并使用<code>sh filename</code>命令执行</p>
+<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211209100531349-16390155317821.png" alt="image-20211209100531349"></p>
 <p>可以看到<code>0</code>文件的内容与多行命令拼接执行一样，<code>sh 0</code>能够成功执行<code>cat /flag</code>的命令</p>
 </li>
 </ol>
-<h2 id="五长度限制"><a class="markdownIt-Anchor" href="#五长度限制"></a> 五长度限制</h2>
-<p>五长度和七长度最大的区别是<code>ls -t&gt;0</code>长度为7，如果不能执行<code>ls -t&gt;0</code>，就没办法让文件名按序排列以达到命令执行的效果，所以需要构造出<code>ls -t&gt;0</code>的命令执行</p>
+<h2 id="五长度限制"><a href="#五长度限制" class="headerlink" title="五长度限制"></a>五长度限制</h2><p>五长度和七长度最大的区别是<code>ls -t&gt;0</code>长度为7，如果不能执行<code>ls -t&gt;0</code>，就没办法让文件名按序排列以达到命令执行的效果，所以需要构造出<code>ls -t&gt;0</code>的命令执行</p>
 <blockquote>
 <p>其他的命令并不影响五长度和七长度，<code>w&gt;filename</code>可以用<code>&gt;filename</code>，<code>sh 0</code>也小于五长度</p>
 </blockquote>
 <ol>
-<li>
-<p>首先先生成文件名后写入<code>a</code>文件，<code>ls</code>看一下可以按默认顺序排的话不是我们想要的效果</p>
+<li><p>首先先生成文件名后写入<code>a</code>文件，<code>ls</code>看一下可以按默认顺序排的话不是我们想要的效果</p>
 </li>
-<li>
-<p>用<code>ls&gt;&gt;a</code>将<code>ls</code>打印的信息追加到<code>a</code>文件中</p>
+<li><p>用<code>ls&gt;&gt;a</code>将<code>ls</code>打印的信息追加到<code>a</code>文件中</p>
 <blockquote>
 <p>在参考博客中，我们使用了同样的方式生成文件名，但是最终的排序效果并不一样</p>
-<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211209124220608.png" alt="image-20211209124220608" /></p>
-<p>参考博客里的顺序是<code>\ -t\ &gt;0 l\ s\</code>，因此可以通过简单的追加变成<code>\ -t\ &gt;0 l\ s\ \ -t\ &gt;0 l\ s\</code>，形成中间<code>l\ s\ \ -t\ &gt;0</code>，造成命令执行的效果</p>
-<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211209195115420.png?70" alt="image-20211209195115420" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211209124220608.png" alt="image-20211209124220608"></p>
+<p>参考博客里的顺序是<code>\ -t\ &gt;0 l\ s\</code>，因此可以通过简单的追加变成<code>\ -t\ &gt;0 l\ s\  \ -t\ &gt;0 l\ s\</code>，形成中间<code>l\ s\  \ -t\ &gt;0</code>，造成命令执行的效果</p>
+<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211209195115420.png?70" alt="image-20211209195115420"></p>
 <p>但是我的（bash和zsh都这样）顺序不一样，不太清楚是什么原因造成的</p>
 </blockquote>
 </li>
-<li>
-<p>其实我们达不到上述参考博客效果的主要原因在于<code>ls</code>排序方式不同，那我们只要让文件名能按我们想要的顺序排列就行了</p>
+<li><p>其实我们达不到上述参考博客效果的主要原因在于<code>ls</code>排序方式不同，那我们只要让文件名能按我们想要的顺序排列就行了</p>
 <blockquote>
 <p>思考：首先我们得确定什么是我们可以控制的什么是控制不了的，在这些文件名中，<code>ls -t&gt;filename</code>这段指令，我们需要让他按顺序排列，<code>ls</code>和<code>空格</code>是我们控制不了的，但是<code>-t</code>（可以添加别的参数）和<code>filename</code>是可以控制的，以此来构造文件名</p>
 </blockquote>
 <ul>
-<li>
-<p>先放payload：<code>ls -At&gt;b</code></p>
+<li><p>先放payload：<code>ls -At&gt;b</code></p>
 </li>
-<li>
-<p>原理：</p>
+<li><p>原理：</p>
 <ul>
-<li>
-<p>首先是<code>ls -At</code>，<code>man ls</code>查看</p>
-<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211209201319432.png?80" alt="image-20211209201319432" /></p>
+<li><p>首先是<code>ls -At</code>，<code>man ls</code>查看</p>
+<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211209201319432.png?80" alt="image-20211209201319432"></p>
 </li>
-<li>
-<p>执行效果</p>
-<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211209201422372-16390520628752.png" alt="image-20211209201422372" /></p>
+<li><p>执行效果</p>
+<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211209201422372-16390520628752.png" alt="image-20211209201422372"></p>
 <p>容易看出其实就是有没有显示<code>.</code>和<code>..</code>的区别，加上参数<code>-A</code>是为了让<code>At</code>排序排在<code>ls</code>前面</p>
 </li>
-<li>
-<p>接着是文件名为什么要用<code>b</code>：因为我们需要让<code>&gt;filename</code>排序排在<code>At</code>后面，若使用<code>&gt;0</code>，由于数字排序会在字母前面，因此我们让文件名为排在<code>A</code>后面的字母就可以了</p>
+<li><p>接着是文件名为什么要用<code>b</code>：因为我们需要让<code>&gt;filename</code>排序排在<code>At</code>后面，若使用<code>&gt;0</code>，由于数字排序会在字母前面，因此我们让文件名为排在<code>A</code>后面的字母就可以了</p>
 </li>
 </ul>
 </li>
 </ul>
 </li>
-<li>
-<p>命令执行效果</p>
-<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211209214128026.png?80" alt="image-20211209214128026" /></p>
+<li><p>命令执行效果</p>
+<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211209214128026.png?80" alt="image-20211209214128026"></p>
 </li>
-<li>
-<p>拆分<code>echo Y2F0IC9mbGFnCg==|base64 -d|bash</code></p>
+</ol>
+<ol>
+<li><p>拆分<code>echo Y2F0IC9mbGFnCg==|base64 -d|bash</code></p>
 <blockquote>
 <p>这里不可以直接拆分，因为限制五个字符长度的话<code>&gt;\需要转义的符号\\</code>，像这样一个需要转义的符号就要占了5个字符，而我们这里有<code>空格</code>、<code>|</code>两个需要转义的符号，空格还好一点，可以用<code>$&#123;IFS&#125;</code>替换，但是管道符我找了好久都没找到有什么替换方式，因此我的想法是先<code>echo Y2F0IC9mbGFnCg==|base64$&#123;IFS&#125;-d&gt;0</code>把<code>cat /flag</code>写入文件，再<code>cat 0|bash</code>去执行</p>
 </blockquote>
 <ul>
-<li>
-<p>第一步执行效果</p>
+<li><p>第一步执行效果</p>
 <p>拆分<code>echo Y2F0IC9mbGFnCg==|base64$&#123;IFS&#125;-d&gt;0</code></p>
-<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211210110407605.png" alt="image-20211210110407605" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211210110407605.png" alt="image-20211210110407605"></p>
 </li>
-<li>
-<p>第二步执行结果</p>
+<li><p>第二步执行结果</p>
 <p>拆分<code>cat 0|bash;</code></p>
-<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211210112202476.png" alt="image-20211210112202476" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211210112202476.png" alt="image-20211210112202476"></p>
 </li>
 </ul>
 </li>
 </ol>
 <p><strong>五长度流程总结：</strong></p>
 <ol>
-<li>
-<p>拆分<code>ls -At&gt;b</code>，通过<code>ls&gt;d</code> 和<code>ls&gt;&gt;d</code>构造命令执行</p>
-<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211210112906702.png" alt="image-20211210112906702" /></p>
+<li><p>拆分<code>ls -At&gt;b</code>，通过<code>ls&gt;d</code> 和<code>ls&gt;&gt;d</code>构造命令执行</p>
+<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211210112906702.png" alt="image-20211210112906702"></p>
 </li>
-<li>
-<p>拆分<code>echo Y2F0IC9mbGFnCg==|base64$&#123;IFS&#125;-d&gt;0</code></p>
+<li><p>拆分<code>echo Y2F0IC9mbGFnCg==|base64$&#123;IFS&#125;-d&gt;0</code></p>
 </li>
-<li>
-<p>执行第一步的d文件<code>sh d</code>，生成b文件（b文件内容为步骤2的命令）</p>
+<li><p>执行第一步的d文件<code>sh d</code>，生成b文件（b文件内容为步骤2的命令）</p>
 </li>
-<li>
-<p>执行b文件<code>sh b</code>，生成0文件（0文件内容为<code>cat /flag</code>）</p>
+<li><p>执行b文件<code>sh b</code>，生成0文件（0文件内容为<code>cat /flag</code>）</p>
 </li>
-<li>
-<p>拆分<code>cat 0|bash;</code></p>
+<li><p>拆分<code>cat 0|bash;</code></p>
 </li>
-<li>
-<p>执行第一步的d文件<code>sh d</code>，生成b文件（b文件内容为步骤5的命令）</p>
+<li><p>执行第一步的d文件<code>sh d</code>，生成b文件（b文件内容为步骤5的命令）</p>
 </li>
-<li>
-<p>执行b文件<code>sh b</code>，达到执行命令<code>cat 0|bash</code>，获取到flag</p>
-<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211210114736163.png" alt="image-20211210114736163" /></p>
+<li><p>执行b文件<code>sh b</code>，达到执行命令<code>cat 0|bash</code>，获取到flag</p>
+<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211210114736163.png" alt="image-20211210114736163"></p>
 </li>
 </ol>
-<h2 id="四长度限制"><a class="markdownIt-Anchor" href="#四长度限制"></a> 四长度限制</h2>
-<p>惯例先说明四长度和五长度的区别，主要在于<code>ls&gt;&gt;d</code>，追加d文件内容这个命令用不了了，因此构造不出<code>ls -At&gt;b</code>这条命令</p>
+<h2 id="四长度限制"><a href="#四长度限制" class="headerlink" title="四长度限制"></a>四长度限制</h2><p>惯例先说明四长度和五长度的区别，主要在于<code>ls&gt;&gt;d</code>，追加d文件内容这个命令用不了了，因此构造不出<code>ls -At&gt;b</code>这条命令</p>
 <blockquote>
 <p>四长度和五长度的区别其实不在于<code>&gt;\ \\</code>需要5个长度</p>
 <p>因为命令行中我们使用<code>&gt;ab\\</code>，其中第一个<code>\</code>是为了转义第二个<code>\</code>，防止命令行将其识别为命令续行的标志</p>
 <p>在php中，exec执行的命令则不用在最后转义<code>\</code>，因此可以节省一个字符</p>
-<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211211170114304.png" alt="image-20211211170114304" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211211170114304.png" alt="image-20211211170114304"></p>
 </blockquote>
 <p>我们的主要思路还是要放在怎么构造出<code>ls -t&gt;0</code>这种可以将文件名按时间顺序写入文件的指令，这是限制长度getshell的关键点</p>
 <p>先说构造：</p>
 <ol>
-<li>先构造<code>dir 'e&gt;' Ft- sl</code>这几个文件名，执行<code>*&gt;v</code>，将dir后面三个文件名写入v文件</li>
-</ol>
-<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211211200556060.png" alt="image-20211211200556060" /></p>
+<li><p>先构造<code>dir &#39;e&gt;&#39; Ft- sl</code>这几个文件名，执行<code>*&gt;v</code>，将dir后面三个文件名写入v文件</p>
+<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211211200556060.png" alt="image-20211211200556060"></p>
 <blockquote>
 <p>作为ls的参数，其实和t一起使用的参数只要字母表排序在d之后在s之前的不止一个可以用，参考博客里选用的是h，我们就用个F吧</p>
 <p>至于文件名为什么是e也很好理解，因为要比d后比F前，就只有一个e了…</p>
 </blockquote>
-<ol start="2">
-<li>接着生成<code>rev</code>文件，执行<code>*v</code></li>
-</ol>
+</li>
+<li><p>接着生成<code>rev</code>文件，执行<code>*v</code></p>
 <ul>
 <li>因为通配符的原因，<code>*v</code>相当于<code>rev v</code>，也就是将v文件内容反转了，构造出了<code>ls -tF &gt;e</code>的命令，可以说是点睛之笔</li>
 <li>接着只要写入y文件并执行就可以了</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211211200914792.png" alt="image-20211211200914792" /></p>
-<ol start="3">
-<li>到这里生成了y文件就已经可以结束了，剩下的内容就和五字符长度一样，只不过因为命令行需要多一个<code>\</code>来转义<code>\</code>，所以才会需要五个字符，实际上通过php传参的话只要四个字符就够了</li>
+<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211211200914792.png" alt="image-20211211200914792"></p>
+</li>
+<li><p>到这里生成了y文件就已经可以结束了，剩下的内容就和五字符长度一样，只不过因为命令行需要多一个<code>\</code>来转义<code>\</code>，所以才会需要五个字符，实际上通过php传参的话只要四个字符就够了</p>
+</li>
 </ol>
 <blockquote>
 <p>其他思路为什么不可行之一</p>
 <p>一开始还想着为什么要这么麻烦，因为如果建立如下的几个文件的话，不就可以执行<code>ls -t &gt;u</code>了嘛</p>
-<p>但是执行<code>*</code>的时候发现了，当文件名里面存在需要转义的字符时，他会加上单引号，防止被识别为关键字，因此相当于执行<code>ls -t '&gt;u'</code>，和<code>ls -t&gt;u</code>是不一样的，因此还是需要将文件名写入文件中再执行</p>
-<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211211194842381.png" alt="image-20211211194842381" /></p>
+<p>但是执行<code>*</code>的时候发现了，当文件名里面存在需要转义的字符时，他会加上单引号，防止被识别为关键字，因此相当于执行<code>ls -t &#39;&gt;u&#39;</code>，和<code>ls -t&gt;u</code>是不一样的，因此还是需要将文件名写入文件中再执行</p>
+<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211211194842381.png" alt="image-20211211194842381"></p>
 <p>其他思路为什么不可行之二</p>
-<p>经过之一后，又在想了，可不可以利用一下<code>dir</code>呢，如果现在目录下的是<code>dir ls -t '&gt;u'</code>，我执行<code>*&gt;z</code>的话，就相当于把<code>ls</code>、<code>-t</code>、<code>&gt;u</code>写入了z文件，再执行z文件就可以构造<code>ls -t&gt;u</code>了</p>
-<p>但实际上要注意<code>*</code>第一个是命令不假，但是其后均为命令的<strong>参数</strong>，也就是说实际上等于执行<code>dir -t ls '&gt;u'</code>，是将<code>ls</code>和<code>&gt;u</code>按时间顺序写入了，还是不对</p>
-<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211211195315764.png" alt="image-20211211195315764" /></p>
+<p>经过之一后，又在想了，可不可以利用一下<code>dir</code>呢，如果现在目录下的是<code>dir ls -t &#39;&gt;u&#39;</code>，我执行<code>*&gt;z</code>的话，就相当于把<code>ls</code>、<code>-t</code>、<code>&gt;u</code>写入了z文件，再执行z文件就可以构造<code>ls -t&gt;u</code>了</p>
+<p>但实际上要注意<code>*</code>第一个是命令不假，但是其后均为命令的<strong>参数</strong>，也就是说实际上等于执行<code>dir -t ls &#39;&gt;u&#39;</code>，是将<code>ls</code>和<code>&gt;u</code>按时间顺序写入了，还是不对</p>
+<p><img src="https://cdn.jsdelivr.net/gh/vvmdx/myImageForPicgo@main//img/image-20211211195315764.png" alt="image-20211211195315764"></p>
 </blockquote>
-<h2 id="总结"><a class="markdownIt-Anchor" href="#总结"></a> 总结</h2>
-<p>其实通篇的关键点都在于如何构造<code>ls -t&gt;?</code>的命令，因为只有这样才可以让文件名按我们可以控制的顺序写入文件，然后通过<code>sh ?</code>去执行命令；对于文件名，因为文件名不能重复，因此当找不到替代时（比如空格可以用<code>$&#123;IFS&#125;</code>替代，<code>&gt;</code>可以用<code>$&#123;PS2&#125;</code>，<code>+</code>可以用<code>$&#123;PS4&#125;</code>等，但是管道符<code>|</code>我就没找到替代方式）就需要拆解命令，将一部分命令写入比如a文件，再构造<code>cat a|bash</code>之类的命令构造命令执行，总之姿势很多，几乎可以构造任意shell</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>其实通篇的关键点都在于如何构造<code>ls -t&gt;?</code>的命令，因为只有这样才可以让文件名按我们可以控制的顺序写入文件，然后通过<code>sh ?</code>去执行命令；对于文件名，因为文件名不能重复，因此当找不到替代时（比如空格可以用<code>$&#123;IFS&#125;</code>替代，<code>&gt;</code>可以用<code>$&#123;PS2&#125;</code>，<code>+</code>可以用<code>$&#123;PS4&#125;</code>等，但是管道符<code>|</code>我就没找到替代方式）就需要拆解命令，将一部分命令写入比如a文件，再构造<code>cat a|bash</code>之类的命令构造命令执行，总之姿势很多，几乎可以构造任意shell</p>
 
       
     </div>
