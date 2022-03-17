@@ -1,3 +1,4 @@
+https://vvmdx.github.io/2022/03/17/2022-03-17-%E5%85%B3%E4%BA%8Epython%E4%B8%AD%E5%AF%B9url%E7%82%B9%E6%AE%B5%E5%A4%84%E7%90%86%E7%9A%84%E8%8B%A5%E5%B9%B2%E9%97%AE%E9%A2%98/
 https://vvmdx.github.io/2022/03/12/2022-03-12-Zoho%20ManageEngine%20ADSelfService%20Plus%20%E4%BB%8E%E8%BA%AB%E4%BB%BD%E9%AA%8C%E8%AF%81%E7%BB%95%E8%BF%87%E5%88%B0RCE(cve-2021-40539)/
 https://vvmdx.github.io/2022/02/11/2022-02-11-Apache-ShardingSphere-ElasticJob-UI-%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/
 https://vvmdx.github.io/2021/12/11/2021-12-11-%E6%9C%89%E9%95%BF%E5%BA%A6%E9%99%90%E5%88%B6%E7%9A%84%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%80%BB%E7%BB%93/
@@ -7,4 +8,3 @@ https://vvmdx.github.io/2021/12/01/2021-12-01-2021Xp0int%E6%9D%AF%E6%96%B0%E7%94
 https://vvmdx.github.io/2021/11/14/2021-11-14-2019%E5%AE%89%E6%B4%B5%E6%9D%AFeasy_serialize_php/
 https://vvmdx.github.io/2021/11/02/2021-11-02-Hexo%E6%90%AD%E5%BB%BApure%E4%B8%BB%E9%A2%98%E5%8D%9A%E5%AE%A2%E8%8B%A5%E5%B9%B2%E9%97%AE%E9%A2%98/
 https://vvmdx.github.io/2021/10/23/2021-10-23-Windows%E6%89%B9%E5%A4%84%E7%90%86/
-https://vvmdx.github.io/2021/10/18/2021-10-18-Windows+Apache+Mysql+PHP%E6%89%8B%E5%8A%A8%E6%90%AD%E5%BB%BA/
